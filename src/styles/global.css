@@ -106,4 +106,13 @@
   .here-btn-outline:hover {
     background-color: #E3EEF3;
   }
+
+  /* Utility to hide visible scrollbars on mobile overflow tabs */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

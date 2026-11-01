@@ -21,9 +21,14 @@ test('Brand and showcase assets exist in public/assets and public/favicon.png', 
 
   const showcaseFiles = [
     'group-workspace.png',
+    'group-share-code.png',
+    'group-join.png',
     'live-scanner.png',
+    'scan-manual.png',
+    'scan-walkin.png',
     'events-hub.png',
     'event-analytics.png',
+    'analytics-sessions.png',
     'biometric-roster.png',
   ];
   for (const file of showcaseFiles) {
@@ -112,12 +117,28 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
   assert.ok(indexHtml.includes('Single-Session &amp; Multi-Session Events') || indexHtml.includes('Single-Session & Multi-Session Events'), 'Landing page must highlight both 1-session and multi-session events');
   assert.ok(indexHtml.includes('brand-mark.png'), 'Landing page must render cropped crisp brand-mark.png');
   assert.ok(indexHtml.includes('id="showcase"'), 'Landing page must include interactive showcase section');
-  assert.ok(indexHtml.includes('See Here! in Action on Android'), 'Landing page must include showcase heading');
-  assert.ok(indexHtml.includes('/assets/showcase/group-workspace.png'), 'Showcase must render real group-workspace.png');
-  assert.ok(indexHtml.includes('/assets/showcase/live-scanner.png'), 'Showcase must render real live-scanner.png');
-  assert.ok(indexHtml.includes('/assets/showcase/events-hub.png'), 'Showcase must render real events-hub.png');
-  assert.ok(indexHtml.includes('/assets/showcase/event-analytics.png'), 'Showcase must render real event-analytics.png');
-  assert.ok(indexHtml.includes('/assets/showcase/biometric-roster.png'), 'Showcase must render real biometric-roster.png');
+  assert.ok(
+    indexHtml.includes('Explore Real Android Screens from Here!') || indexHtml.includes('See Here! in Action on Android'),
+    'Landing page must include showcase heading'
+  );
+
+  // Check all gallery screenshots are present in the showcase
+  const allShowcaseScreens = [
+    '/assets/showcase/group-workspace.png',
+    '/assets/showcase/group-share-code.png',
+    '/assets/showcase/group-join.png',
+    '/assets/showcase/live-scanner.png',
+    '/assets/showcase/scan-manual.png',
+    '/assets/showcase/scan-walkin.png',
+    '/assets/showcase/events-hub.png',
+    '/assets/showcase/event-analytics.png',
+    '/assets/showcase/analytics-sessions.png',
+    '/assets/showcase/biometric-roster.png',
+  ];
+  for (const screenPath of allShowcaseScreens) {
+    assert.ok(indexHtml.includes(screenPath), `Showcase must render ${screenPath}`);
+  }
+
   assert.ok(indexHtml.includes('1. Create or Join a Group'), 'Landing page must include Quick Start steps');
 
   const privacyHtml = fs.readFileSync(privacyHtmlPath, 'utf8');

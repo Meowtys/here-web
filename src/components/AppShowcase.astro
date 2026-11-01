@@ -1,320 +1,538 @@
 ---
+interface Slide {
+  id: string;
+  label: string;
+  image: string;
+  alt: string;
+  categoryBadge: string;
+  subtitle: string;
+  title: string;
+  description: string;
+  highlights: { title: string; desc: string }[];
+}
+
+interface Category {
+  id: string;
+  tabLabel: string;
+  icon: string;
+  slides: Slide[];
+}
+
+const categories: Category[] = [
+  {
+    id: 'group',
+    tabLabel: 'Groups & Setup',
+    icon: '🏠',
+    slides: [
+      {
+        id: 'group-workspace',
+        label: '1. Organization Workspace',
+        image: '/assets/showcase/group-workspace.png',
+        alt: 'Here! Android app Group Workspace screen for CS Student Society showing 5 Members, 8 Attendees, + Add button, and both a 1-session event (Freshmen Club Orientation, 9:00 AM - 12:00 PM) and a multi-session event (General Assembly & Workshop)',
+        categoryBadge: 'Organization Workspace',
+        subtitle: 'Single-Session & Multi-Session Events',
+        title: 'Centralize Your Club Workspace & Event Schedules',
+        description:
+          'Set up a shared workspace for your student organization in seconds. Whether you are hosting a quick single-session meeting (like Freshmen Club Orientation · 9:00 AM – 12:00 PM) or a multi-day conference with multiple sessions, everything lives in one clean hub.',
+        highlights: [
+          {
+            title: 'Single-Session or Multi-Day Events:',
+            desc: 'Create a fast single-window event by default, or flip one toggle when you need multi-day or AM/PM session tracking.',
+          },
+          {
+            title: 'At-a-Glance Group Header:',
+            desc: 'Monitor 5 Members, 8 Attendees, and active event cards right from the top teal band with real-time sync.',
+          },
+          {
+            title: 'Instant Event Creation:',
+            desc: 'Tap "+ Add" to schedule meetings with date, start time, end time, and optional auto-lock on completion.',
+          },
+        ],
+      },
+      {
+        id: 'group-share-code',
+        label: '2. Share Code & QR',
+        image: '/assets/showcase/group-share-code.png',
+        alt: 'Here! Android app Share Code bottom sheet showing high-contrast QR code, 6-character GROUP CODE CSSOC8, Copy code button, and Share via system sheet button',
+        categoryBadge: 'Instant Invite & Sharing',
+        subtitle: '6-Character Code & High-Contrast QR',
+        title: 'Invite Officers & Checkers with 6-Char Code or QR',
+        description:
+          'Tap the share icon on the group header to generate an instant invite sheet. New attendance checkers and officers can scan the live QR code with their phone camera or enter the 6-character invite code.',
+        highlights: [
+          {
+            title: '6-Character Monospace Code (CSSOC8):',
+            desc: 'Easy for officers and students to remember, type, or message in group chats.',
+          },
+          {
+            title: 'High-Contrast QR Code:',
+            desc: 'Large scannable QR display designed for fast scanning across room lighting conditions.',
+          },
+          {
+            title: '1-Tap Copy & Native Sharing:',
+            desc: 'Copy the code to your clipboard in 1 tap or share directly via Android system share sheet.',
+          },
+        ],
+      },
+      {
+        id: 'group-join',
+        label: '3. Join a Group',
+        image: '/assets/showcase/group-join.png',
+        alt: 'Here! Android app Join Group screen with text input filled with CSSOC8, Send join request button, and Scan QR code button',
+        categoryBadge: 'Fast Member Onboarding',
+        subtitle: 'Type Code or Scan via Camera',
+        title: 'Seamless Onboarding for Officers & Students',
+        description:
+          'Joining a student organization workspace takes less than five seconds. Type the 6-character invite code (e.g. CSSOC8) or tap "Scan QR code" to instantly point your phone camera at an organizer’s screen.',
+        highlights: [
+          {
+            title: 'Direct Code Entry:',
+            desc: 'Capitalized alphanumeric field with real-time validation and instant join request dispatching.',
+          },
+          {
+            title: 'Integrated QR Scanner:',
+            desc: 'Tap "Scan QR code" to scan an officer’s device directly without leaving the app.',
+          },
+          {
+            title: 'Role-Based Governance:',
+            desc: 'Granular permissions (Owner, Admin, Member) ensure only verified officers can scan attendance.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'scanner',
+    tabLabel: 'Scan Attendance',
+    icon: '📷',
+    slides: [
+      {
+        id: 'scanner-camera',
+        label: '1. Biometric Viewfinder',
+        image: '/assets/showcase/live-scanner.png',
+        alt: 'Here! Android app Scan Attendance camera viewfinder showing Time-in/Time-out toggle, Session 1: Keynote pill, 7 cached templates ready, and face alignment box',
+        categoryBadge: '100% On-Device Biometrics',
+        subtitle: 'Synced · 7 templates ready',
+        title: 'Face-First Check-In on the Go (100% Offline)',
+        description:
+          'Attendance checkers can open the camera, toggle between Time in and Time out, and check students in on the go wherever the event is happening. MobileFaceNet matches faces directly on your device without an internet connection.',
+        highlights: [
+          {
+            title: 'On-the-Go Face Recognition:',
+            desc: 'Ultra-lightweight neural network matches enrolled faces in under 200ms with on-screen bounding boxes.',
+          },
+          {
+            title: 'Time-in / Time-out Toggle:',
+            desc: 'Seamlessly switch check-in modes at the door with a persistent header control.',
+          },
+          {
+            title: 'Offline Biometric Cache:',
+            desc: 'Group face templates are cached on-device (Synced · 7 templates ready) for auditoriums and fields without Wi-Fi.',
+          },
+        ],
+      },
+      {
+        id: 'scanner-manual',
+        label: '2. Manual Roster Entry',
+        image: '/assets/showcase/scan-manual.png',
+        alt: 'Here! Android app Add Item manual attendance screen showing active session, search field, student roster list with status and Time in buttons, plus Walk-in button',
+        categoryBadge: 'Manual Attendance Mode',
+        subtitle: 'Type-to-Filter Search & 1-Tap Entry',
+        title: 'Instant Manual Entry for Opt-Outs & Typed IDs',
+        description:
+          'When students prefer not to use facial recognition or lighting is poor, tap "Switch to manual attendance" to open the roster search. Type any part of a student’s name or ID to filter and record attendance instantly.',
+        highlights: [
+          {
+            title: 'Type-to-Filter Search:',
+            desc: 'Instant search across student names and Student IDs with highlighted query terms.',
+          },
+          {
+            title: '1-Tap Time In / Time Out:',
+            desc: 'Dedicated action buttons update attendance status in real time with audio-haptic feedback.',
+          },
+          {
+            title: 'Walk-In Floating Action Button:',
+            desc: 'Tap the prominent "Walk-in" button to register new attendees on the fly without interrupting line flow.',
+          },
+        ],
+      },
+      {
+        id: 'scanner-walkin',
+        label: '3. Walk-In Registration',
+        image: '/assets/showcase/scan-walkin.png',
+        alt: 'Here! Android app Walk-in attendee registration bottom sheet with Student ID 2025-09142, Name Marcus Reyes, Save to group attendee roster checkbox, and Record attendance button',
+        categoryBadge: 'No Pre-Built Roster Needed',
+        subtitle: 'On-the-Go Attendee Registration',
+        title: 'Enroll Students & Record Attendance on the Spot',
+        description:
+          'No need to collect and import spreadsheets before your event. When a new student arrives, simply open the Walk-in sheet, enter their Student ID and name, and record their attendance immediately.',
+        highlights: [
+          {
+            title: 'Save to Group Attendee Roster:',
+            desc: 'Check the box to automatically add new walk-ins to the permanent group roster for all future events.',
+          },
+          {
+            title: 'Instant Biometric Link:',
+            desc: 'Link a captured face photo directly during walk-in so the student can use facial recognition next time.',
+          },
+          {
+            title: 'Zero Pre-Work Required:',
+            desc: 'Your roster builds itself automatically as students show up to your meetings and activities.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'events',
+    tabLabel: 'Attendance List',
+    icon: '📋',
+    slides: [
+      {
+        id: 'events-live-feed',
+        label: '1. Live Attendance Feed',
+        image: '/assets/showcase/events-hub.png',
+        alt: 'Here! Android app Attendance List screen showing 7 Timed in, 5 Timed out, 1 To check, session filter pills, search bar, and student attendance cards',
+        categoryBadge: 'Real-Time Attendance Feed',
+        subtitle: 'Session Pills & Status Counters',
+        title: 'Live Attendance Counters, Statuses & Search',
+        description:
+          'Track who is present, who has timed out, and who is still missing in real time. Filter between sessions, search by student name or ID, and inspect exact arrival timestamps with clear status tags.',
+        highlights: [
+          {
+            title: 'Live Status Summary Bar:',
+            desc: 'Displays dynamic counts for 7 Timed in, 5 Timed out, and 1 To check at a glance.',
+          },
+          {
+            title: 'Session & Status Filter Pills:',
+            desc: 'Filter between All, Timed in, Missing, and To check (pending manual verification).',
+          },
+          {
+            title: 'Detailed Student Cards:',
+            desc: 'Displays student avatar, name, Student ID, verification badge, and exact time-in/out timestamps.',
+          },
+        ],
+      },
+      {
+        id: 'events-verification',
+        label: '2. Verify Manual Check-Ins',
+        image: '/assets/showcase/scan-manual.png',
+        alt: 'Here! Android app manual attendance and verification interface showing student cards with status tags and 1-tap verification options',
+        categoryBadge: 'Attendance Accountability',
+        subtitle: 'Typed ID Badges & 1-Tap Verification',
+        title: 'Verify Manual Entries & Prevent Attendance Tampering',
+        description:
+          'Check-ins recorded manually or via typed ID are tagged with a "Typed ID" badge. Officers can review all pending manual entries under the "To check" filter and verify them individually or in 1 batch tap.',
+        highlights: [
+          {
+            title: 'Distinct "Typed ID" Tag:',
+            desc: 'Clearly separates face-verified check-ins from manual officer inputs for audit accountability.',
+          },
+          {
+            title: '1-Tap Batch Verification:',
+            desc: 'Admins can verify all pending student entries at once before exporting official event records.',
+          },
+          {
+            title: 'Automatic Event Lock:',
+            desc: 'Events automatically lock attendance modifications when the scheduled end time passes.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'analytics',
+    tabLabel: 'Turnout & CSV Export',
+    icon: '📊',
+    slides: [
+      {
+        id: 'analytics-turnout',
+        label: '1. Turnout & Velocity',
+        image: '/assets/showcase/event-analytics.png',
+        alt: 'Here! Android app Event Analytics screen showing 88% Turnout ring chart, 86% Face-Verified stat, 15m Check-In Velocity bar chart, and Session Comparison progress bars',
+        categoryBadge: 'Turnout Analytics',
+        subtitle: '88% Turnout · 15m Check-In Velocity',
+        title: 'Turnout Rates, Velocity Histograms & Rush Windows',
+        description:
+          'See your event turnout percentage, present vs absent counts, full (in and out) completion rates, and face-verified ratio. Toggle between 10m, 15m, and 30m intervals to analyze arrival rush patterns.',
+        highlights: [
+          {
+            title: '88% Turnout Ring Chart:',
+            desc: 'Visual breakdown of present vs absent attendees and full attendance completion rates.',
+          },
+          {
+            title: 'Configurable Velocity Intervals (10m / 15m / 30m):',
+            desc: 'Interactive bar histogram shows check-in speed throughout the doors opening.',
+          },
+          {
+            title: 'Peak Scan Window Detection:',
+            desc: 'Automatically identifies the busiest arrival period (e.g. Peak: 09:00 with 8 scans).',
+          },
+        ],
+      },
+      {
+        id: 'analytics-sessions',
+        label: '2. Session Comparison',
+        image: '/assets/showcase/analytics-sessions.png',
+        alt: 'Here! Android app Event Analytics Session Comparison screen showing turnout drop-off, Session 1 vs Session 2 participation bars, and export options',
+        categoryBadge: 'Multi-Session Intelligence',
+        subtitle: 'Session 1 vs Session 2 Retention',
+        title: 'Session Drop-Off Comparison & 1-Tap CSV Exports',
+        description:
+          'For multi-session conferences and workshops, compare attendance drop-off between morning and afternoon sessions side-by-side. Export spreadsheet-safe CSV reports directly to Google Sheets or Excel.',
+        highlights: [
+          {
+            title: 'Side-by-Side Session Retention:',
+            desc: 'Track attendance retention between Session 1 (Keynote) and Session 2 (Workshop) with progress bars.',
+          },
+          {
+            title: 'Cross-Event Member Leaderboard:',
+            desc: 'See which student members have the highest cumulative attendance records.',
+          },
+          {
+            title: 'Formula-Sanitized CSV Export:',
+            desc: 'Generates spreadsheet-ready attendance sheets with automatic CSV injection defense.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'roster',
+    tabLabel: 'Group Roster',
+    icon: '👤',
+    slides: [
+      {
+        id: 'roster-attendees',
+        label: '1. Attendees Roster',
+        image: '/assets/showcase/biometric-roster.png',
+        alt: 'Here! Android app CS Student Society Attendees Roster showing 8 registered students with multi-sample biometric badges and No face data indicators',
+        categoryBadge: 'Biometric Roster Management',
+        subtitle: 'Multi-Sample Face Enrollment',
+        title: 'Group Attendee Roster with Biometric Sample Badges',
+        description:
+          'Every student who registers or walks in appears in your group’s permanent Attendees roster. Badges display exactly how many face samples are enrolled (e.g. 4 samples, 3 samples, or No face data).',
+        highlights: [
+          {
+            title: 'Multi-Sample Badges (4 samples, 3 samples):',
+            desc: 'Visual indicators show biometric recognition fidelity for each student on your roster.',
+          },
+          {
+            title: 'Privacy & Opt-Out Friendly:',
+            desc: 'Students who decline facial storage are marked with "No face data" and can always be checked in manually.',
+          },
+          {
+            title: 'Student Profile & Attendance History:',
+            desc: 'Tap any attendee to view their complete event attendance history and manage enrolled face vectors.',
+          },
+        ],
+      },
+      {
+        id: 'roster-enrollment',
+        label: '2. On-the-Go Enrollment',
+        image: '/assets/showcase/scan-walkin.png',
+        alt: 'Here! Android app walk-in registration bottom sheet showing how students enroll into the group roster on the go',
+        categoryBadge: 'Zero Upfront Data Entry',
+        subtitle: 'Enrollment at the Door',
+        title: 'Add New Students & Face Vectors on the Fly',
+        description:
+          'Never spend hours creating spreadsheets before a school event again. Checkers can enroll students and capture multiple face angles directly during door check-in, seamlessly expanding the roster.',
+        highlights: [
+          {
+            title: 'Capture Additional Face Angles:',
+            desc: 'Add extra face samples in varying lighting or angles to boost match confidence in large venues.',
+          },
+          {
+            title: 'Instant Multi-Device Sync:',
+            desc: 'New attendees and biometric vectors sync across all officers’ devices automatically via Cloud Firestore.',
+          },
+          {
+            title: 'GDPR / Student Privacy Compliant:',
+            desc: 'Facial representations are stored strictly as mathematical embeddings with 1-tap delete options.',
+          },
+        ],
+      },
+    ],
+  },
+];
 ---
 
 <section id="showcase" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
-  <div class="max-w-2xl mb-8">
-    <div class="text-xs font-bold uppercase tracking-wider text-here-primary">
-      Interactive App Showcase
+  <div class="max-w-3xl mb-8">
+    <div class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-here-primary bg-here-tint px-2.5 py-1 rounded-full mb-2">
+      <span>Interactive Multi-Screen Showcase</span>
     </div>
-    <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
-      See Here! in Action on Android
+    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-here-text tracking-tight">
+      Explore Real Android Screens from Here!
     </h2>
-    <p class="mt-2 text-sm sm:text-base text-here-muted">
-      From creating your group and scheduling a quick 1-session club meeting (or a multi-day event) to checking students in on the go and exporting turnout reports — explore the full workflow below.
+    <p class="mt-2 text-sm sm:text-base text-here-muted leading-relaxed">
+      Each section below features authentic captures from our Android app on emulator. Click any category tab, then switch between the screenshot gallery slides using the sub-tabs or arrows below.
     </p>
   </div>
 
-  <!-- Showcase Tab Selector -->
-  <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" role="tablist" aria-label="App Showcase Screens">
-    <button
-      id="tab-btn-group"
-      type="button"
-      role="tab"
-      aria-selected="true"
-      aria-controls="screen-group"
-      class="showcase-tab-btn active px-3.5 py-2 rounded-here border border-here-primary bg-here-primary text-here-onPrimary text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
-      data-target="group"
-    >
-      🏠 Groups &amp; Events
-    </button>
-    <button
-      id="tab-btn-scanner"
-      type="button"
-      role="tab"
-      aria-selected="false"
-      aria-controls="screen-scanner"
-      class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
-      data-target="scanner"
-    >
-      📷 Scan Attendance
-    </button>
-    <button
-      id="tab-btn-events"
-      type="button"
-      role="tab"
-      aria-selected="false"
-      aria-controls="screen-events"
-      class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
-      data-target="events"
-    >
-      📋 Attendance List
-    </button>
-    <button
-      id="tab-btn-analytics"
-      type="button"
-      role="tab"
-      aria-selected="false"
-      aria-controls="screen-analytics"
-      class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
-      data-target="analytics"
-    >
-      📊 Turnout &amp; CSV Export
-    </button>
-    <button
-      id="tab-btn-roster"
-      type="button"
-      role="tab"
-      aria-selected="false"
-      aria-controls="screen-roster"
-      class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
-      data-target="roster"
-    >
-      👤 Group Roster
-    </button>
+  <!-- Main Category Tabs -->
+  <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar" role="tablist" aria-label="Showcase Categories">
+    {categories.map((cat, idx) => (
+      <button
+        id={`cat-btn-${cat.id}`}
+        type="button"
+        role="tab"
+        aria-selected={idx === 0 ? 'true' : 'false'}
+        aria-controls={`gallery-panel-${cat.id}`}
+        class:list={[
+          'showcase-cat-btn px-4 py-2.5 rounded-here text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 shadow-xs shrink-0',
+          idx === 0
+            ? 'active bg-here-primary text-here-onPrimary border border-here-primary'
+            : 'bg-here-surface text-here-muted border border-here-border hover:text-here-text hover:bg-here-tint/50',
+        ]}
+        data-cat={cat.id}
+      >
+        <span>{cat.icon}</span>
+        <span>{cat.tabLabel}</span>
+      </button>
+    ))}
   </div>
 
-  <!-- Showcase Stage: Authentic Android Screenshots + Feature Breakdown -->
-  <div class="mt-6 here-card p-5 sm:p-8 bg-here-surface">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-      
-      <!-- Left Column: Realistic Android Device Frame with Real App Captures -->
-      <div class="lg:col-span-5 flex justify-center">
-        <div class="w-[270px] sm:w-[296px] rounded-[40px] p-2.5 bg-[#1B242A] border-[3px] border-[#2E3C46] shadow-xl relative">
-          <!-- Camera Punch-Hole -->
-          <div class="w-3 h-3 rounded-full bg-black/90 absolute top-5 left-1/2 -translate-x-1/2 z-10 pointer-events-none border border-white/10"></div>
-
-          <!-- Android Screen Viewport (1080x2424 native ratio) -->
-          <div class="rounded-[30px] overflow-hidden bg-here-bg aspect-[1080/2424] relative select-none border border-black/20">
-            <!-- Screen 1: Group Workspace & Events (1-Session + Multi-Session) -->
-            <div id="screen-group" class="showcase-screen w-full h-full">
-              <img
-                src="/assets/showcase/group-workspace.png"
-                alt="Here! Android app Group Workspace screen for CS Student Society showing 5 Members, 8 Attendees, + Add button, and both a 1-session event (Freshmen Club Orientation, 9:00 AM - 12:00 PM) and a multi-session event (General Assembly & Workshop)"
-                width="1080"
-                height="2424"
-                loading="eager"
-                class="w-full h-full object-cover block"
-              />
-            </div>
-
-            <!-- Screen 2: Scan Attendance -->
-            <div id="screen-scanner" class="showcase-screen hidden w-full h-full">
-              <img
-                src="/assets/showcase/live-scanner.png"
-                alt="Here! Android app Scan Attendance screen showing Time-in/Time-out toggle, Session 1: Keynote pill, 7 cached templates ready, and face alignment viewfinder"
-                width="1080"
-                height="2424"
-                loading="lazy"
-                class="w-full h-full object-cover block"
-              />
-            </div>
-
-            <!-- Screen 3: Attendance List & Check-Ins -->
-            <div id="screen-events" class="showcase-screen hidden w-full h-full">
-              <img
-                src="/assets/showcase/events-hub.png"
-                alt="Here! Android app Attendance List screen showing 7 Timed in, 5 Timed out, 1 To check, session filter pills, search bar, and student attendance cards"
-                width="1080"
-                height="2424"
-                loading="lazy"
-                class="w-full h-full object-cover block"
-              />
-            </div>
-
-            <!-- Screen 4: Turnout & CSV Export -->
-            <div id="screen-analytics" class="showcase-screen hidden w-full h-full">
-              <img
-                src="/assets/showcase/event-analytics.png"
-                alt="Here! Android app Event Analytics screen showing 88% Turnout ring chart, 86% Face-Verified stat, 15m Check-In Velocity bar chart, and Session Comparison progress bars"
-                width="1080"
-                height="2424"
-                loading="lazy"
-                class="w-full h-full object-cover block"
-              />
-            </div>
-
-            <!-- Screen 5: Group Roster -->
-            <div id="screen-roster" class="showcase-screen hidden w-full h-full">
-              <img
-                src="/assets/showcase/biometric-roster.png"
-                alt="Here! Android app CS Student Society Attendees Roster showing 8 registered students with multi-sample biometric badges and No face data indicators"
-                width="1080"
-                height="2424"
-                loading="lazy"
-                class="w-full h-full object-cover block"
-              />
-            </div>
-          </div>
+  <!-- Showcase Stage -->
+  <div class="mt-6 here-card p-4 sm:p-6 lg:p-8 bg-here-surface border border-here-border shadow-md">
+    
+    <!-- Sub-Slide Gallery Switcher Bar -->
+    <div class="mb-6 pb-4 border-b border-here-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div>
+        <div class="text-[11px] font-extrabold uppercase tracking-wider text-here-muted">Gallery Screens</div>
+        <div id="gallery-title" class="text-base sm:text-lg font-extrabold text-here-text">
+          Organization Workspace
         </div>
       </div>
 
-      <!-- Right Column: Interactive Description & Screen Specifications -->
-      <div class="lg:col-span-7 space-y-6">
+      <!-- Slide Selector Pills Container -->
+      <div id="sub-tabs-container" class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 no-scrollbar" role="tablist" aria-label="Gallery Slides">
+        <!-- Injected via JavaScript based on active category -->
+      </div>
+    </div>
+
+    <!-- Main Grid: Phone Mockup + Dynamic Info Column -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <!-- Left Column: Realistic Android Device Frame with Multi-Slide Screenshots -->
+      <div class="lg:col-span-5 flex flex-col items-center">
         
-        <!-- Info Panel: Group Workspace & Events -->
-        <div id="info-group" class="showcase-info space-y-4">
-          <div class="inline-flex flex-wrap items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-tint">
-              Organization Workspace
-            </span>
-            <span class="text-xs font-semibold text-here-muted">
-              Single-Session &amp; Multi-Session Events
-            </span>
+        <!-- Phone Frame Container -->
+        <div class="w-[270px] sm:w-[296px] rounded-[42px] p-2.5 bg-[#182127] border-[3px] border-[#2A3742] shadow-2xl relative">
+          <!-- Camera Punch-Hole -->
+          <div class="w-3.5 h-3.5 rounded-full bg-black/95 absolute top-5 left-1/2 -translate-x-1/2 z-20 pointer-events-none border border-white/10 shadow-inner"></div>
+
+          <!-- Carousel Arrow Buttons -->
+          <button
+            id="prev-slide-btn"
+            type="button"
+            aria-label="Previous screenshot in gallery"
+            class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/65 hover:bg-black/85 text-white flex items-center justify-center backdrop-blur-xs border border-white/20 transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+          </button>
+          <button
+            id="next-slide-btn"
+            type="button"
+            aria-label="Next screenshot in gallery"
+            class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/65 hover:bg-black/85 text-white flex items-center justify-center backdrop-blur-xs border border-white/20 transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+          </button>
+
+          <!-- Android Screen Viewport (1080x2424 native aspect) -->
+          <div class="rounded-[32px] overflow-hidden bg-here-bg aspect-[1080/2424] relative select-none border border-black/30 shadow-inner">
+            {categories.map((cat) =>
+              cat.slides.map((slide, sIdx) => (
+                <div
+                  id={`screen-img-${slide.id}`}
+                  class:list={[
+                    'showcase-img-slide w-full h-full absolute inset-0 transition-opacity duration-200',
+                    cat.id === 'group' && sIdx === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none',
+                  ]}
+                  data-cat={cat.id}
+                  data-slide-id={slide.id}
+                >
+                  <img
+                    src={slide.image}
+                    alt={slide.alt}
+                    width="1080"
+                    height="2424"
+                    loading={cat.id === 'group' && sIdx === 0 ? 'eager' : 'lazy'}
+                    class="w-full h-full object-cover block"
+                  />
+                </div>
+              ))
+            )}
           </div>
-          <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Create Your Group &amp; Schedule Any Type of Event
-          </h3>
-          <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Set up a shared workspace for your student organization in seconds. Whether you're hosting a quick <strong>single-session meeting</strong> (like <em>Freshmen Club Orientation · 9:00 AM – 12:00 PM</em>) or a <strong>multi-day conference</strong> with multiple sessions, everything lives in one clean hub.
-          </p>
-          <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Invite Checkers with a 6-Character Code or QR:</strong> Tap the share icon to invite fellow officers and attendance checkers to your group.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Standard 1-Session or Multi-Session Schedules:</strong> Create a simple one-window event by default, or flip one toggle when you need multi-day / AM-PM sessions.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>At-a-Glance Group Dashboard:</strong> Manage your group's <strong>Members</strong>, <strong>Attendees</strong> roster, permissions, and audit logs right from the top header.</span>
-            </li>
-          </ul>
         </div>
 
-        <!-- Info Panel: Scanner -->
-        <div id="info-scanner" class="showcase-info hidden space-y-4">
-          <div class="inline-flex flex-wrap items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-success">
-              100% On-Device Biometrics
-            </span>
-            <span class="text-xs font-semibold text-here-muted">
-              Synced &middot; 7 templates ready
-            </span>
+        <!-- Slide Indicator Dots and Counter -->
+        <div class="mt-4 flex items-center gap-3 text-xs font-bold text-here-muted">
+          <div id="slide-dots-container" class="flex items-center gap-1.5">
+            <!-- Dynamic dots injected by JS -->
           </div>
-          <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Check Students' Attendance on the Go
-          </h3>
-          <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Attendance checkers can open the camera, toggle between <strong>Time in</strong> and <strong>Time out</strong>, and check students in wherever the event is happening. MobileFaceNet matches faces directly on your phone — no internet connection required.
-          </p>
-          <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Walk-In Registration on the Spot:</strong> If a student isn't in the roster yet, checkers can register their Student ID, name, and face right from the scan prompt and record their attendance immediately.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Works Offline Anywhere:</strong> Group face templates are cached on-device (<code>Synced · 7 templates ready</code>) so checkers can record attendance in auditoriums, fields, or rooms without Wi-Fi.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Switch to Manual Attendance Anytime:</strong> Tap <em>Switch to manual attendance</em> at the bottom to type a Student ID when a student prefers not to use facial recognition.</span>
-            </li>
-          </ul>
+          <span id="slide-counter-text" class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded-full bg-here-tint text-here-primary">
+            Slide 1 of 3
+          </span>
         </div>
 
-        <!-- Info Panel: Events / Attendance List -->
-        <div id="info-events" class="showcase-info hidden space-y-4">
-          <div class="inline-flex flex-wrap items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-tint">
-              Live Attendance Feed
-            </span>
-            <span class="text-xs font-semibold text-here-muted">
-              Time-In / Time-Out &amp; Status Filters
-            </span>
-          </div>
-          <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Track Time-In, Time-Out, Missing &amp; Manual Entries
-          </h3>
-          <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Whether your event has a <strong>single attendance window</strong> or <strong>multiple sessions</strong>, you get real-time counts for <strong>Timed in</strong>, <strong>Timed out</strong>, and <strong>To check</strong>. Search by name or Student ID and filter by status in one tap.
-          </p>
-          <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>See Who's Here &amp; Who's Missing:</strong> Filter between <em>All</em>, <em>Timed in</em>, <em>Missing</em> (registered members who haven't arrived yet), and <em>To check</em>.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Verify Manual ID Check-Ins:</strong> Manual ID entries are marked with a <code>Typed ID</code> badge so admins can verify them individually or in 1 tap under <em>To check</em>.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Optional Session Pills &amp; Auto-Lock:</strong> Multi-session events add a session switcher bar at the top, and any event can auto-lock when its end time passes.</span>
-            </li>
-          </ul>
-        </div>
+      </div>
 
-        <!-- Info Panel: Analytics -->
-        <div id="info-analytics" class="showcase-info hidden space-y-4">
-          <div class="inline-flex flex-wrap items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-warning">
-              Turnout &amp; Reports
-            </span>
-            <span class="text-xs font-semibold text-here-muted">
-              10m / 15m / 30m Histograms
-            </span>
-          </div>
-          <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Turnout Summary, Check-In Velocity &amp; CSV Export
-          </h3>
-          <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            See your event's turnout percentage, present vs. absent counts, full (in &amp; out) completion, and face-verified rate. Toggle between <strong>10m</strong>, <strong>15m</strong>, and <strong>30m</strong> intervals to see when check-ins peaked.
-          </p>
-          <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Peak Scan Window Callout:</strong> Automatically pinpoints the busiest arrival rush (e.g., <em>Peak: 09:00 (8 scans)</em>).</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Works for Single or Multi-Session Events:</strong> View overall turnout for single-window events, plus session-by-session comparison bars for multi-session events.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>1-Tap CSV Export:</strong> Download or share spreadsheet-ready CSV attendance sheets directly from the top-right export button.</span>
-            </li>
-          </ul>
-        </div>
+      <!-- Right Column: Interactive Description & Screen Specifications -->
+      <div class="lg:col-span-7 space-y-5">
+        
+        {categories.map((cat) =>
+          cat.slides.map((slide, sIdx) => (
+            <div
+              id={`slide-info-${slide.id}`}
+              class:list={[
+                'showcase-slide-info space-y-4',
+                cat.id === 'group' && sIdx === 0 ? 'block' : 'hidden',
+              ]}
+              data-cat={cat.id}
+              data-slide-id={slide.id}
+            >
+              <div class="inline-flex flex-wrap items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-tint">
+                  {slide.categoryBadge}
+                </span>
+                <span class="text-xs font-semibold text-here-muted">
+                  {slide.subtitle}
+                </span>
+              </div>
 
-        <!-- Info Panel: Roster -->
-        <div id="info-roster" class="showcase-info hidden space-y-4">
-          <div class="inline-flex flex-wrap items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-tint">
-              Attendees &amp; Face Samples
-            </span>
-            <span class="text-xs font-semibold text-here-muted">
-              Multi-Angle Recognition
-            </span>
-          </div>
-          <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Roster Built Automatically as You Check Students In
-          </h3>
-          <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Every student registered on the go during check-in (or added in advance) appears in your group's <strong>Attendees</strong> list with their enrolled sample count (<code>4 samples</code>, <code>3 samples</code>, or <code>No face data</code>).
-          </p>
-          <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Link Faces or Add Angles Anytime:</strong> Checkers can link a new face scan to an existing roster member or add extra angles to improve matching accuracy.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Works With or Without Face Consent:</strong> Students who decline face storage are still saved to the roster with <code>No face data</code> for quick manual check-ins.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Full Attendance History &amp; Privacy Control:</strong> Tap any student to view their attendance history across events or reset their face samples at any time.</span>
-            </li>
-          </ul>
-        </div>
+              <h3 class="text-xl sm:text-2xl lg:text-[26px] font-extrabold text-here-text tracking-tight leading-snug">
+                {slide.title}
+              </h3>
 
-        <!-- Quick Screen Switcher Pills inside Right Column -->
+              <p class="text-sm sm:text-base text-here-muted leading-relaxed">
+                {slide.description}
+              </p>
+
+              <div class="pt-2">
+                <div class="text-xs font-bold uppercase tracking-wider text-here-muted mb-2">Screen Highlights</div>
+                <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
+                  {slide.highlights.map((h) => (
+                    <li class="flex items-start gap-2.5">
+                      <div class="w-5 h-5 rounded-full bg-here-tint text-here-primary flex items-center justify-center shrink-0 mt-0.5">
+                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                      </div>
+                      <span><strong class="text-here-primary">{h.title}</strong> {h.desc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))
+        )}
+
+        <!-- Quick Switcher Helper Card -->
         <div class="pt-4 border-t border-here-border flex flex-wrap items-center justify-between gap-2 text-xs text-here-muted">
-          <span>Captured live from <strong>Here! {`v2.1.0-beta.6`}</strong> on Android</span>
-          <span class="font-bold text-here-primary">Click any tab above to switch screens &uarr;</span>
+          <span>Captured live from <strong>Here! v2.1.0-beta.6</strong> (Android Emulator)</span>
+          <span class="font-bold text-here-primary inline-flex items-center gap-1">
+            <span>Use &larr; &rarr; arrows or sub-tabs to browse</span>
+          </span>
         </div>
 
       </div>
@@ -322,49 +540,178 @@
     </div>
   </div>
 
-  <script is:inline>
-    (function initShowcaseTabs() {
-      const tabButtons = document.querySelectorAll('.showcase-tab-btn');
-      const screens = document.querySelectorAll('.showcase-screen');
-      const infoPanels = document.querySelectorAll('.showcase-info');
+  <script is:inline define:vars={{ categoriesData: categories }}>
+    (function initShowcaseGalleries() {
+      const categories = categoriesData;
+      let activeCatId = 'group';
+      let activeSlideIndex = 0;
 
-      tabButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const target = btn.getAttribute('data-target');
-          if (!target) return;
+      const catButtons = document.querySelectorAll('.showcase-cat-btn');
+      const subTabsContainer = document.getElementById('sub-tabs-container');
+      const galleryTitle = document.getElementById('gallery-title');
+      const prevBtn = document.getElementById('prev-slide-btn');
+      const nextBtn = document.getElementById('next-slide-btn');
+      const dotsContainer = document.getElementById('slide-dots-container');
+      const counterText = document.getElementById('slide-counter-text');
 
-          // Update Tab Buttons
-          tabButtons.forEach((b) => {
-            const isCurrent = b === btn;
-            b.setAttribute('aria-selected', String(isCurrent));
+      function getCurrentCategory() {
+        return categories.find((c) => c.id === activeCatId) || categories[0];
+      }
+
+      function renderSubTabs() {
+        if (!subTabsContainer) return;
+        const currentCat = getCurrentCategory();
+        subTabsContainer.innerHTML = '';
+
+        currentCat.slides.forEach((slide, idx) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.role = 'tab';
+          btn.className = [
+            'px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all border shrink-0 cursor-pointer',
+            idx === activeSlideIndex
+              ? 'bg-here-primary text-here-onPrimary border-here-primary shadow-xs'
+              : 'bg-here-surface text-here-muted border-here-border hover:bg-here-tint/50 hover:text-here-text',
+          ].join(' ');
+          btn.textContent = slide.label;
+          btn.setAttribute('aria-selected', String(idx === activeSlideIndex));
+          btn.addEventListener('click', () => {
+            setSlideIndex(idx);
+          });
+          subTabsContainer.appendChild(btn);
+        });
+
+        renderDots();
+      }
+
+      function renderDots() {
+        if (!dotsContainer) return;
+        const currentCat = getCurrentCategory();
+        dotsContainer.innerHTML = '';
+
+        currentCat.slides.forEach((_, idx) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
+          dot.className = [
+            'w-2 h-2 rounded-full transition-all cursor-pointer',
+            idx === activeSlideIndex ? 'bg-here-primary w-5' : 'bg-here-border hover:bg-here-muted',
+          ].join(' ');
+          dot.addEventListener('click', () => {
+            setSlideIndex(idx);
+          });
+          dotsContainer.appendChild(dot);
+        });
+
+        if (counterText) {
+          counterText.textContent = 'Slide ' + (activeSlideIndex + 1) + ' of ' + currentCat.slides.length;
+        }
+
+        if (galleryTitle) {
+          const slide = currentCat.slides[activeSlideIndex];
+          if (slide) galleryTitle.textContent = slide.title;
+        }
+      }
+
+      function updateVisuals() {
+        const currentCat = getCurrentCategory();
+        const activeSlide = currentCat.slides[activeSlideIndex];
+        if (!activeSlide) return;
+
+        // Update Phone Images
+        const allImgSlides = document.querySelectorAll('.showcase-img-slide');
+        allImgSlides.forEach((el) => {
+          if (el.getAttribute('data-slide-id') === activeSlide.id) {
+            el.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
+            el.classList.add('opacity-100', 'z-10');
+          } else {
+            el.classList.add('opacity-0', 'pointer-events-none', 'z-0');
+            el.classList.remove('opacity-100', 'z-10');
+          }
+        });
+
+        // Update Right Info Cards
+        const allInfoCards = document.querySelectorAll('.showcase-slide-info');
+        allInfoCards.forEach((el) => {
+          if (el.getAttribute('data-slide-id') === activeSlide.id) {
+            el.classList.remove('hidden');
+            el.classList.add('block');
+          } else {
+            el.classList.add('hidden');
+            el.classList.remove('block');
+          }
+        });
+
+        // Update Sub-Tab Buttons styling
+        if (subTabsContainer) {
+          Array.from(subTabsContainer.children).forEach((child, idx) => {
+            const isCurrent = idx === activeSlideIndex;
+            child.setAttribute('aria-selected', String(isCurrent));
             if (isCurrent) {
-              b.classList.add('border-here-primary', 'bg-here-primary', 'text-here-onPrimary');
-              b.classList.remove('border-here-border', 'bg-here-surface', 'text-here-muted');
+              child.className =
+                'px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all border shrink-0 bg-here-primary text-here-onPrimary border-here-primary shadow-xs cursor-pointer';
             } else {
-              b.classList.remove('border-here-primary', 'bg-here-primary', 'text-here-onPrimary');
-              b.classList.add('border-here-border', 'bg-here-surface', 'text-here-muted');
+              child.className =
+                'px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all border shrink-0 bg-here-surface text-here-muted border-here-border hover:bg-here-tint/50 hover:text-here-text cursor-pointer';
             }
           });
+        }
 
-          // Update Screens in Device Mockup
-          screens.forEach((screen) => {
-            if (screen.id === 'screen-' + target) {
-              screen.classList.remove('hidden');
-            } else {
-              screen.classList.add('hidden');
-            }
-          });
+        renderDots();
+      }
 
-          // Update Right Info Panels
-          infoPanels.forEach((panel) => {
-            if (panel.id === 'info-' + target) {
-              panel.classList.remove('hidden');
-            } else {
-              panel.classList.add('hidden');
-            }
-          });
+      function setSlideIndex(index) {
+        const currentCat = getCurrentCategory();
+        const total = currentCat.slides.length;
+        activeSlideIndex = (index + total) % total;
+        updateVisuals();
+      }
+
+      function setCategory(catId) {
+        activeCatId = catId;
+        activeSlideIndex = 0;
+
+        // Update Category Buttons
+        catButtons.forEach((btn) => {
+          const isSelected = btn.getAttribute('data-cat') === catId;
+          btn.setAttribute('aria-selected', String(isSelected));
+          if (isSelected) {
+            btn.className =
+              'showcase-cat-btn px-4 py-2.5 rounded-here text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 shadow-xs shrink-0 active bg-here-primary text-here-onPrimary border border-here-primary cursor-pointer';
+          } else {
+            btn.className =
+              'showcase-cat-btn px-4 py-2.5 rounded-here text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-2 shadow-xs shrink-0 bg-here-surface text-here-muted border border-here-border hover:text-here-text hover:bg-here-tint/50 cursor-pointer';
+          }
+        });
+
+        renderSubTabs();
+        updateVisuals();
+      }
+
+      // Event Listeners for Category Buttons
+      catButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const cat = btn.getAttribute('data-cat');
+          if (cat) setCategory(cat);
         });
       });
+
+      // Carousel Controls
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          setSlideIndex(activeSlideIndex - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          setSlideIndex(activeSlideIndex + 1);
+        });
+      }
+
+      // Initial Mount
+      renderSubTabs();
+      updateVisuals();
     })();
   </script>
 </section>
