@@ -242,12 +242,37 @@ const categories: Category[] = [
   },
   {
     id: 'analytics',
-    tabLabel: 'Turnout & CSV Export',
+    tabLabel: 'Analytics',
     icon: '📊',
     slides: [
       {
+        id: 'analytics-group',
+        label: '1. Group Analytics',
+        image: '/assets/showcase/group-analytics.png',
+        alt: 'Here! Android app Group Analytics screen for CS Student Society showing cumulative performance (2 Total Events, 16 Roster Members, 2 Active Events), Event Turnout Overview, and export summary button',
+        categoryBadge: 'Cross-Event Intelligence',
+        subtitle: 'Cumulative Performance & Event Leaderboard',
+        title: 'Track Cross-Event Turnout & Total Member Engagement',
+        description:
+          "Gain instant bird's-eye visibility across all events hosted by your organization. Monitor cumulative metrics for Total Events, Roster Members, and Active Events, drill down into attendance rates, and export cross-event turnout summaries in 1 tap.",
+        highlights: [
+          {
+            title: 'Cumulative KPI Dashboard:',
+            desc: 'Track 2 Total Events, 16 Roster Members, and active sessions in a clean high-level summary card.',
+          },
+          {
+            title: 'Cross-Event Turnout Overview:',
+            desc: 'Compare attendance across General Assembly & Workshop, Freshmen Orientation, and future sessions.',
+          },
+          {
+            title: '1-Tap Group Summary CSV:',
+            desc: 'Export organization-wide participation leaderboards directly to Google Sheets or Excel.',
+          },
+        ],
+      },
+      {
         id: 'analytics-turnout',
-        label: '1. Turnout & Velocity',
+        label: '2. Turnout & Velocity',
         image: '/assets/showcase/event-analytics.png',
         alt: 'Here! Android app Event Analytics screen showing 88% Turnout ring chart, 86% Face-Verified stat, 15m Check-In Velocity bar chart, and Session Comparison progress bars',
         categoryBadge: 'Turnout Analytics',
@@ -272,22 +297,22 @@ const categories: Category[] = [
       },
       {
         id: 'analytics-sessions',
-        label: '2. Session Comparison',
+        label: '3. Multi-Session & Exports',
         image: '/assets/showcase/analytics-sessions.png',
         alt: 'Here! Android app Event Analytics Session Comparison screen showing turnout drop-off, Session 1 vs Session 2 participation bars, and export options',
         categoryBadge: 'Multi-Session Intelligence',
-        subtitle: 'Session 1 vs Session 2 Retention',
-        title: 'Session Drop-Off Comparison & 1-Tap CSV Exports',
+        subtitle: 'Session Retention & Signed PDF / CSV Exports',
+        title: 'Session Drop-Off Comparison & Official Reports',
         description:
-          'For multi-session conferences and workshops, compare attendance drop-off between morning and afternoon sessions side-by-side. Export spreadsheet-safe CSV reports directly to Google Sheets or Excel.',
+          'For multi-session conferences and workshops, compare attendance drop-off between morning and afternoon sessions side-by-side. Export signed PDF attendance sheets or formula-sanitized CSV reports.',
         highlights: [
           {
             title: 'Side-by-Side Session Retention:',
             desc: 'Track attendance retention between Session 1 (Keynote) and Session 2 (Workshop) with progress bars.',
           },
           {
-            title: 'Cross-Event Member Leaderboard:',
-            desc: 'See which student members have the highest cumulative attendance records.',
+            title: 'Print-Ready Signed PDF Export:',
+            desc: 'Generates official PDF attendance sheets with organizer signature lines and session timestamps.',
           },
           {
             title: 'Formula-Sanitized CSV Export:',
@@ -299,7 +324,7 @@ const categories: Category[] = [
   },
   {
     id: 'roster',
-    tabLabel: 'Group Roster',
+    tabLabel: 'Roster & Governance',
     icon: '👤',
     slides: [
       {
@@ -322,33 +347,58 @@ const categories: Category[] = [
             desc: 'Students who decline facial storage are marked with "No face data" and can always be checked in manually.',
           },
           {
-            title: 'Student Profile & Attendance History:',
-            desc: 'Tap any attendee to view their complete event attendance history and manage enrolled face vectors.',
+            title: 'On-Device Face Matching:',
+            desc: 'Cached biometric embeddings match students at the door without sending biometric data to any external server.',
           },
         ],
       },
       {
-        id: 'roster-enrollment',
-        label: '2. On-the-Go Enrollment',
-        image: '/assets/showcase/scan-walkin.png',
-        alt: 'Here! Android app walk-in registration bottom sheet showing how students enroll into the group roster on the go',
-        categoryBadge: 'Zero Upfront Data Entry',
-        subtitle: 'Enrollment at the Door',
-        title: 'Add New Students & Face Vectors on the Fly',
+        id: 'roster-history',
+        label: '2. Attendee History',
+        image: '/assets/showcase/attendee-history.png',
+        alt: 'Here! Android app Attendee History screen for Alyssa Lim showing 50% overall attendance rate, attended 1 of 2 events, session time stamps, and attended/absent tabs',
+        categoryBadge: 'Individual Student Track Record',
+        subtitle: '50% Attendance Rate · Cross-Event History',
+        title: 'Student Attendance Records & Cross-Event History',
         description:
-          'Never spend hours creating spreadsheets before a school event again. Checkers can enroll students and capture multiple face angles directly during door check-in, seamlessly expanding the roster.',
+          'Tap any student card on your roster to open their full attendance history across all group events. View their cumulative attendance rate, compare attended versus absent sessions, and inspect precise arrival and departure timestamps.',
         highlights: [
           {
-            title: 'Capture Additional Face Angles:',
-            desc: 'Add extra face samples in varying lighting or angles to boost match confidence in large venues.',
+            title: 'Overall Attendance Rate Card:',
+            desc: 'Calculates individual student attendance percentages (e.g. 50% Attended 1 of 2 events) with visual progress bars.',
           },
           {
-            title: 'Instant Multi-Device Sync:',
-            desc: 'New attendees and biometric vectors sync across all officers’ devices automatically via Cloud Firestore.',
+            title: 'Attended vs Absent Filter Tabs:',
+            desc: 'Quickly filter between All, Attended, and Absent event records for academic accountability.',
           },
           {
-            title: 'GDPR / Student Privacy Compliant:',
-            desc: 'Facial representations are stored strictly as mathematical embeddings with 1-tap delete options.',
+            title: 'Session Time-In & Out Stamps:',
+            desc: 'Detailed cards show exact check-in and check-out times (e.g. In 9:04 AM · Out 11:58 AM).',
+          },
+        ],
+      },
+      {
+        id: 'roster-permissions',
+        label: '3. Role Matrix & Audit',
+        image: '/assets/showcase/role-permissions.png',
+        alt: 'Here! Android app Member Permissions matrix for CS Student Society showing granular toggles for attendance scanning, roster imports, CSV exports, and event management',
+        categoryBadge: 'Access Governance & Security',
+        subtitle: 'Granular Role Access Gates & Audit Trail',
+        title: 'Member Permissions Matrix & Tamper-Evident Audit Logs',
+        description:
+          'Delegate door scanning to club officers with complete control over what they can do. Toggle granular permissions for attendance scanning, roster imports, and CSV exports, while tracking all changes in a tamper-evident audit log.',
+        highlights: [
+          {
+            title: 'Granular Access Toggles:',
+            desc: 'Fine-grained permission gates for scanning attendance, adding walk-ins, and exporting CSVs.',
+          },
+          {
+            title: 'Role Hierarchy (Owner, Admin, Member):',
+            desc: 'Enforces strict boundaries so only authorized officers can create events or modify rosters.',
+          },
+          {
+            title: 'Tamper-Evident Audit Logging:',
+            desc: 'Chronological security log records every role assignment, batch verification, and exported report.',
           },
         ],
       },
