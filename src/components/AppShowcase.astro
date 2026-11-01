@@ -10,7 +10,7 @@
       See Here! in Action on Android
     </h2>
     <p class="mt-2 text-sm sm:text-base text-here-muted">
-      Explore how the app handles door scanning, multi-session schedules, turnout velocity charts, and biometric roster management.
+      Explore real screens from the Here! Android app — from live on-device face scanning and multi-session schedules to turnout velocity charts and biometric roster management.
     </p>
   </div>
 
@@ -58,378 +58,143 @@
       class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
       data-target="roster"
     >
-      👤 Face Gallery &amp; Verify
+      👤 Biometric Roster &amp; Samples
     </button>
   </div>
 
-  <!-- Showcase Stage: Device Mockup + Feature Breakdown -->
+  <!-- Showcase Stage: Authentic Android Screenshots + Feature Breakdown -->
   <div class="mt-6 here-card p-5 sm:p-8 bg-here-surface">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       
-      <!-- Left Column: Realistic Android Device Mockup Frame -->
-      <div class="lg:col-span-6 flex justify-center">
-        <div class="w-[300px] sm:w-[320px] rounded-[38px] p-3 bg-[#1E262B] border-4 border-[#2D3941] shadow-2xl relative">
-          <!-- Android Screen Canvas -->
-          <div class="rounded-[28px] overflow-hidden bg-here-bg min-h-[580px] flex flex-col relative text-left select-none">
-            
-            <!-- Android Status Bar -->
-            <div class="bg-here-primary text-white text-[11px] font-semibold px-5 pt-2 pb-1 flex items-center justify-between">
-              <span>9:41</span>
-              <!-- Camera Punch-Hole -->
-              <div class="w-3.5 h-3.5 rounded-full bg-black mx-auto"></div>
-              <div class="flex items-center gap-1.5 text-[10px]">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"/></svg>
-                <span>100%</span>
-              </div>
-            </div>
+      <!-- Left Column: Realistic Android Device Frame with Real App Captures -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-[270px] sm:w-[296px] rounded-[40px] p-2.5 bg-[#1B242A] border-[3px] border-[#2E3C46] shadow-xl relative">
+          <!-- Camera Punch-Hole -->
+          <div class="w-3 h-3 rounded-full bg-black/90 absolute top-5 left-1/2 -translate-x-1/2 z-10 pointer-events-none border border-white/10"></div>
 
+          <!-- Android Screen Viewport (1080x2424 native ratio) -->
+          <div class="rounded-[30px] overflow-hidden bg-here-bg aspect-[1080/2424] relative select-none border border-black/20">
             <!-- Screen 1: Live Biometric Scanner -->
-            <div id="screen-scanner" class="showcase-screen flex-1 flex flex-col bg-[#11191F] text-white">
-              <!-- Scanner Top HUD -->
-              <div class="p-3 bg-black/40 flex items-center justify-between text-xs">
-                <span class="px-2 py-0.5 rounded-full bg-here-successBg text-here-successFg text-[10px] font-bold">
-                  ● Synced · Offline ready
-                </span>
-                <span class="text-white/80 font-mono text-[11px]">MobileFaceNet</span>
-              </div>
-
-              <!-- Camera Viewfinder with Face Landmark Guide Box -->
-              <div class="flex-1 flex flex-col items-center justify-center p-6 relative">
-                <!-- Reticle Corner Guides -->
-                <div class="w-44 h-48 rounded-2xl border-2 border-dashed border-[#57B7E7] flex flex-col items-center justify-center relative p-3">
-                  <div class="absolute -top-2 left-4 px-2 py-0.2 bg-[#57B7E7] text-black text-[9px] font-extrabold rounded">
-                    FACE DETECTED
-                  </div>
-                  <!-- Simulated Face Silhouette / Target -->
-                  <div class="w-20 h-24 rounded-full border-2 border-white/40 flex items-center justify-center">
-                    <svg class="w-12 h-12 text-[#57B7E7]/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div class="mt-3 text-[11px] font-bold text-here-tint">
-                    0.18s Match (98.4%)
-                  </div>
-                </div>
-
-                <!-- Instant Confirmation Dialog Overlay -->
-                <div class="w-full mt-4 bg-white text-here-text rounded-here p-3 border border-here-border shadow-lg">
-                  <div class="flex items-center gap-2.5">
-                    <div class="w-9 h-9 rounded-lg bg-here-tint text-here-primary font-bold text-xs flex items-center justify-center shrink-0">
-                      AL
-                    </div>
-                    <div class="min-w-0 flex-1">
-                      <div class="text-xs font-bold text-here-text truncate">Alyssa Lim</div>
-                      <div class="text-[10px] text-here-muted">2024-01842 &middot; Time-In 09:02 AM</div>
-                    </div>
-                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-here-successBg text-here-successFg">
-                      Confirmed
-                    </span>
-                  </div>
-                  <div class="mt-2.5 grid grid-cols-2 gap-1.5">
-                    <div class="py-1.5 text-center rounded-lg bg-here-primary text-white text-[11px] font-bold">
-                      Confirm Time-In
-                    </div>
-                    <div class="py-1.5 text-center rounded-lg bg-here-tint text-here-primary text-[11px] font-bold">
-                      Type ID instead
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Scanner Shutter Bar -->
-              <div class="p-4 bg-black/60 flex items-center justify-around">
-                <button type="button" class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-xs">
-                  ⚡
-                </button>
-                <div class="w-14 h-14 rounded-full border-4 border-white flex items-center justify-center">
-                  <div class="w-11 h-11 rounded-full bg-white"></div>
-                </div>
-                <button type="button" class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-xs">
-                  🔄
-                </button>
-              </div>
+            <div id="screen-scanner" class="showcase-screen w-full h-full">
+              <img
+                src="/assets/showcase/live-scanner.png"
+                alt="Here! Android app Live Face Scanner screen showing Time-in/Time-out toggle, Session 1: Keynote pill, 7 cached templates ready, and face alignment viewfinder"
+                width="1080"
+                height="2424"
+                loading="eager"
+                class="w-full h-full object-cover block"
+              />
             </div>
 
             <!-- Screen 2: Event Sessions Hub -->
-            <div id="screen-events" class="showcase-screen hidden flex-1 flex flex-col bg-here-bg">
-              <!-- TealBand App Header -->
-              <div class="bg-here-primary text-white p-4 rounded-b-[20px]">
-                <div class="flex items-center justify-between text-xs">
-                  <span class="font-extrabold text-sm tracking-tight">Here! &middot; Events</span>
-                  <span class="px-2 py-0.5 rounded-full bg-white/20 text-[10px] font-bold">
-                    #CS-889
-                  </span>
-                </div>
-                <div class="mt-2 text-base font-extrabold">General Assembly &amp; Workshop</div>
-                <div class="text-[11px] text-white/80">Saturday &middot; College Auditorium</div>
-
-                <!-- Session Selector Pill Strip -->
-                <div class="flex items-center gap-1.5 mt-3 overflow-x-auto pb-1 text-[11px]">
-                  <span class="px-2.5 py-1 rounded-full bg-white text-here-primary font-bold whitespace-nowrap">
-                    Session 1: Keynote (Active)
-                  </span>
-                  <span class="px-2.5 py-1 rounded-full bg-white/20 text-white font-semibold whitespace-nowrap">
-                    Session 2: Hands-on
-                  </span>
-                </div>
-              </div>
-
-              <!-- Event Attendance Feed -->
-              <div class="p-3 space-y-2 flex-1">
-                <div class="flex items-center justify-between text-[11px] font-bold text-here-muted px-1">
-                  <span>ATTENDEE ROSTER (142 / 150)</span>
-                  <span class="text-here-primary">94.6% Turnout</span>
-                </div>
-
-                <div class="here-card p-2.5 flex items-center justify-between bg-white">
-                  <div class="flex items-center gap-2">
-                    <div class="w-7 h-7 rounded-lg bg-here-tint text-here-primary font-bold text-[10px] flex items-center justify-center">
-                      KN
-                    </div>
-                    <div>
-                      <div class="text-xs font-bold text-here-text">Kiana Navarro</div>
-                      <div class="text-[10px] text-here-muted">2025-04118 &middot; 09:01 AM</div>
-                    </div>
-                  </div>
-                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-here-successBg text-here-successFg">
-                    Face Verified
-                  </span>
-                </div>
-
-                <div class="here-card p-2.5 flex items-center justify-between bg-white">
-                  <div class="flex items-center gap-2">
-                    <div class="w-7 h-7 rounded-lg bg-here-mutedTile text-here-muted font-bold text-[10px] flex items-center justify-center">
-                      MR
-                    </div>
-                    <div>
-                      <div class="text-xs font-bold text-here-text">Marcus Reyes</div>
-                      <div class="text-[10px] text-here-muted">2023-10944 &middot; 09:04 AM</div>
-                    </div>
-                  </div>
-                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-here-warningBg text-here-warningFg">
-                    Typed ID
-                  </span>
-                </div>
-
-                <div class="here-card p-2.5 flex items-center justify-between bg-white">
-                  <div class="flex items-center gap-2">
-                    <div class="w-7 h-7 rounded-lg bg-here-tint text-here-primary font-bold text-[10px] flex items-center justify-center">
-                      JC
-                    </div>
-                    <div>
-                      <div class="text-xs font-bold text-here-text">Jaden Cruz</div>
-                      <div class="text-[10px] text-here-muted">2024-00912 &middot; 09:07 AM</div>
-                    </div>
-                  </div>
-                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-here-successBg text-here-successFg">
-                    Face Verified
-                  </span>
-                </div>
-              </div>
-
-              <!-- Bottom Bar with Floating Action Button -->
-              <div class="p-3 border-t border-here-border bg-white flex items-center justify-between">
-                <span class="text-[11px] font-bold text-here-muted">Auto-lock on end: ON</span>
-                <div class="px-3 py-1.5 rounded-here bg-here-primary text-white text-xs font-bold flex items-center gap-1">
-                  <span>Scan</span>
-                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </div>
-              </div>
+            <div id="screen-events" class="showcase-screen hidden w-full h-full">
+              <img
+                src="/assets/showcase/events-hub.png"
+                alt="Here! Android app Event Sessions Hub for General Assembly & Workshop showing 7 Timed in, 5 Timed out, 1 To check, session filter pills, and student attendance cards"
+                width="1080"
+                height="2424"
+                loading="lazy"
+                class="w-full h-full object-cover block"
+              />
             </div>
 
             <!-- Screen 3: Turnout Velocity Charts -->
-            <div id="screen-analytics" class="showcase-screen hidden flex-1 flex flex-col bg-here-bg">
-              <div class="bg-here-primary text-white p-4 rounded-b-[20px]">
-                <div class="text-xs font-bold text-white/80 uppercase tracking-wider">Event Analytics</div>
-                <div class="text-base font-extrabold mt-0.5">Turnout Velocity &amp; Peaks</div>
-                
-                <!-- Interval Tabs -->
-                <div class="mt-3 flex items-center gap-1 bg-white/10 p-1 rounded-lg text-[11px] font-bold">
-                  <span class="flex-1 py-1 text-center rounded bg-white text-here-primary">10m</span>
-                  <span class="flex-1 py-1 text-center rounded text-white">15m</span>
-                  <span class="flex-1 py-1 text-center rounded text-white">30m</span>
-                </div>
-              </div>
-
-              <div class="p-3 space-y-3 flex-1">
-                <!-- Peak Velocity Callout -->
-                <div class="here-card p-3 bg-white">
-                  <div class="flex items-center justify-between">
-                    <span class="text-[10px] font-extrabold uppercase text-here-muted">Peak Velocity</span>
-                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-here-warningBg text-here-warningFg">
-                      ⚡ Peak Scan Window
-                    </span>
-                  </div>
-                  <div class="mt-1 text-base font-extrabold text-here-text">58 scans / 10m</div>
-                  <div class="text-[11px] text-here-muted">Recorded between 09:10 AM - 09:20 AM</div>
-                  
-                  <!-- CSS Velocity Histogram -->
-                  <div class="mt-3 h-16 flex items-end gap-1.5 pt-2 border-b border-here-border">
-                    <div class="flex-1 bg-here-tint rounded-t h-[20%]"></div>
-                    <div class="flex-1 bg-here-tint rounded-t h-[35%]"></div>
-                    <div class="flex-1 bg-here-primary rounded-t h-[100%] relative">
-                      <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 text-[8px] font-bold text-here-primary">58</span>
-                    </div>
-                    <div class="flex-1 bg-here-tint rounded-t h-[65%]"></div>
-                    <div class="flex-1 bg-here-tint rounded-t h-[40%]"></div>
-                    <div class="flex-1 bg-here-tint rounded-t h-[15%]"></div>
-                  </div>
-                  <div class="flex justify-between text-[9px] text-here-muted mt-1 font-mono">
-                    <span>09:00</span>
-                    <span>09:15</span>
-                    <span>09:30</span>
-                    <span>09:45</span>
-                  </div>
-                </div>
-
-                <!-- Export Preview -->
-                <div class="here-card p-3 bg-white flex items-center justify-between">
-                  <div>
-                    <div class="text-xs font-bold text-here-text">Executive CSV Report</div>
-                    <div class="text-[10px] text-here-muted">Sanitized against formula injection</div>
-                  </div>
-                  <span class="px-2.5 py-1 rounded bg-here-tint text-here-primary text-xs font-bold">
-                    Export .csv
-                  </span>
-                </div>
-              </div>
+            <div id="screen-analytics" class="showcase-screen hidden w-full h-full">
+              <img
+                src="/assets/showcase/event-analytics.png"
+                alt="Here! Android app Event Analytics screen showing 88% Turnout ring chart, 86% Face-Verified stat, 15m Check-In Velocity bar chart, and Session Comparison progress bars"
+                width="1080"
+                height="2424"
+                loading="lazy"
+                class="w-full h-full object-cover block"
+              />
             </div>
 
-            <!-- Screen 4: Face Gallery & Roster -->
-            <div id="screen-roster" class="showcase-screen hidden flex-1 flex flex-col bg-here-bg">
-              <div class="bg-here-primary text-white p-4 rounded-b-[20px]">
-                <div class="text-xs font-bold text-white/80 uppercase tracking-wider">Roster &amp; Biometrics</div>
-                <div class="text-base font-extrabold mt-0.5">Attendee Profile &amp; Samples</div>
-                <div class="text-[11px] text-white/80">MobileFaceNet 192-D Vectors</div>
-              </div>
-
-              <div class="p-3 space-y-3 flex-1">
-                <!-- Batch Verify Action Banner -->
-                <div class="p-2.5 rounded-here bg-here-warningBg text-here-warningFg border border-[#E8D4A2] flex items-center justify-between text-xs">
-                  <div>
-                    <div class="font-bold">3 unverified typed IDs</div>
-                    <div class="text-[10px]">Session 1 &middot; Manual entries</div>
-                  </div>
-                  <span class="px-2 py-1 rounded bg-white text-here-warningFg font-extrabold text-[10px]">
-                    Verify all (3)
-                  </span>
-                </div>
-
-                <!-- Face Gallery Cards -->
-                <div class="here-card p-3 bg-white">
-                  <div class="flex items-center gap-2.5 pb-2.5 border-b border-here-border">
-                    <div class="w-10 h-10 rounded-lg bg-here-tint text-here-primary font-bold text-sm flex items-center justify-center">
-                      KN
-                    </div>
-                    <div>
-                      <div class="text-xs font-bold text-here-text">Kiana Navarro</div>
-                      <div class="text-[10px] text-here-muted">Student ID: 2025-04118</div>
-                    </div>
-                  </div>
-
-                  <div class="mt-2.5">
-                    <div class="text-[10px] font-bold text-here-muted uppercase tracking-wider mb-1.5">
-                      Enrolled Face Angles (3 Samples)
-                    </div>
-                    <div class="grid grid-cols-3 gap-1.5 text-center">
-                      <div class="p-1.5 rounded-lg bg-here-bg border border-here-border">
-                        <div class="w-full h-10 rounded bg-here-tint text-here-primary font-bold text-[9px] flex items-center justify-center">
-                          Frontal
-                        </div>
-                        <div class="text-[9px] text-here-muted mt-1 font-semibold">Primary</div>
-                      </div>
-                      <div class="p-1.5 rounded-lg bg-here-bg border border-here-border">
-                        <div class="w-full h-10 rounded bg-here-tint text-here-primary font-bold text-[9px] flex items-center justify-center">
-                          Angle 45°
-                        </div>
-                        <div class="text-[9px] text-here-muted mt-1 font-semibold">Lighting</div>
-                      </div>
-                      <div class="p-1.5 rounded-lg bg-here-bg border border-here-border">
-                        <div class="w-full h-10 rounded bg-here-tint text-here-primary font-bold text-[9px] flex items-center justify-center">
-                          Glasses
-                        </div>
-                        <div class="text-[9px] text-here-muted mt-1 font-semibold">Accessories</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <!-- Screen 4: Biometric Roster & Profiles -->
+            <div id="screen-roster" class="showcase-screen hidden w-full h-full">
+              <img
+                src="/assets/showcase/biometric-roster.png"
+                alt="Here! Android app CS Student Society Attendees Roster showing 8 registered students with multi-sample biometric badges and No face data indicators"
+                width="1080"
+                height="2424"
+                loading="lazy"
+                class="w-full h-full object-cover block"
+              />
             </div>
-
           </div>
         </div>
       </div>
 
       <!-- Right Column: Interactive Description & Screen Specifications -->
-      <div class="lg:col-span-6 space-y-6">
+      <div class="lg:col-span-7 space-y-6">
         
         <!-- Info Panel: Scanner -->
         <div id="info-scanner" class="showcase-info space-y-4">
-          <div class="inline-flex items-center gap-2">
+          <div class="inline-flex flex-wrap items-center gap-2">
             <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-success">
-              100% On-Device Neural Net
+              100% On-Device Biometrics
             </span>
             <span class="text-xs font-semibold text-here-muted">
-              MobileFaceNet &middot; 0.18s inference
+              Synced &middot; 7 templates ready
             </span>
           </div>
           <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Live Door Scanner with Zero Cloud Dependency
+            Live Door Scanner with On-the-Go Face Enrollment
           </h3>
           <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Google ML Kit tracks faces inside the camera viewfinder, generates 192-dimensional embeddings directly in local memory, and matches against cached group templates. No internet is required during door scanning.
+            Switch seamlessly between <strong>Time in</strong> and <strong>Time out</strong>, select the active session window, and scan attendees right at the door. MobileFaceNet generates 192-dimensional embeddings directly on your phone — zero cloud latency or internet required.
           </p>
           <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Face-First Registration:</strong> New attendees register name and Student ID directly from the camera confirmation dialog upon their first scan.</span>
+              <span><strong>Face-First Registration:</strong> Unrecognized visitors can register their name, Student ID, and face sample on the spot during their very first check-in.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Offline Caching:</strong> Pre-caches face templates upon opening the event. All time-in/time-out records queue locally until reconnection.</span>
+              <span><strong>Offline Template Caching:</strong> Pre-caches group face templates locally so scanning works in lecture halls or basements without Wi-Fi.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Manual "Type ID" Fallback:</strong> Attendees without face consent or temporary camera issues can be recorded instantly with manual ID numbers.</span>
+              <span><strong>Instant Manual Fallback:</strong> Tap <em>Manual</em> at the top or bottom of the scanner to log a Student ID without camera capture.</span>
             </li>
           </ul>
         </div>
 
         <!-- Info Panel: Events -->
         <div id="info-events" class="showcase-info hidden space-y-4">
-          <div class="inline-flex items-center gap-2">
+          <div class="inline-flex flex-wrap items-center gap-2">
             <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-tint">
               Multi-Day &amp; Multi-Session
             </span>
             <span class="text-xs font-semibold text-here-muted">
-              Auto-Lock Protection
+              Real-Time Status Filters
             </span>
           </div>
           <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Schedule Multi-Session Conferences &amp; Club Events
+            Multi-Session Event Hub &amp; Manual ID Verification
           </h3>
           <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Organize complex multi-part events (e.g., Morning Keynote, Afternoon Workshop, Evening General Assembly) with individual attendance windows and automatic lock-on-end protection to prevent back-dated check-ins.
+            Manage multi-day assemblies and multi-session workshops from a single screen. Filter your live roster by <strong>All</strong>, <strong>Timed in</strong>, <strong>Missing</strong>, or <strong>To check</strong> (manual Typed ID entries awaiting admin verification).
           </p>
           <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Distinct Session Windows:</strong> Track punctuality and dropout rates between individual workshop slots.</span>
+              <span><strong>Session Switcher Strip:</strong> Toggle between <em>Overview (All)</em> and individual sessions (e.g., <em>Session 1: Keynote</em>, <em>Session 2: AI Workshop</em>).</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Conflict-Free Multi-Device Scanning:</strong> Multiple checkers scan simultaneously; writes use per-checker timestamps to eliminate merge conflicts.</span>
+              <span><strong>Audit-Ready Check-In Cards:</strong> See exact Time-In and Time-Out timestamps alongside <code>Typed ID</code> badges for unverified manual entries.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Automatic Event Locking:</strong> When the scheduled event end time expires, attendance records automatically freeze in read-only mode.</span>
+              <span><strong>Automatic Event Lock-on-End:</strong> Events automatically lock when their scheduled end window passes to prevent retroactive tampering.</span>
             </li>
           </ul>
         </div>
 
         <!-- Info Panel: Analytics -->
         <div id="info-analytics" class="showcase-info hidden space-y-4">
-          <div class="inline-flex items-center gap-2">
+          <div class="inline-flex flex-wrap items-center gap-2">
             <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-warning">
               Real-Time Turnout Intelligence
             </span>
@@ -438,57 +203,63 @@
             </span>
           </div>
           <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Check-In Velocity Timelines &amp; Executive CSV Exports
+            Check-In Velocity Timelines &amp; Session Drop-Off Tracking
           </h3>
           <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Understand when attendees arrive. Configurable velocity histograms uncover peak arrival times, bottlenecks, and punctuality patterns across your student organization's semester calendar.
+            Inspect overall turnout percentage, face-verified ratio, and arrival surges at a glance. Switch between <strong>10m</strong>, <strong>15m</strong>, and <strong>30m</strong> velocity buckets to see exactly when lines peaked.
           </p>
           <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Peak Scan Velocity Pills:</strong> Instantly pinpoint the exact 10-minute window that experienced the highest arrival rush.</span>
+              <span><strong>Peak Scan Callout Pill:</strong> Automatically highlights the busiest check-in window (e.g., <em>Peak: 09:00 (8 scans)</em>).</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Cross-Event Member Leaderboards:</strong> Track who attended the most events across the school year for club awards or academic credit.</span>
+              <span><strong>Multi-Session Comparison Bars:</strong> Track attendance retention across Keynote, AI Workshop, and Hackathon sessions.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Sanitized CSV Downloads:</strong> Output files escape Excel/Google Sheets formula injection vulnerabilities (`=`, `+`, `-`, `@`).</span>
+              <span><strong>1-Tap Sanitized CSV Export:</strong> Export spreadsheet-ready attendance reports directly from the top-right download button.</span>
             </li>
           </ul>
         </div>
 
         <!-- Info Panel: Roster -->
         <div id="info-roster" class="showcase-info hidden space-y-4">
-          <div class="inline-flex items-center gap-2">
+          <div class="inline-flex flex-wrap items-center gap-2">
             <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-tint">
-              Biometric Governance
+              Biometric Roster &amp; Profiles
             </span>
             <span class="text-xs font-semibold text-here-muted">
-              1-Tap Batch Verification
+              Multi-Sample Face Vectors
             </span>
           </div>
           <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Multi-Angle Face Gallery &amp; Role-Based Governance
+            Group Roster &amp; Multi-Sample Biometric Profiles
           </h3>
           <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Ensure high recognition accuracy even when members change hairstyles or wear glasses. Store multiple biometric feature vectors per member, calibrate matching thresholds, and batch-verify manual entries in 1 tap.
+            Every student enrolled at the door or added by an organizer is stored in your group roster with clear sample counts (<code>4 samples</code>, <code>3 samples</code>, or <code>No face data</code> for ID-only members).
           </p>
           <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Multi-Angle Biometric Gallery:</strong> Store up to 5 facial sample vectors per student to accommodate lighting and glasses variations.</span>
+              <span><strong>Multi-Angle Sample Storage:</strong> Capture additional face samples per student over time for resilient recognition across lighting conditions.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>1-Tap Batch Verification:</strong> Admins can review all manual Typed ID check-ins and verify them in bulk with one click.</span>
+              <span><strong>Opt-Out Friendly:</strong> Students who prefer not to use facial recognition remain first-class roster members with <code>No face data</code> badges.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Complete Right to Deletion:</strong> Deleting a student permanently purges their facial vectors and thumbnails from the group database.</span>
+              <span><strong>Instant Search &amp; Management:</strong> Search by name or Student ID to manage face samples, edit details, or purge biometric data.</span>
             </li>
           </ul>
+        </div>
+
+        <!-- Quick Screen Switcher Pills inside Right Column -->
+        <div class="pt-4 border-t border-here-border flex flex-wrap items-center justify-between gap-2 text-xs text-here-muted">
+          <span>Captured live from <strong>Here! {`v2.1.0-beta.6`}</strong> on Android</span>
+          <span class="font-bold text-here-primary">Click any tab above to switch screens &uarr;</span>
         </div>
 
       </div>
