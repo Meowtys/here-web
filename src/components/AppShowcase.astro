@@ -458,7 +458,7 @@ const categories: Category[] = [
                     alt={slide.alt}
                     width="1080"
                     height="2424"
-                    loading={cat.id === 'group' && sIdx === 0 ? 'eager' : 'lazy'}
+                    loading="eager" decoding="async"
                     class="w-full h-full object-cover block"
                   />
                 </div>
