@@ -5,7 +5,7 @@ import path from 'node:path';
 
 const rootDir = process.cwd();
 
-test('Brand assets exist in public/assets and public/favicon.png', () => {
+test('Brand and showcase assets exist in public/assets and public/favicon.png', () => {
   const loginLogo = path.join(rootDir, 'public', 'assets', 'loginlogo.png');
   const brandMark = path.join(rootDir, 'public', 'assets', 'brand-mark.png');
   const logo = path.join(rootDir, 'public', 'assets', 'logo.png');
@@ -18,6 +18,18 @@ test('Brand assets exist in public/assets and public/favicon.png', () => {
   assert.ok(fs.statSync(loginLogo).size > 1000, 'loginlogo.png should not be empty');
   assert.ok(fs.statSync(brandMark).size > 1000, 'brand-mark.png should not be empty');
   assert.ok(fs.statSync(logo).size > 1000, 'logo.png should not be empty');
+
+  const showcaseFiles = [
+    'live-scanner.png',
+    'events-hub.png',
+    'event-analytics.png',
+    'biometric-roster.png',
+  ];
+  for (const file of showcaseFiles) {
+    const filePath = path.join(rootDir, 'public', 'assets', 'showcase', file);
+    assert.equal(fs.existsSync(filePath), true, `public/assets/showcase/${file} must exist`);
+    assert.ok(fs.statSync(filePath).size > 50000, `public/assets/showcase/${file} must be a real screenshot`);
+  }
 });
 
 test('Legal documents match here-next legal_doc_page.dart 1:1', () => {
@@ -81,7 +93,7 @@ test('Release fetcher configures GitHub releases endpoint and v2.1.0-beta.6 stat
   assert.ok(releaseSource.includes('buildNumber: 14'), 'Must include Build 14');
 });
 
-test('Built dist HTML outputs exist and contain required copy, showcase, and links', () => {
+test('Built dist HTML outputs exist and contain required copy, real showcase screenshots, and links', () => {
   const indexHtmlPath = path.join(rootDir, 'dist', 'index.html');
   const privacyHtmlPath = path.join(rootDir, 'dist', 'privacy', 'index.html');
   const termsHtmlPath = path.join(rootDir, 'dist', 'terms', 'index.html');
@@ -99,10 +111,10 @@ test('Built dist HTML outputs exist and contain required copy, showcase, and lin
   assert.ok(indexHtml.includes('brand-mark.png'), 'Landing page must render cropped crisp brand-mark.png');
   assert.ok(indexHtml.includes('id="showcase"'), 'Landing page must include interactive showcase section');
   assert.ok(indexHtml.includes('See Here! in Action on Android'), 'Landing page must include showcase heading');
-  assert.ok(indexHtml.includes('id="screen-scanner"'), 'Showcase must include live face scanner mock');
-  assert.ok(indexHtml.includes('id="screen-events"'), 'Showcase must include event sessions hub mock');
-  assert.ok(indexHtml.includes('id="screen-analytics"'), 'Showcase must include turnout velocity charts mock');
-  assert.ok(indexHtml.includes('id="screen-roster"'), 'Showcase must include face gallery & roster mock');
+  assert.ok(indexHtml.includes('/assets/showcase/live-scanner.png'), 'Showcase must render real live-scanner.png');
+  assert.ok(indexHtml.includes('/assets/showcase/events-hub.png'), 'Showcase must render real events-hub.png');
+  assert.ok(indexHtml.includes('/assets/showcase/event-analytics.png'), 'Showcase must render real event-analytics.png');
+  assert.ok(indexHtml.includes('/assets/showcase/biometric-roster.png'), 'Showcase must render real biometric-roster.png');
   assert.ok(indexHtml.includes('1. Create or Join a Group'), 'Landing page must include Quick Start steps');
 
   const privacyHtml = fs.readFileSync(privacyHtmlPath, 'utf8');
