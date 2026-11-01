@@ -10,19 +10,30 @@
       See Here! in Action on Android
     </h2>
     <p class="mt-2 text-sm sm:text-base text-here-muted">
-      Explore real screens from the Here! Android app — built so attendance checkers can check students in on the go, manage multi-session events, track turnout velocity, and maintain your group roster effortlessly.
+      From creating your group and scheduling a quick 1-session club meeting (or a multi-day event) to checking students in on the go and exporting turnout reports — explore the full workflow below.
     </p>
   </div>
 
   <!-- Showcase Tab Selector -->
   <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" role="tablist" aria-label="App Showcase Screens">
     <button
-      id="tab-btn-scanner"
+      id="tab-btn-group"
       type="button"
       role="tab"
       aria-selected="true"
-      aria-controls="screen-scanner"
+      aria-controls="screen-group"
       class="showcase-tab-btn active px-3.5 py-2 rounded-here border border-here-primary bg-here-primary text-here-onPrimary text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
+      data-target="group"
+    >
+      🏠 Groups &amp; Events
+    </button>
+    <button
+      id="tab-btn-scanner"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="screen-scanner"
+      class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
       data-target="scanner"
     >
       📷 Scan Attendance
@@ -36,7 +47,7 @@
       class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
       data-target="events"
     >
-      📅 Event Sessions &amp; Check-Ins
+      📋 Attendance List
     </button>
     <button
       id="tab-btn-analytics"
@@ -47,7 +58,7 @@
       class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
       data-target="analytics"
     >
-      📊 Turnout Velocity Charts
+      📊 Turnout &amp; CSV Export
     </button>
     <button
       id="tab-btn-roster"
@@ -58,7 +69,7 @@
       class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
       data-target="roster"
     >
-      👤 Group Roster &amp; Samples
+      👤 Group Roster
     </button>
   </div>
 
@@ -74,11 +85,11 @@
 
           <!-- Android Screen Viewport (1080x2424 native ratio) -->
           <div class="rounded-[30px] overflow-hidden bg-here-bg aspect-[1080/2424] relative select-none border border-black/20">
-            <!-- Screen 1: Scan Attendance -->
-            <div id="screen-scanner" class="showcase-screen w-full h-full">
+            <!-- Screen 1: Group Workspace & Events (1-Session + Multi-Session) -->
+            <div id="screen-group" class="showcase-screen w-full h-full">
               <img
-                src="/assets/showcase/live-scanner.png"
-                alt="Here! Android app Scan Attendance screen showing Time-in/Time-out toggle, Session 1: Keynote pill, 7 cached templates ready, and face alignment viewfinder"
+                src="/assets/showcase/group-workspace.png"
+                alt="Here! Android app Group Workspace screen for CS Student Society showing 5 Members, 8 Attendees, + Add button, and both a 1-session event (Freshmen Club Orientation, 9:00 AM - 12:00 PM) and a multi-session event (General Assembly & Workshop)"
                 width="1080"
                 height="2424"
                 loading="eager"
@@ -86,11 +97,11 @@
               />
             </div>
 
-            <!-- Screen 2: Event Sessions & Check-Ins -->
-            <div id="screen-events" class="showcase-screen hidden w-full h-full">
+            <!-- Screen 2: Scan Attendance -->
+            <div id="screen-scanner" class="showcase-screen hidden w-full h-full">
               <img
-                src="/assets/showcase/events-hub.png"
-                alt="Here! Android app Event screen for General Assembly & Workshop showing 7 Timed in, 5 Timed out, 1 To check, session filter pills, and student attendance cards"
+                src="/assets/showcase/live-scanner.png"
+                alt="Here! Android app Scan Attendance screen showing Time-in/Time-out toggle, Session 1: Keynote pill, 7 cached templates ready, and face alignment viewfinder"
                 width="1080"
                 height="2424"
                 loading="lazy"
@@ -98,7 +109,19 @@
               />
             </div>
 
-            <!-- Screen 3: Turnout Velocity Charts -->
+            <!-- Screen 3: Attendance List & Check-Ins -->
+            <div id="screen-events" class="showcase-screen hidden w-full h-full">
+              <img
+                src="/assets/showcase/events-hub.png"
+                alt="Here! Android app Attendance List screen showing 7 Timed in, 5 Timed out, 1 To check, session filter pills, search bar, and student attendance cards"
+                width="1080"
+                height="2424"
+                loading="lazy"
+                class="w-full h-full object-cover block"
+              />
+            </div>
+
+            <!-- Screen 4: Turnout & CSV Export -->
             <div id="screen-analytics" class="showcase-screen hidden w-full h-full">
               <img
                 src="/assets/showcase/event-analytics.png"
@@ -110,7 +133,7 @@
               />
             </div>
 
-            <!-- Screen 4: Group Roster & Samples -->
+            <!-- Screen 5: Group Roster -->
             <div id="screen-roster" class="showcase-screen hidden w-full h-full">
               <img
                 src="/assets/showcase/biometric-roster.png"
@@ -128,8 +151,40 @@
       <!-- Right Column: Interactive Description & Screen Specifications -->
       <div class="lg:col-span-7 space-y-6">
         
+        <!-- Info Panel: Group Workspace & Events -->
+        <div id="info-group" class="showcase-info space-y-4">
+          <div class="inline-flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-tint">
+              Organization Workspace
+            </span>
+            <span class="text-xs font-semibold text-here-muted">
+              Single-Session &amp; Multi-Session Events
+            </span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
+            Create Your Group &amp; Schedule Any Type of Event
+          </h3>
+          <p class="text-sm sm:text-base text-here-muted leading-relaxed">
+            Set up a shared workspace for your student organization in seconds. Whether you're hosting a quick <strong>single-session meeting</strong> (like <em>Freshmen Club Orientation · 9:00 AM – 12:00 PM</em>) or a <strong>multi-day conference</strong> with multiple sessions, everything lives in one clean hub.
+          </p>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Invite Checkers with a 6-Character Code or QR:</strong> Tap the share icon to invite fellow officers and attendance checkers to your group.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Standard 1-Session or Multi-Session Schedules:</strong> Create a simple one-window event by default, or flip one toggle when you need multi-day / AM-PM sessions.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>At-a-Glance Group Dashboard:</strong> Manage your group's <strong>Members</strong>, <strong>Attendees</strong> roster, permissions, and audit logs right from the top header.</span>
+            </li>
+          </ul>
+        </div>
+
         <!-- Info Panel: Scanner -->
-        <div id="info-scanner" class="showcase-info space-y-4">
+        <div id="info-scanner" class="showcase-info hidden space-y-4">
           <div class="inline-flex flex-wrap items-center gap-2">
             <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-success">
               100% On-Device Biometrics
@@ -142,7 +197,7 @@
             Check Students' Attendance on the Go
           </h3>
           <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Attendance checkers can open the camera, toggle between <strong>Time in</strong> and <strong>Time out</strong>, pick the active session, and check students in wherever the event is happening. MobileFaceNet matches faces directly on your phone — no internet connection required.
+            Attendance checkers can open the camera, toggle between <strong>Time in</strong> and <strong>Time out</strong>, and check students in wherever the event is happening. MobileFaceNet matches faces directly on your phone — no internet connection required.
           </p>
           <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
             <li class="flex items-start gap-2">
@@ -151,7 +206,7 @@
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Works Offline Anywhere:</strong> Group face templates are cached on-device (`Synced · 7 templates ready`) so checkers can record attendance in auditoriums, fields, or rooms without Wi-Fi.</span>
+              <span><strong>Works Offline Anywhere:</strong> Group face templates are cached on-device (<code>Synced · 7 templates ready</code>) so checkers can record attendance in auditoriums, fields, or rooms without Wi-Fi.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
@@ -160,34 +215,34 @@
           </ul>
         </div>
 
-        <!-- Info Panel: Events -->
+        <!-- Info Panel: Events / Attendance List -->
         <div id="info-events" class="showcase-info hidden space-y-4">
           <div class="inline-flex flex-wrap items-center gap-2">
             <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-tint">
-              Multi-Day &amp; Multi-Session
+              Live Attendance Feed
             </span>
             <span class="text-xs font-semibold text-here-muted">
-              Real-Time Status Filters
+              Time-In / Time-Out &amp; Status Filters
             </span>
           </div>
           <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Multi-Session Event Tracking &amp; 1-Tap Verification
+            Track Time-In, Time-Out, Missing &amp; Manual Entries
           </h3>
           <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Run single-window or multi-session events with live counts for <strong>Timed in</strong>, <strong>Timed out</strong>, and <strong>To check</strong>. Filter the attendance list by <strong>All</strong>, <strong>Timed in</strong>, <strong>Missing</strong>, or <strong>To check</strong> in one tap.
+            Whether your event has a <strong>single attendance window</strong> or <strong>multiple sessions</strong>, you get real-time counts for <strong>Timed in</strong>, <strong>Timed out</strong>, and <strong>To check</strong>. Search by name or Student ID and filter by status in one tap.
           </p>
           <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Session Switcher Pills:</strong> Jump between <em>Overview (All)</em> and individual sessions like <em>Session 1: Keynote</em> or <em>Session 2: AI Workshop</em>.</span>
+              <span><strong>See Who's Here &amp; Who's Missing:</strong> Filter between <em>All</em>, <em>Timed in</em>, <em>Missing</em> (registered members who haven't arrived yet), and <em>To check</em>.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Batch Verify Manual Check-Ins:</strong> Manual ID entries are tagged with a <code>Typed ID</code> badge under <em>To check</em> so admins can review and verify them in bulk.</span>
+              <span><strong>Verify Manual ID Check-Ins:</strong> Manual ID entries are marked with a <code>Typed ID</code> badge so admins can verify them individually or in 1 tap under <em>To check</em>.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Automatic Lock-on-End:</strong> Events can lock automatically once the scheduled end time passes so attendance records stay accurate.</span>
+              <span><strong>Optional Session Pills &amp; Auto-Lock:</strong> Multi-session events add a session switcher bar at the top, and any event can auto-lock when its end time passes.</span>
             </li>
           </ul>
         </div>
@@ -196,14 +251,14 @@
         <div id="info-analytics" class="showcase-info hidden space-y-4">
           <div class="inline-flex flex-wrap items-center gap-2">
             <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-warning">
-              Real-Time Turnout Analytics
+              Turnout &amp; Reports
             </span>
             <span class="text-xs font-semibold text-here-muted">
               10m / 15m / 30m Histograms
             </span>
           </div>
           <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Check-In Velocity Timelines &amp; Session Comparison
+            Turnout Summary, Check-In Velocity &amp; CSV Export
           </h3>
           <p class="text-sm sm:text-base text-here-muted leading-relaxed">
             See your event's turnout percentage, present vs. absent counts, full (in &amp; out) completion, and face-verified rate. Toggle between <strong>10m</strong>, <strong>15m</strong>, and <strong>30m</strong> intervals to see when check-ins peaked.
@@ -211,15 +266,15 @@
           <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Peak Scan Window Callout:</strong> Automatically pinpoints the busiest check-in interval (e.g., <em>Peak: 09:00 (8 scans)</em>).</span>
+              <span><strong>Peak Scan Window Callout:</strong> Automatically pinpoints the busiest arrival rush (e.g., <em>Peak: 09:00 (8 scans)</em>).</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Session Retention Comparison:</strong> Compare turnout across scheduled sessions to spot attendance drop-off.</span>
+              <span><strong>Works for Single or Multi-Session Events:</strong> View overall turnout for single-window events, plus session-by-session comparison bars for multi-session events.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>1-Tap CSV Export:</strong> Export clean, spreadsheet-safe CSV reports directly from the analytics header.</span>
+              <span><strong>1-Tap CSV Export:</strong> Download or share spreadsheet-ready CSV attendance sheets directly from the top-right export button.</span>
             </li>
           </ul>
         </div>
