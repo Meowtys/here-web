@@ -27,9 +27,12 @@ test('Brand and showcase assets exist in public/assets and public/favicon.png', 
     'scan-manual.png',
     'scan-walkin.png',
     'events-hub.png',
+    'group-analytics.png',
     'event-analytics.png',
     'analytics-sessions.png',
     'biometric-roster.png',
+    'attendee-history.png',
+    'role-permissions.png',
   ];
   for (const file of showcaseFiles) {
     const filePath = path.join(rootDir, 'public', 'assets', 'showcase', file);
@@ -131,9 +134,12 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
     '/assets/showcase/scan-manual.png',
     '/assets/showcase/scan-walkin.png',
     '/assets/showcase/events-hub.png',
+    '/assets/showcase/group-analytics.png',
     '/assets/showcase/event-analytics.png',
     '/assets/showcase/analytics-sessions.png',
     '/assets/showcase/biometric-roster.png',
+    '/assets/showcase/attendee-history.png',
+    '/assets/showcase/role-permissions.png',
   ];
   for (const screenPath of allShowcaseScreens) {
     assert.ok(indexHtml.includes(screenPath), `Showcase must render ${screenPath}`);
