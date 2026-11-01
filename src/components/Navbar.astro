@@ -29,6 +29,12 @@ const { currentPath = '/' } = Astro.props;
     <!-- Desktop Navigation -->
     <nav aria-label="Primary Navigation" class="hidden md:flex items-center gap-1">
       <a
+        href="/#showcase"
+        class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 transition-colors"
+      >
+        Showcase
+      </a>
+      <a
         href="/#features"
         class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 transition-colors"
       >
@@ -113,6 +119,12 @@ const { currentPath = '/' } = Astro.props;
 
   <!-- Mobile Dropdown Navigation -->
   <div id="mobile-nav-menu" class="hidden md:hidden border-t border-here-border bg-here-surface px-4 py-3 space-y-1">
+    <a
+      href="/#showcase"
+      class="block px-3 py-2 rounded-lg text-sm font-semibold text-here-text hover:bg-here-tint/50 transition-colors"
+    >
+      Showcase
+    </a>
     <a
       href="/#features"
       class="block px-3 py-2 rounded-lg text-sm font-semibold text-here-text hover:bg-here-tint/50 transition-colors"
