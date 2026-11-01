@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #F7F5EE;
+    color: #14313F;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #F7F5EE;
+    color: #14313F;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  :focus-visible {
+    outline: 2px solid #1F5F80;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .here-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E6E2D6;
+    border-radius: 12px;
+  }
+
+  .here-pill-success {
+    background-color: #DDF1E4;
+    color: #1D6B3A;
+  }
+
+  .here-pill-warning {
+    background-color: #F6EBD0;
+    color: #7A5A12;
+  }
+
+  .here-pill-danger {
+    background-color: #FBE4E1;
+    color: #9A2A1E;
+  }
+
+  .here-pill-tint {
+    background-color: #E3EEF3;
+    color: #1F5F80;
+  }
+
+  .here-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.75rem 1.25rem;
+    background-color: #1F5F80;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    border-radius: 12px;
+    border: 1.5px solid #1F5F80;
+    transition: background-color 150ms ease, transform 100ms ease;
+  }
+
+  .here-btn-primary:hover {
+    background-color: #184B66;
+    border-color: #184B66;
+  }
+
+  .here-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.75rem 1.25rem;
+    background-color: #FFFFFF;
+    color: #1F5F80;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    border-radius: 12px;
+    border: 1.5px solid #1F5F80;
+    transition: background-color 150ms ease;
+  }
+
+  .here-btn-outline:hover {
+    background-color: #E3EEF3;
+  }
+}
