@@ -11,9 +11,9 @@ const features = [
     badge: 'Synced - Offline ready',
     badgeStyle: 'here-pill-success',
     description:
-      'No pre-built roster required. Point the camera to check in known members instantly, or enroll new attendees right at the door during their first scan. Powered by on-device MobileFaceNet biometrics that work completely offline.',
+      'Attendance checkers can check students in on the go without preparing a roster ahead of time. Scan faces to time in returning members instantly, or register new walk-in students right during their first scan — completely offline.',
     highlights: [
-      'Zero prep needed — register new faces & IDs on the go during check-in',
+      'No pre-built roster needed — register new students & faces on the go',
       'Instant time-in & time-out camera recognition on future scans',
       'Local biometric caching (Synced - Offline ready) with automatic background sync',
     ],
@@ -38,7 +38,7 @@ const features = [
       'Visualize check-in momentum with configurable velocity timelines (10m, 15m, or 30m intervals), peak scan tracking, cross-event member leaderboards, and spreadsheet-safe CSV exports.',
     highlights: [
       'Configurable check-in velocity timelines (10m / 15m / 30m)',
-      'Peak scan window tracking & punctuality breakdowns',
+      'Peak scan window tracking & session retention comparison',
       'Cross-event leaderboards & formula-sanitized CSV exports',
     ],
   },
@@ -69,14 +69,14 @@ const quickStartSteps = [
     title: '2. Schedule Event Sessions',
     subtitle: 'No Roster Prep Needed',
     description:
-      'Create a single-window or multi-session event in seconds. You can start taking attendance right away without importing a spreadsheet first.',
+      'Create a single-window or multi-session event in seconds. Checkers can start taking attendance right away without importing a spreadsheet first.',
   },
   {
     step: '03',
     title: '3. Scan & Register on the Go',
     subtitle: 'Face-First Check-In',
     description:
-      'Open the camera to scan attendees. First-time visitors register their face and Student ID on the spot; returning members match in one tap — even offline.',
+      'Open the camera to check students in on the go. First-time walk-ins register their face and Student ID on the spot; returning members match in one tap — even offline.',
   },
   {
     step: '04',
@@ -100,8 +100,8 @@ const installSteps = [
   },
   {
     num: '3',
-    title: 'Sign In & Start Scanning',
-    body: 'Launch Here!, sign in with Google, create or join your club group, and start scanning faces at your very next event — no pre-enrollment required.',
+    title: 'Sign In & Check Attendance on the Go',
+    body: 'Launch Here!, sign in with Google, create or join your group, and start checking students in on the go at your next event — no pre-built roster required.',
   },
 ];
 ---
@@ -121,7 +121,7 @@ const installSteps = [
             <span>{release.version} &middot; Build {release.buildNumber}</span>
           </span>
           <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold here-pill-success">
-            Face-First &middot; No Roster Prep
+            Face-First &middot; Check In on the Go
           </span>
           <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold here-pill-warning">
             {release.minAndroid}
@@ -145,10 +145,10 @@ const installSteps = [
             A simple, face-first attendance system made for students.
           </h1>
           <p class="text-base sm:text-lg font-bold text-here-primary leading-snug">
-            No pre-built roster needed. Open the camera, scan faces at the door, and enroll attendees on the go.
+            No pre-built roster needed. Attendance checkers can scan faces, register walk-ins, and check students in on the go.
           </p>
           <p class="text-sm sm:text-base text-here-muted leading-relaxed max-w-2xl">
-            Built for student organizations, university clubs, and academic events. Here! combines on-device facial recognition with offline check-in caching, multi-session schedules, and real-time turnout analytics — so your line keeps moving even without Wi-Fi.
+            Built for student organizations, university clubs, and academic events. Here! combines on-device facial recognition with offline check-in caching, multi-session schedules, and real-time turnout analytics — so you can take attendance anywhere, even without Wi-Fi.
           </p>
         </div>
 
@@ -233,19 +233,16 @@ const installSteps = [
             <!-- Simulated BandTile Row -->
             <div class="grid grid-cols-3 gap-2 mt-4">
               <div class="bg-white/15 rounded-here py-2 px-2.5 text-center">
-                <div class="text-base font-extrabold">142</div>
-                <div class="text-[11px] font-semibold text-white/90">Checked In</div>
+                <div class="text-base font-extrabold">7</div>
+                <div class="text-[11px] font-semibold text-white/90">Timed in</div>
               </div>
               <div class="bg-white/15 rounded-here py-2 px-2.5 text-center">
-                <div class="text-base font-extrabold">94%</div>
-                <div class="text-[11px] font-semibold text-white/90">Face Match</div>
+                <div class="text-base font-extrabold">5</div>
+                <div class="text-[11px] font-semibold text-white/90">Timed out</div>
               </div>
               <div class="bg-white/15 rounded-here py-2 px-2.5 text-center">
-                <div class="text-base font-extrabold flex items-center justify-center gap-1">
-                  <span>3</span>
-                  <span class="px-1.5 py-0.2 rounded-full text-[10px] bg-here-warningBg text-here-warningFg font-extrabold">ID</span>
-                </div>
-                <div class="text-[11px] font-semibold text-white/90">Pending</div>
+                <div class="text-base font-extrabold">1</div>
+                <div class="text-[11px] font-semibold text-white/90">To check</div>
               </div>
             </div>
           </div>
@@ -253,7 +250,7 @@ const installSteps = [
           <!-- Simulated Live Check-in Feed -->
           <div class="p-4 space-y-2.5 bg-here-bg/60">
             <div class="text-[11px] font-bold uppercase tracking-wider text-here-muted px-1">
-              Live Door Check-In &amp; On-the-Go Enrollment
+              On-the-Go Attendance &amp; Walk-In Registration
             </div>
 
             <div class="here-card p-3 flex items-center justify-between gap-3">
@@ -263,7 +260,7 @@ const installSteps = [
                 </div>
                 <div class="min-w-0">
                   <div class="text-sm font-bold text-here-text truncate">Alyssa Lim</div>
-                  <div class="text-xs text-here-muted">2024-01842 &middot; Matched in 0.18s</div>
+                  <div class="text-xs text-here-muted">2024-01842 &middot; In 9:02 AM &middot; Out 11:25 AM</div>
                 </div>
               </div>
               <span class="px-2.5 py-1 rounded-full text-[11px] font-bold here-pill-success shrink-0">
@@ -278,22 +275,22 @@ const installSteps = [
                 </div>
                 <div class="min-w-0">
                   <div class="text-sm font-bold text-here-text truncate">Kiana Navarro</div>
-                  <div class="text-xs text-here-muted">2025-04118 &middot; Enrolled on first scan</div>
+                  <div class="text-xs text-here-muted">2025-04118 &middot; Registered on first scan</div>
                 </div>
               </div>
               <span class="px-2.5 py-1 rounded-full text-[11px] font-bold here-pill-tint shrink-0">
-                New Face Saved
+                Walk-In Saved
               </span>
             </div>
 
             <div class="here-card p-3 flex items-center justify-between gap-3">
               <div class="flex items-center gap-3 min-w-0">
                 <div class="w-10 h-10 rounded-[10px] bg-here-mutedTile text-here-muted font-bold text-sm flex items-center justify-center shrink-0">
-                  MR
+                  CR
                 </div>
                 <div class="min-w-0">
-                  <div class="text-sm font-bold text-here-text truncate">Marcus Reyes</div>
-                  <div class="text-xs text-here-muted">2023-10944 &middot; Time-in 09:04 AM</div>
+                  <div class="text-sm font-bold text-here-text truncate">Caleb Reyes</div>
+                  <div class="text-xs text-here-muted">2023-10944 &middot; In 9:04 AM</div>
                 </div>
               </div>
               <span class="px-2.5 py-1 rounded-full text-[11px] font-bold here-pill-warning shrink-0">
@@ -319,7 +316,7 @@ const installSteps = [
     </div>
   </section>
 
-  <!-- Interactive App Showcase & Android Screenshot Mocks Section -->
+  <!-- Interactive App Showcase & Android Screenshots Section -->
   <AppShowcase />
 
   <!-- Feature Highlights Grid -->
@@ -329,10 +326,10 @@ const installSteps = [
         Face-First &amp; Built for Real Campus Conditions
       </div>
       <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
-        Skip the spreadsheet prep — build your roster as people walk in
+        Skip the spreadsheet prep — check students in on the go
       </h2>
       <p class="mt-2 text-sm sm:text-base text-here-muted">
-        Whether 20 or 500 students show up, you don't need to collect photos or CSV rosters ahead of time. Scan faces at the door, register new attendees on the spot, and recognize them automatically at every future event.
+        Whether 20 or 500 students show up, attendance checkers don't need to collect photos or CSV rosters ahead of time. Scan faces on the go, register walk-in attendees on the spot, and recognize them automatically at every future event.
       </p>
     </div>
 
@@ -379,7 +376,7 @@ const installSteps = [
           How It Works in 4 Simple Steps
         </h2>
         <p class="mt-2 text-sm sm:text-base text-here-muted">
-          Mirrors the in-app Quick Start Guide — go from creating a group to scanning attendees at the door in under a minute.
+          Mirrors the in-app Quick Start Guide — go from creating a group to checking students' attendance on the go in under a minute.
         </p>
       </div>
       <span class="inline-flex items-center px-3 py-1.5 rounded-here bg-here-tint text-here-primary text-xs font-bold self-start md:self-auto">
