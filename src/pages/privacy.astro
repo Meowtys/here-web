@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalDocView from '../components/LegalDocView.astro';
+import { PRIVACY_POLICY } from '../data/legal';
+---
+
+<BaseLayout
+  title="Privacy Policy — Here! Attendance System"
+  description="Privacy Policy for Here!, explaining on-device MobileFaceNet biometric processing, data storage, and retention for student organizations."
+>
+  <LegalDocView doc={PRIVACY_POLICY} activeTab="privacy" />
+</BaseLayout>

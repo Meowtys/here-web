@@ -1,0 +1,106 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const rootDir = process.cwd();
+
+test('Brand assets exist in public/assets and public/favicon.png', () => {
+  const loginLogo = path.join(rootDir, 'public', 'assets', 'loginlogo.png');
+  const logo = path.join(rootDir, 'public', 'assets', 'logo.png');
+  const favicon = path.join(rootDir, 'public', 'favicon.png');
+
+  assert.equal(fs.existsSync(loginLogo), true, 'public/assets/loginlogo.png must exist');
+  assert.equal(fs.existsSync(logo), true, 'public/assets/logo.png must exist');
+  assert.equal(fs.existsSync(favicon), true, 'public/favicon.png must exist');
+  assert.ok(fs.statSync(loginLogo).size > 1000, 'loginlogo.png should not be empty');
+  assert.ok(fs.statSync(logo).size > 1000, 'logo.png should not be empty');
+});
+
+test('Legal documents match here-next legal_doc_page.dart 1:1', () => {
+  const legalSource = fs.readFileSync(path.join(rootDir, 'src', 'data', 'legal.ts'), 'utf8');
+
+  // Privacy Policy headings & key phrases from legal_doc_page.dart
+  const privacyChecks = [
+    '1. Overview & Purpose',
+    'Here! is an attendance check-in platform designed for student organizations, clubs, and academic events.',
+    '2. Biometric & Face Recognition Data',
+    'Facial Feature Vectors: When an attendee is registered with face data, facial landmarks and feature embeddings are generated on-device using a lightweight neural network (MobileFaceNet).',
+    'No Third-Party Sharing: Biometric representations are strictly used for matching roster members within your student organization events.',
+    '3. Information Collected',
+    '4. Data Ownership & Deletion',
+    '5. Security & Offline Storage',
+    '6. Updates to This Policy',
+    'October 2026',
+  ];
+
+  for (const snippet of privacyChecks) {
+    assert.ok(
+      legalSource.includes(snippet),
+      `Privacy Policy must contain exact phrase: "${snippet}"`
+    );
+  }
+
+  // Terms & Conditions headings & key phrases from legal_doc_page.dart
+  const termsChecks = [
+    '1. Acceptance of Terms',
+    'By accessing or using Here!, you agree to be bound by these Terms and Conditions.',
+    '2. User Roles & Responsibilities',
+    '3. Prohibited Conduct',
+    'Falsify, tamper with, or forge attendance records.',
+    '4. Biometric Registration Consent',
+    '5. Limitation of Liability & Availability',
+    '6. Termination',
+  ];
+
+  for (const snippet of termsChecks) {
+    assert.ok(
+      legalSource.includes(snippet),
+      `Terms & Conditions must contain exact phrase: "${snippet}"`
+    );
+  }
+});
+
+test('Release fetcher configures GitHub releases endpoint and v2.1.0-beta.6 static fallback', () => {
+  const releaseSource = fs.readFileSync(path.join(rootDir, 'src', 'data', 'release.ts'), 'utf8');
+
+  assert.ok(
+    releaseSource.includes('https://api.github.com/repos/Meowtys/here-next/releases'),
+    'Must use /releases endpoint (not /releases/latest) to support pre-releases'
+  );
+  assert.ok(
+    releaseSource.includes(
+      'https://github.com/Meowtys/here-next/releases/download/v2.1.0-beta.6/here-v2.1.0-beta.6.apk'
+    ),
+    'Must include static fallback APK download URL for v2.1.0-beta.6'
+  );
+  assert.ok(releaseSource.includes('com.meowtys.here'), 'Must include package name com.meowtys.here');
+  assert.ok(releaseSource.includes('buildNumber: 14'), 'Must include Build 14');
+});
+
+test('Built dist HTML outputs exist and contain required copy and links', () => {
+  const indexHtmlPath = path.join(rootDir, 'dist', 'index.html');
+  const privacyHtmlPath = path.join(rootDir, 'dist', 'privacy', 'index.html');
+  const termsHtmlPath = path.join(rootDir, 'dist', 'terms', 'index.html');
+
+  assert.equal(fs.existsSync(indexHtmlPath), true, 'dist/index.html must be generated');
+  assert.equal(fs.existsSync(privacyHtmlPath), true, 'dist/privacy/index.html must be generated');
+  assert.equal(fs.existsSync(termsHtmlPath), true, 'dist/terms/index.html must be generated');
+
+  const indexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+  assert.ok(indexHtml.includes('Download for Android (.apk)'), 'Landing page must contain primary APK CTA');
+  assert.ok(indexHtml.includes('https://github.com/Meowtys/here-next'), 'Landing page must link to GitHub repo');
+  assert.ok(indexHtml.includes('here-v2.1.0-beta.6.apk'), 'Landing page must include v2.1.0-beta.6 APK link');
+  assert.ok(indexHtml.includes('On-Device Face Recognition'), 'Landing page must include feature highlights');
+  assert.ok(indexHtml.includes('1. Create or Join a Group'), 'Landing page must include Quick Start steps');
+
+  const privacyHtml = fs.readFileSync(privacyHtmlPath, 'utf8');
+  assert.ok(privacyHtml.includes('Privacy Policy'), 'Privacy page must render title');
+  assert.ok(privacyHtml.includes('MobileFaceNet'), 'Privacy page must render biometric section');
+  assert.ok(privacyHtml.includes('Last updated: October 2026'), 'Privacy page must render Last updated badge');
+
+  const termsHtml = fs.readFileSync(termsHtmlPath, 'utf8');
+  assert.ok(termsHtml.includes('Terms &amp; Conditions') || termsHtml.includes('Terms & Conditions'), 'Terms page must render title');
+  assert.ok(termsHtml.includes('Biometric Registration Consent'), 'Terms page must render consent section');
+});
+
