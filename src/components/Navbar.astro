@@ -1,0 +1,94 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+---
+
+<header class="sticky top-0 z-40 bg-here-bg/95 backdrop-blur-sm border-b border-here-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <a
+      href="/"
+      class="inline-flex items-center gap-2.5 text-here-text font-extrabold text-xl tracking-tight rounded-lg py-1 px-1.5 -ml-1.5 hover:bg-here-tint/60 transition-colors"
+      aria-label="Here! Home"
+    >
+      <img
+        src="/assets/logo.png"
+        alt="Here! App Icon"
+        width="32"
+        height="32"
+        class="w-8 h-8 rounded-lg border border-here-border bg-here-surface object-contain"
+      />
+      <span>Here!</span>
+      <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-here-tint text-here-primary">
+        beta
+      </span>
+    </a>
+
+    <nav aria-label="Primary Navigation" class="hidden md:flex items-center gap-1">
+      <a
+        href="/#features"
+        class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 transition-colors"
+      >
+        Features
+      </a>
+      <a
+        href="/#how-it-works"
+        class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 transition-colors"
+      >
+        How It Works
+      </a>
+      <a
+        href="/#install"
+        class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 transition-colors"
+      >
+        Install Guide
+      </a>
+      <a
+        href="/privacy"
+        aria-current={currentPath.startsWith('/privacy') ? 'page' : undefined}
+        class:list={[
+          'px-3 py-2 rounded-lg text-sm font-semibold transition-colors',
+          currentPath.startsWith('/privacy')
+            ? 'bg-here-tint text-here-primary font-bold'
+            : 'text-here-muted hover:text-here-text hover:bg-here-tint/50',
+        ]}
+      >
+        Privacy
+      </a>
+      <a
+        href="/terms"
+        aria-current={currentPath.startsWith('/terms') ? 'page' : undefined}
+        class:list={[
+          'px-3 py-2 rounded-lg text-sm font-semibold transition-colors',
+          currentPath.startsWith('/terms')
+            ? 'bg-here-tint text-here-primary font-bold'
+            : 'text-here-muted hover:text-here-text hover:bg-here-tint/50',
+        ]}
+      >
+        Terms
+      </a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a
+        href="https://github.com/Meowtys/here-next"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 px-3 py-2 rounded-here border border-here-border bg-here-surface text-here-text text-xs sm:text-sm font-bold hover:bg-here-tint/50 transition-colors"
+      >
+        <svg class="w-4 h-4 text-here-text" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+        </svg>
+        <span>GitHub</span>
+      </a>
+      <a
+        href="/#download"
+        class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-here bg-here-primary text-here-onPrimary text-xs sm:text-sm font-bold hover:bg-[#184B66] transition-colors"
+      >
+        <span>Get APK</span>
+      </a>
+    </div>
+  </div>
+</header>
