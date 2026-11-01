@@ -10,7 +10,7 @@
       See Here! in Action on Android
     </h2>
     <p class="mt-2 text-sm sm:text-base text-here-muted">
-      Explore real screens from the Here! Android app — from live on-device face scanning and multi-session schedules to turnout velocity charts and biometric roster management.
+      Explore real screens from the Here! Android app — built so attendance checkers can check students in on the go, manage multi-session events, track turnout velocity, and maintain your group roster effortlessly.
     </p>
   </div>
 
@@ -25,7 +25,7 @@
       class="showcase-tab-btn active px-3.5 py-2 rounded-here border border-here-primary bg-here-primary text-here-onPrimary text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
       data-target="scanner"
     >
-      📷 Live Face Scanner
+      📷 Scan Attendance
     </button>
     <button
       id="tab-btn-events"
@@ -36,7 +36,7 @@
       class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
       data-target="events"
     >
-      📅 Event Sessions Hub
+      📅 Event Sessions &amp; Check-Ins
     </button>
     <button
       id="tab-btn-analytics"
@@ -58,7 +58,7 @@
       class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
       data-target="roster"
     >
-      👤 Biometric Roster &amp; Samples
+      👤 Group Roster &amp; Samples
     </button>
   </div>
 
@@ -74,11 +74,11 @@
 
           <!-- Android Screen Viewport (1080x2424 native ratio) -->
           <div class="rounded-[30px] overflow-hidden bg-here-bg aspect-[1080/2424] relative select-none border border-black/20">
-            <!-- Screen 1: Live Biometric Scanner -->
+            <!-- Screen 1: Scan Attendance -->
             <div id="screen-scanner" class="showcase-screen w-full h-full">
               <img
                 src="/assets/showcase/live-scanner.png"
-                alt="Here! Android app Live Face Scanner screen showing Time-in/Time-out toggle, Session 1: Keynote pill, 7 cached templates ready, and face alignment viewfinder"
+                alt="Here! Android app Scan Attendance screen showing Time-in/Time-out toggle, Session 1: Keynote pill, 7 cached templates ready, and face alignment viewfinder"
                 width="1080"
                 height="2424"
                 loading="eager"
@@ -86,11 +86,11 @@
               />
             </div>
 
-            <!-- Screen 2: Event Sessions Hub -->
+            <!-- Screen 2: Event Sessions & Check-Ins -->
             <div id="screen-events" class="showcase-screen hidden w-full h-full">
               <img
                 src="/assets/showcase/events-hub.png"
-                alt="Here! Android app Event Sessions Hub for General Assembly & Workshop showing 7 Timed in, 5 Timed out, 1 To check, session filter pills, and student attendance cards"
+                alt="Here! Android app Event screen for General Assembly & Workshop showing 7 Timed in, 5 Timed out, 1 To check, session filter pills, and student attendance cards"
                 width="1080"
                 height="2424"
                 loading="lazy"
@@ -110,7 +110,7 @@
               />
             </div>
 
-            <!-- Screen 4: Biometric Roster & Profiles -->
+            <!-- Screen 4: Group Roster & Samples -->
             <div id="screen-roster" class="showcase-screen hidden w-full h-full">
               <img
                 src="/assets/showcase/biometric-roster.png"
@@ -139,23 +139,23 @@
             </span>
           </div>
           <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Live Door Scanner with On-the-Go Face Enrollment
+            Check Students' Attendance on the Go
           </h3>
           <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Switch seamlessly between <strong>Time in</strong> and <strong>Time out</strong>, select the active session window, and scan attendees right at the door. MobileFaceNet generates 192-dimensional embeddings directly on your phone — zero cloud latency or internet required.
+            Attendance checkers can open the camera, toggle between <strong>Time in</strong> and <strong>Time out</strong>, pick the active session, and check students in wherever the event is happening. MobileFaceNet matches faces directly on your phone — no internet connection required.
           </p>
           <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Face-First Registration:</strong> Unrecognized visitors can register their name, Student ID, and face sample on the spot during their very first check-in.</span>
+              <span><strong>Walk-In Registration on the Spot:</strong> If a student isn't in the roster yet, checkers can register their Student ID, name, and face right from the scan prompt and record their attendance immediately.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Offline Template Caching:</strong> Pre-caches group face templates locally so scanning works in lecture halls or basements without Wi-Fi.</span>
+              <span><strong>Works Offline Anywhere:</strong> Group face templates are cached on-device (`Synced · 7 templates ready`) so checkers can record attendance in auditoriums, fields, or rooms without Wi-Fi.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Instant Manual Fallback:</strong> Tap <em>Manual</em> at the top or bottom of the scanner to log a Student ID without camera capture.</span>
+              <span><strong>Switch to Manual Attendance Anytime:</strong> Tap <em>Switch to manual attendance</em> at the bottom to type a Student ID when a student prefers not to use facial recognition.</span>
             </li>
           </ul>
         </div>
@@ -171,23 +171,23 @@
             </span>
           </div>
           <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Multi-Session Event Hub &amp; Manual ID Verification
+            Multi-Session Event Tracking &amp; 1-Tap Verification
           </h3>
           <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Manage multi-day assemblies and multi-session workshops from a single screen. Filter your live roster by <strong>All</strong>, <strong>Timed in</strong>, <strong>Missing</strong>, or <strong>To check</strong> (manual Typed ID entries awaiting admin verification).
+            Run single-window or multi-session events with live counts for <strong>Timed in</strong>, <strong>Timed out</strong>, and <strong>To check</strong>. Filter the attendance list by <strong>All</strong>, <strong>Timed in</strong>, <strong>Missing</strong>, or <strong>To check</strong> in one tap.
           </p>
           <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Session Switcher Strip:</strong> Toggle between <em>Overview (All)</em> and individual sessions (e.g., <em>Session 1: Keynote</em>, <em>Session 2: AI Workshop</em>).</span>
+              <span><strong>Session Switcher Pills:</strong> Jump between <em>Overview (All)</em> and individual sessions like <em>Session 1: Keynote</em> or <em>Session 2: AI Workshop</em>.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Audit-Ready Check-In Cards:</strong> See exact Time-In and Time-Out timestamps alongside <code>Typed ID</code> badges for unverified manual entries.</span>
+              <span><strong>Batch Verify Manual Check-Ins:</strong> Manual ID entries are tagged with a <code>Typed ID</code> badge under <em>To check</em> so admins can review and verify them in bulk.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Automatic Event Lock-on-End:</strong> Events automatically lock when their scheduled end window passes to prevent retroactive tampering.</span>
+              <span><strong>Automatic Lock-on-End:</strong> Events can lock automatically once the scheduled end time passes so attendance records stay accurate.</span>
             </li>
           </ul>
         </div>
@@ -196,30 +196,30 @@
         <div id="info-analytics" class="showcase-info hidden space-y-4">
           <div class="inline-flex flex-wrap items-center gap-2">
             <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-warning">
-              Real-Time Turnout Intelligence
+              Real-Time Turnout Analytics
             </span>
             <span class="text-xs font-semibold text-here-muted">
               10m / 15m / 30m Histograms
             </span>
           </div>
           <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Check-In Velocity Timelines &amp; Session Drop-Off Tracking
+            Check-In Velocity Timelines &amp; Session Comparison
           </h3>
           <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Inspect overall turnout percentage, face-verified ratio, and arrival surges at a glance. Switch between <strong>10m</strong>, <strong>15m</strong>, and <strong>30m</strong> velocity buckets to see exactly when lines peaked.
+            See your event's turnout percentage, present vs. absent counts, full (in &amp; out) completion, and face-verified rate. Toggle between <strong>10m</strong>, <strong>15m</strong>, and <strong>30m</strong> intervals to see when check-ins peaked.
           </p>
           <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Peak Scan Callout Pill:</strong> Automatically highlights the busiest check-in window (e.g., <em>Peak: 09:00 (8 scans)</em>).</span>
+              <span><strong>Peak Scan Window Callout:</strong> Automatically pinpoints the busiest check-in interval (e.g., <em>Peak: 09:00 (8 scans)</em>).</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Multi-Session Comparison Bars:</strong> Track attendance retention across Keynote, AI Workshop, and Hackathon sessions.</span>
+              <span><strong>Session Retention Comparison:</strong> Compare turnout across scheduled sessions to spot attendance drop-off.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>1-Tap Sanitized CSV Export:</strong> Export spreadsheet-ready attendance reports directly from the top-right download button.</span>
+              <span><strong>1-Tap CSV Export:</strong> Export clean, spreadsheet-safe CSV reports directly from the analytics header.</span>
             </li>
           </ul>
         </div>
@@ -228,30 +228,30 @@
         <div id="info-roster" class="showcase-info hidden space-y-4">
           <div class="inline-flex flex-wrap items-center gap-2">
             <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-tint">
-              Biometric Roster &amp; Profiles
+              Attendees &amp; Face Samples
             </span>
             <span class="text-xs font-semibold text-here-muted">
-              Multi-Sample Face Vectors
+              Multi-Angle Recognition
             </span>
           </div>
           <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
-            Group Roster &amp; Multi-Sample Biometric Profiles
+            Roster Built Automatically as You Check Students In
           </h3>
           <p class="text-sm sm:text-base text-here-muted leading-relaxed">
-            Every student enrolled at the door or added by an organizer is stored in your group roster with clear sample counts (<code>4 samples</code>, <code>3 samples</code>, or <code>No face data</code> for ID-only members).
+            Every student registered on the go during check-in (or added in advance) appears in your group's <strong>Attendees</strong> list with their enrolled sample count (<code>4 samples</code>, <code>3 samples</code>, or <code>No face data</code>).
           </p>
           <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Multi-Angle Sample Storage:</strong> Capture additional face samples per student over time for resilient recognition across lighting conditions.</span>
+              <span><strong>Link Faces or Add Angles Anytime:</strong> Checkers can link a new face scan to an existing roster member or add extra angles to improve matching accuracy.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Opt-Out Friendly:</strong> Students who prefer not to use facial recognition remain first-class roster members with <code>No face data</code> badges.</span>
+              <span><strong>Works With or Without Face Consent:</strong> Students who decline face storage are still saved to the roster with <code>No face data</code> for quick manual check-ins.</span>
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <span><strong>Instant Search &amp; Management:</strong> Search by name or Student ID to manage face samples, edit details, or purge biometric data.</span>
+              <span><strong>Full Attendance History &amp; Privacy Control:</strong> Tap any student to view their attendance history across events or reset their face samples at any time.</span>
             </li>
           </ul>
         </div>
