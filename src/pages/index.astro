@@ -6,15 +6,15 @@ const release = await fetchLatestRelease();
 
 const features = [
   {
-    title: 'On-Device Face Recognition & Offline Sync',
+    title: 'Face-First Check-In & On-the-Go Registration',
     badge: 'Synced - Offline ready',
     badgeStyle: 'here-pill-success',
     description:
-      'Fast camera check-in (time-in / time-out) powered by an on-device MobileFaceNet neural network. Roster biometric templates cache locally so you can scan attendees with zero internet and sync automatically in the background.',
+      'No pre-built roster required. Point the camera to check in known members instantly, or enroll new attendees right at the door during their first scan. Powered by on-device MobileFaceNet biometrics that work completely offline.',
     highlights: [
-      'Instant time-in & time-out camera scanning',
-      'Local biometric template caching (Synced - Offline ready)',
-      'Automatic background queue sync upon reconnect',
+      'Zero prep needed — register new faces & IDs on the go during check-in',
+      'Instant time-in & time-out camera recognition on future scans',
+      'Local biometric caching (Synced - Offline ready) with automatic background sync',
     ],
   },
   {
@@ -65,17 +65,17 @@ const quickStartSteps = [
   },
   {
     step: '02',
-    title: '2. Build Roster & Enroll Faces',
-    subtitle: 'On-Device Biometrics',
+    title: '2. Schedule Event Sessions',
+    subtitle: 'No Roster Prep Needed',
     description:
-      'Add student roster profiles with Student IDs and capture multi-angle facial samples using on-device MobileFaceNet embedding extraction.',
+      'Create a single-window or multi-session event in seconds. You can start taking attendance right away without importing a spreadsheet first.',
   },
   {
     step: '03',
-    title: '3. Run Event Sessions',
-    subtitle: 'Online or Offline Check-In',
+    title: '3. Scan & Register on the Go',
+    subtitle: 'Face-First Check-In',
     description:
-      'Schedule single or multi-session events, then scan faces for instant time-in / time-out verification or record manual Typed ID entries offline.',
+      'Open the camera to scan attendees. First-time visitors register their face and Student ID on the spot; returning members match in one tap — even offline.',
   },
   {
     step: '04',
@@ -99,13 +99,13 @@ const installSteps = [
   },
   {
     num: '3',
-    title: 'Sign In & Join Your Organization',
-    body: 'Launch Here!, sign in with your Google account, and create a new organization group or enter your club\'s 6-character code.',
+    title: 'Sign In & Start Scanning',
+    body: 'Launch Here!, sign in with Google, create or join your club group, and start scanning faces at your very next event — no pre-enrollment required.',
   },
 ];
 ---
 
-<BaseLayout title="Here! — Student Organization Attendance System (Android APK)">
+<BaseLayout title="Here! — Face-First Student Organization Attendance System (Android APK)">
   <!-- Hero Section -->
   <section id="download" class="pt-8 pb-12 sm:pt-14 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
@@ -120,29 +120,29 @@ const installSteps = [
             <span>{release.version} &middot; Build {release.buildNumber}</span>
           </span>
           <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold here-pill-success">
-            Synced - Offline ready
+            Face-First &middot; No Roster Prep
           </span>
           <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold here-pill-warning">
             {release.minAndroid}
           </span>
         </div>
 
-        <div class="space-y-3">
-          <div class="flex items-center gap-3">
+        <div class="space-y-4">
+          <h1 class="m-0">
             <img
               src="/assets/loginlogo.png"
               alt="You're Here! beta — A simple and easy to use attendance system made for students."
               width="320"
               height="278"
               fetchpriority="high"
-              class="w-56 sm:w-64 h-auto object-contain"
+              class="w-64 sm:w-80 h-auto object-contain"
             />
-          </div>
-          <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-here-text tracking-tight leading-[1.15]">
-            You're Here! <span class="text-here-primary">beta</span> — A simple and easy to use attendance system made for students.
           </h1>
-          <p class="text-base sm:text-lg text-here-muted leading-relaxed max-w-2xl">
-            Built for student organizations, university clubs, and academic events. Take attendance in seconds with on-device facial recognition, offline roster caching, multi-session schedules, and real-time turnout analytics.
+          <p class="text-lg sm:text-xl font-bold text-here-text leading-snug max-w-2xl">
+            No pre-built roster needed. Open the camera, scan faces at the door, and enroll first-time attendees on the go.
+          </p>
+          <p class="text-sm sm:text-base text-here-muted leading-relaxed max-w-2xl">
+            Built for student organizations, university clubs, and academic events. Here! combines on-device facial recognition with offline check-in caching, multi-session schedules, and real-time turnout analytics — so your line keeps moving even without Wi-Fi.
           </p>
         </div>
 
@@ -247,7 +247,7 @@ const installSteps = [
           <!-- Simulated Live Check-in Feed -->
           <div class="p-4 space-y-2.5 bg-here-bg/60">
             <div class="text-[11px] font-bold uppercase tracking-wider text-here-muted px-1">
-              Recent Attendance Activity
+              Live Door Check-In &amp; On-the-Go Enrollment
             </div>
 
             <div class="here-card p-3 flex items-center justify-between gap-3">
@@ -257,7 +257,7 @@ const installSteps = [
                 </div>
                 <div class="min-w-0">
                   <div class="text-sm font-bold text-here-text truncate">Alyssa Lim</div>
-                  <div class="text-xs text-here-muted">2024-01842 &middot; Time-in 09:02 AM</div>
+                  <div class="text-xs text-here-muted">2024-01842 &middot; Matched in 0.2s</div>
                 </div>
               </div>
               <span class="px-2.5 py-1 rounded-full text-[11px] font-bold here-pill-success shrink-0">
@@ -268,6 +268,21 @@ const installSteps = [
             <div class="here-card p-3 flex items-center justify-between gap-3">
               <div class="flex items-center gap-3 min-w-0">
                 <div class="w-10 h-10 rounded-[10px] bg-here-tint text-here-primary font-bold text-sm flex items-center justify-center shrink-0">
+                  KN
+                </div>
+                <div class="min-w-0">
+                  <div class="text-sm font-bold text-here-text truncate">Kiana Navarro</div>
+                  <div class="text-xs text-here-muted">2025-04118 &middot; Enrolled on first scan</div>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold here-pill-tint shrink-0">
+                New Face Saved
+              </span>
+            </div>
+
+            <div class="here-card p-3 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-10 h-10 rounded-[10px] bg-here-mutedTile text-here-muted font-bold text-sm flex items-center justify-center shrink-0">
                   MR
                 </div>
                 <div class="min-w-0">
@@ -280,23 +295,8 @@ const installSteps = [
               </span>
             </div>
 
-            <div class="here-card p-3 flex items-center justify-between gap-3">
-              <div class="flex items-center gap-3 min-w-0">
-                <div class="w-10 h-10 rounded-[10px] bg-here-mutedTile text-here-muted font-bold text-sm flex items-center justify-center shrink-0">
-                  JC
-                </div>
-                <div class="min-w-0">
-                  <div class="text-sm font-bold text-here-text truncate">Jaden Cruz</div>
-                  <div class="text-xs text-here-muted">2025-00419 &middot; Time-out 11:58 AM</div>
-                </div>
-              </div>
-              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold here-pill-tint shrink-0">
-                Completed
-              </span>
-            </div>
-
             <div class="pt-1 flex items-center justify-between text-xs text-here-muted px-1">
-              <span>MobileFaceNet (192-D embeddings)</span>
+              <span>MobileFaceNet (On-device biometrics)</span>
               <a
                 id="release-notes-link"
                 href={release.releaseUrl}
@@ -317,13 +317,13 @@ const installSteps = [
   <section id="features" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
     <div class="max-w-2xl">
       <div class="text-xs font-bold uppercase tracking-wider text-here-primary">
-        Built for Real Campus Conditions
+        Face-First &amp; Built for Real Campus Conditions
       </div>
       <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
-        Everything student organizers need to run high-turnout events
+        Skip the spreadsheet prep — build your roster as people walk in
       </h2>
       <p class="mt-2 text-sm sm:text-base text-here-muted">
-        Designed with a warm, zero-bloat interface that stays fast even in crowded auditoriums or basement venues with spotty Wi-Fi.
+        Whether 20 or 500 students show up, you don't need to collect photos or CSV rosters ahead of time. Scan faces at the door, register new attendees on the spot, and recognize them automatically at every future event.
       </p>
     </div>
 
@@ -364,17 +364,17 @@ const installSteps = [
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
       <div class="max-w-2xl">
         <div class="text-xs font-bold uppercase tracking-wider text-here-primary">
-          In-App Onboarding Walkthrough
+          Zero-Prep Workflow
         </div>
         <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
           How It Works in 4 Simple Steps
         </h2>
         <p class="mt-2 text-sm sm:text-base text-here-muted">
-          Mirrors the interactive Quick Start Guide built directly into the Here! app settings.
+          Mirrors the in-app Quick Start Guide — go from creating a group to scanning attendees at the door in under a minute.
         </p>
       </div>
       <span class="inline-flex items-center px-3 py-1.5 rounded-here bg-here-tint text-here-primary text-xs font-bold self-start md:self-auto">
-        Ready in under 3 minutes
+        No pre-enrollment required
       </span>
     </div>
 
@@ -456,7 +456,7 @@ const installSteps = [
       <div class="mt-6 pt-5 border-t border-here-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-here-muted">
         <div class="flex items-center gap-2">
           <span class="px-2 py-0.5 rounded-full font-bold here-pill-success">Privacy First</span>
-          <span>Facial feature vectors are computed on-device and never shared with third parties.</span>
+          <span>Facial feature vectors are computed on-device with explicit consent and never shared with third parties.</span>
         </div>
         <div class="flex items-center gap-4 font-bold text-here-primary">
           <a href="/privacy" class="hover:underline">Read Privacy Policy &rarr;</a>

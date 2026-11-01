@@ -91,7 +91,8 @@ test('Built dist HTML outputs exist and contain required copy and links', () => 
   assert.ok(indexHtml.includes('Download for Android (.apk)'), 'Landing page must contain primary APK CTA');
   assert.ok(indexHtml.includes('https://github.com/Meowtys/here-next'), 'Landing page must link to GitHub repo');
   assert.ok(indexHtml.includes('here-v2.1.0-beta.6.apk'), 'Landing page must include v2.1.0-beta.6 APK link');
-  assert.ok(indexHtml.includes('On-Device Face Recognition'), 'Landing page must include feature highlights');
+  assert.ok(indexHtml.includes('Face-First Check-In'), 'Landing page must highlight Face-First on-the-go registration');
+  assert.ok(indexHtml.includes('No pre-built roster needed'), 'Landing page must highlight no pre-built roster needed');
   assert.ok(indexHtml.includes('1. Create or Join a Group'), 'Landing page must include Quick Start steps');
 
   const privacyHtml = fs.readFileSync(privacyHtmlPath, 'utf8');
