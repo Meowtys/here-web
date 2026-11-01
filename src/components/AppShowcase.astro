@@ -1,0 +1,544 @@
+---
+---
+
+<section id="showcase" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
+  <div class="max-w-2xl mb-8">
+    <div class="text-xs font-bold uppercase tracking-wider text-here-primary">
+      Interactive App Showcase
+    </div>
+    <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
+      See Here! in Action on Android
+    </h2>
+    <p class="mt-2 text-sm sm:text-base text-here-muted">
+      Explore how the app handles door scanning, multi-session schedules, turnout velocity charts, and biometric roster management.
+    </p>
+  </div>
+
+  <!-- Showcase Tab Selector -->
+  <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" role="tablist" aria-label="App Showcase Screens">
+    <button
+      id="tab-btn-scanner"
+      type="button"
+      role="tab"
+      aria-selected="true"
+      aria-controls="screen-scanner"
+      class="showcase-tab-btn active px-3.5 py-2 rounded-here border border-here-primary bg-here-primary text-here-onPrimary text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
+      data-target="scanner"
+    >
+      📷 Live Face Scanner
+    </button>
+    <button
+      id="tab-btn-events"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="screen-events"
+      class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
+      data-target="events"
+    >
+      📅 Event Sessions Hub
+    </button>
+    <button
+      id="tab-btn-analytics"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="screen-analytics"
+      class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
+      data-target="analytics"
+    >
+      📊 Turnout Velocity Charts
+    </button>
+    <button
+      id="tab-btn-roster"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="screen-roster"
+      class="showcase-tab-btn px-3.5 py-2 rounded-here border border-here-border bg-here-surface text-here-muted hover:text-here-text hover:bg-here-tint/50 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors"
+      data-target="roster"
+    >
+      👤 Face Gallery &amp; Verify
+    </button>
+  </div>
+
+  <!-- Showcase Stage: Device Mockup + Feature Breakdown -->
+  <div class="mt-6 here-card p-5 sm:p-8 bg-here-surface">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <!-- Left Column: Realistic Android Device Mockup Frame -->
+      <div class="lg:col-span-6 flex justify-center">
+        <div class="w-[300px] sm:w-[320px] rounded-[38px] p-3 bg-[#1E262B] border-4 border-[#2D3941] shadow-2xl relative">
+          <!-- Android Screen Canvas -->
+          <div class="rounded-[28px] overflow-hidden bg-here-bg min-h-[580px] flex flex-col relative text-left select-none">
+            
+            <!-- Android Status Bar -->
+            <div class="bg-here-primary text-white text-[11px] font-semibold px-5 pt-2 pb-1 flex items-center justify-between">
+              <span>9:41</span>
+              <!-- Camera Punch-Hole -->
+              <div class="w-3.5 h-3.5 rounded-full bg-black mx-auto"></div>
+              <div class="flex items-center gap-1.5 text-[10px]">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"/></svg>
+                <span>100%</span>
+              </div>
+            </div>
+
+            <!-- Screen 1: Live Biometric Scanner -->
+            <div id="screen-scanner" class="showcase-screen flex-1 flex flex-col bg-[#11191F] text-white">
+              <!-- Scanner Top HUD -->
+              <div class="p-3 bg-black/40 flex items-center justify-between text-xs">
+                <span class="px-2 py-0.5 rounded-full bg-here-successBg text-here-successFg text-[10px] font-bold">
+                  ● Synced · Offline ready
+                </span>
+                <span class="text-white/80 font-mono text-[11px]">MobileFaceNet</span>
+              </div>
+
+              <!-- Camera Viewfinder with Face Landmark Guide Box -->
+              <div class="flex-1 flex flex-col items-center justify-center p-6 relative">
+                <!-- Reticle Corner Guides -->
+                <div class="w-44 h-48 rounded-2xl border-2 border-dashed border-[#57B7E7] flex flex-col items-center justify-center relative p-3">
+                  <div class="absolute -top-2 left-4 px-2 py-0.2 bg-[#57B7E7] text-black text-[9px] font-extrabold rounded">
+                    FACE DETECTED
+                  </div>
+                  <!-- Simulated Face Silhouette / Target -->
+                  <div class="w-20 h-24 rounded-full border-2 border-white/40 flex items-center justify-center">
+                    <svg class="w-12 h-12 text-[#57B7E7]/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div class="mt-3 text-[11px] font-bold text-here-tint">
+                    0.18s Match (98.4%)
+                  </div>
+                </div>
+
+                <!-- Instant Confirmation Dialog Overlay -->
+                <div class="w-full mt-4 bg-white text-here-text rounded-here p-3 border border-here-border shadow-lg">
+                  <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-lg bg-here-tint text-here-primary font-bold text-xs flex items-center justify-center shrink-0">
+                      AL
+                    </div>
+                    <div class="min-w-0 flex-1">
+                      <div class="text-xs font-bold text-here-text truncate">Alyssa Lim</div>
+                      <div class="text-[10px] text-here-muted">2024-01842 &middot; Time-In 09:02 AM</div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-here-successBg text-here-successFg">
+                      Confirmed
+                    </span>
+                  </div>
+                  <div class="mt-2.5 grid grid-cols-2 gap-1.5">
+                    <div class="py-1.5 text-center rounded-lg bg-here-primary text-white text-[11px] font-bold">
+                      Confirm Time-In
+                    </div>
+                    <div class="py-1.5 text-center rounded-lg bg-here-tint text-here-primary text-[11px] font-bold">
+                      Type ID instead
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scanner Shutter Bar -->
+              <div class="p-4 bg-black/60 flex items-center justify-around">
+                <button type="button" class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-xs">
+                  ⚡
+                </button>
+                <div class="w-14 h-14 rounded-full border-4 border-white flex items-center justify-center">
+                  <div class="w-11 h-11 rounded-full bg-white"></div>
+                </div>
+                <button type="button" class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-xs">
+                  🔄
+                </button>
+              </div>
+            </div>
+
+            <!-- Screen 2: Event Sessions Hub -->
+            <div id="screen-events" class="showcase-screen hidden flex-1 flex flex-col bg-here-bg">
+              <!-- TealBand App Header -->
+              <div class="bg-here-primary text-white p-4 rounded-b-[20px]">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-extrabold text-sm tracking-tight">Here! &middot; Events</span>
+                  <span class="px-2 py-0.5 rounded-full bg-white/20 text-[10px] font-bold">
+                    #CS-889
+                  </span>
+                </div>
+                <div class="mt-2 text-base font-extrabold">General Assembly &amp; Workshop</div>
+                <div class="text-[11px] text-white/80">Saturday &middot; College Auditorium</div>
+
+                <!-- Session Selector Pill Strip -->
+                <div class="flex items-center gap-1.5 mt-3 overflow-x-auto pb-1 text-[11px]">
+                  <span class="px-2.5 py-1 rounded-full bg-white text-here-primary font-bold whitespace-nowrap">
+                    Session 1: Keynote (Active)
+                  </span>
+                  <span class="px-2.5 py-1 rounded-full bg-white/20 text-white font-semibold whitespace-nowrap">
+                    Session 2: Hands-on
+                  </span>
+                </div>
+              </div>
+
+              <!-- Event Attendance Feed -->
+              <div class="p-3 space-y-2 flex-1">
+                <div class="flex items-center justify-between text-[11px] font-bold text-here-muted px-1">
+                  <span>ATTENDEE ROSTER (142 / 150)</span>
+                  <span class="text-here-primary">94.6% Turnout</span>
+                </div>
+
+                <div class="here-card p-2.5 flex items-center justify-between bg-white">
+                  <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-here-tint text-here-primary font-bold text-[10px] flex items-center justify-center">
+                      KN
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold text-here-text">Kiana Navarro</div>
+                      <div class="text-[10px] text-here-muted">2025-04118 &middot; 09:01 AM</div>
+                    </div>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-here-successBg text-here-successFg">
+                    Face Verified
+                  </span>
+                </div>
+
+                <div class="here-card p-2.5 flex items-center justify-between bg-white">
+                  <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-here-mutedTile text-here-muted font-bold text-[10px] flex items-center justify-center">
+                      MR
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold text-here-text">Marcus Reyes</div>
+                      <div class="text-[10px] text-here-muted">2023-10944 &middot; 09:04 AM</div>
+                    </div>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-here-warningBg text-here-warningFg">
+                    Typed ID
+                  </span>
+                </div>
+
+                <div class="here-card p-2.5 flex items-center justify-between bg-white">
+                  <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-here-tint text-here-primary font-bold text-[10px] flex items-center justify-center">
+                      JC
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold text-here-text">Jaden Cruz</div>
+                      <div class="text-[10px] text-here-muted">2024-00912 &middot; 09:07 AM</div>
+                    </div>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-here-successBg text-here-successFg">
+                    Face Verified
+                  </span>
+                </div>
+              </div>
+
+              <!-- Bottom Bar with Floating Action Button -->
+              <div class="p-3 border-t border-here-border bg-white flex items-center justify-between">
+                <span class="text-[11px] font-bold text-here-muted">Auto-lock on end: ON</span>
+                <div class="px-3 py-1.5 rounded-here bg-here-primary text-white text-xs font-bold flex items-center gap-1">
+                  <span>Scan</span>
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 3: Turnout Velocity Charts -->
+            <div id="screen-analytics" class="showcase-screen hidden flex-1 flex flex-col bg-here-bg">
+              <div class="bg-here-primary text-white p-4 rounded-b-[20px]">
+                <div class="text-xs font-bold text-white/80 uppercase tracking-wider">Event Analytics</div>
+                <div class="text-base font-extrabold mt-0.5">Turnout Velocity &amp; Peaks</div>
+                
+                <!-- Interval Tabs -->
+                <div class="mt-3 flex items-center gap-1 bg-white/10 p-1 rounded-lg text-[11px] font-bold">
+                  <span class="flex-1 py-1 text-center rounded bg-white text-here-primary">10m</span>
+                  <span class="flex-1 py-1 text-center rounded text-white">15m</span>
+                  <span class="flex-1 py-1 text-center rounded text-white">30m</span>
+                </div>
+              </div>
+
+              <div class="p-3 space-y-3 flex-1">
+                <!-- Peak Velocity Callout -->
+                <div class="here-card p-3 bg-white">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-extrabold uppercase text-here-muted">Peak Velocity</span>
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-here-warningBg text-here-warningFg">
+                      ⚡ Peak Scan Window
+                    </span>
+                  </div>
+                  <div class="mt-1 text-base font-extrabold text-here-text">58 scans / 10m</div>
+                  <div class="text-[11px] text-here-muted">Recorded between 09:10 AM - 09:20 AM</div>
+                  
+                  <!-- CSS Velocity Histogram -->
+                  <div class="mt-3 h-16 flex items-end gap-1.5 pt-2 border-b border-here-border">
+                    <div class="flex-1 bg-here-tint rounded-t h-[20%]"></div>
+                    <div class="flex-1 bg-here-tint rounded-t h-[35%]"></div>
+                    <div class="flex-1 bg-here-primary rounded-t h-[100%] relative">
+                      <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 text-[8px] font-bold text-here-primary">58</span>
+                    </div>
+                    <div class="flex-1 bg-here-tint rounded-t h-[65%]"></div>
+                    <div class="flex-1 bg-here-tint rounded-t h-[40%]"></div>
+                    <div class="flex-1 bg-here-tint rounded-t h-[15%]"></div>
+                  </div>
+                  <div class="flex justify-between text-[9px] text-here-muted mt-1 font-mono">
+                    <span>09:00</span>
+                    <span>09:15</span>
+                    <span>09:30</span>
+                    <span>09:45</span>
+                  </div>
+                </div>
+
+                <!-- Export Preview -->
+                <div class="here-card p-3 bg-white flex items-center justify-between">
+                  <div>
+                    <div class="text-xs font-bold text-here-text">Executive CSV Report</div>
+                    <div class="text-[10px] text-here-muted">Sanitized against formula injection</div>
+                  </div>
+                  <span class="px-2.5 py-1 rounded bg-here-tint text-here-primary text-xs font-bold">
+                    Export .csv
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 4: Face Gallery & Roster -->
+            <div id="screen-roster" class="showcase-screen hidden flex-1 flex flex-col bg-here-bg">
+              <div class="bg-here-primary text-white p-4 rounded-b-[20px]">
+                <div class="text-xs font-bold text-white/80 uppercase tracking-wider">Roster &amp; Biometrics</div>
+                <div class="text-base font-extrabold mt-0.5">Attendee Profile &amp; Samples</div>
+                <div class="text-[11px] text-white/80">MobileFaceNet 192-D Vectors</div>
+              </div>
+
+              <div class="p-3 space-y-3 flex-1">
+                <!-- Batch Verify Action Banner -->
+                <div class="p-2.5 rounded-here bg-here-warningBg text-here-warningFg border border-[#E8D4A2] flex items-center justify-between text-xs">
+                  <div>
+                    <div class="font-bold">3 unverified typed IDs</div>
+                    <div class="text-[10px]">Session 1 &middot; Manual entries</div>
+                  </div>
+                  <span class="px-2 py-1 rounded bg-white text-here-warningFg font-extrabold text-[10px]">
+                    Verify all (3)
+                  </span>
+                </div>
+
+                <!-- Face Gallery Cards -->
+                <div class="here-card p-3 bg-white">
+                  <div class="flex items-center gap-2.5 pb-2.5 border-b border-here-border">
+                    <div class="w-10 h-10 rounded-lg bg-here-tint text-here-primary font-bold text-sm flex items-center justify-center">
+                      KN
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold text-here-text">Kiana Navarro</div>
+                      <div class="text-[10px] text-here-muted">Student ID: 2025-04118</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-2.5">
+                    <div class="text-[10px] font-bold text-here-muted uppercase tracking-wider mb-1.5">
+                      Enrolled Face Angles (3 Samples)
+                    </div>
+                    <div class="grid grid-cols-3 gap-1.5 text-center">
+                      <div class="p-1.5 rounded-lg bg-here-bg border border-here-border">
+                        <div class="w-full h-10 rounded bg-here-tint text-here-primary font-bold text-[9px] flex items-center justify-center">
+                          Frontal
+                        </div>
+                        <div class="text-[9px] text-here-muted mt-1 font-semibold">Primary</div>
+                      </div>
+                      <div class="p-1.5 rounded-lg bg-here-bg border border-here-border">
+                        <div class="w-full h-10 rounded bg-here-tint text-here-primary font-bold text-[9px] flex items-center justify-center">
+                          Angle 45°
+                        </div>
+                        <div class="text-[9px] text-here-muted mt-1 font-semibold">Lighting</div>
+                      </div>
+                      <div class="p-1.5 rounded-lg bg-here-bg border border-here-border">
+                        <div class="w-full h-10 rounded bg-here-tint text-here-primary font-bold text-[9px] flex items-center justify-center">
+                          Glasses
+                        </div>
+                        <div class="text-[9px] text-here-muted mt-1 font-semibold">Accessories</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Description & Screen Specifications -->
+      <div class="lg:col-span-6 space-y-6">
+        
+        <!-- Info Panel: Scanner -->
+        <div id="info-scanner" class="showcase-info space-y-4">
+          <div class="inline-flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-success">
+              100% On-Device Neural Net
+            </span>
+            <span class="text-xs font-semibold text-here-muted">
+              MobileFaceNet &middot; 0.18s inference
+            </span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
+            Live Door Scanner with Zero Cloud Dependency
+          </h3>
+          <p class="text-sm sm:text-base text-here-muted leading-relaxed">
+            Google ML Kit tracks faces inside the camera viewfinder, generates 192-dimensional embeddings directly in local memory, and matches against cached group templates. No internet is required during door scanning.
+          </p>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Face-First Registration:</strong> New attendees register name and Student ID directly from the camera confirmation dialog upon their first scan.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Offline Caching:</strong> Pre-caches face templates upon opening the event. All time-in/time-out records queue locally until reconnection.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Manual "Type ID" Fallback:</strong> Attendees without face consent or temporary camera issues can be recorded instantly with manual ID numbers.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Info Panel: Events -->
+        <div id="info-events" class="showcase-info hidden space-y-4">
+          <div class="inline-flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-tint">
+              Multi-Day &amp; Multi-Session
+            </span>
+            <span class="text-xs font-semibold text-here-muted">
+              Auto-Lock Protection
+            </span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
+            Schedule Multi-Session Conferences &amp; Club Events
+          </h3>
+          <p class="text-sm sm:text-base text-here-muted leading-relaxed">
+            Organize complex multi-part events (e.g., Morning Keynote, Afternoon Workshop, Evening General Assembly) with individual attendance windows and automatic lock-on-end protection to prevent back-dated check-ins.
+          </p>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Distinct Session Windows:</strong> Track punctuality and dropout rates between individual workshop slots.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Conflict-Free Multi-Device Scanning:</strong> Multiple checkers scan simultaneously; writes use per-checker timestamps to eliminate merge conflicts.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Automatic Event Locking:</strong> When the scheduled event end time expires, attendance records automatically freeze in read-only mode.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Info Panel: Analytics -->
+        <div id="info-analytics" class="showcase-info hidden space-y-4">
+          <div class="inline-flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-warning">
+              Real-Time Turnout Intelligence
+            </span>
+            <span class="text-xs font-semibold text-here-muted">
+              10m / 15m / 30m Histograms
+            </span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
+            Check-In Velocity Timelines &amp; Executive CSV Exports
+          </h3>
+          <p class="text-sm sm:text-base text-here-muted leading-relaxed">
+            Understand when attendees arrive. Configurable velocity histograms uncover peak arrival times, bottlenecks, and punctuality patterns across your student organization's semester calendar.
+          </p>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Peak Scan Velocity Pills:</strong> Instantly pinpoint the exact 10-minute window that experienced the highest arrival rush.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Cross-Event Member Leaderboards:</strong> Track who attended the most events across the school year for club awards or academic credit.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Sanitized CSV Downloads:</strong> Output files escape Excel/Google Sheets formula injection vulnerabilities (`=`, `+`, `-`, `@`).</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Info Panel: Roster -->
+        <div id="info-roster" class="showcase-info hidden space-y-4">
+          <div class="inline-flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-tint">
+              Biometric Governance
+            </span>
+            <span class="text-xs font-semibold text-here-muted">
+              1-Tap Batch Verification
+            </span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight">
+            Multi-Angle Face Gallery &amp; Role-Based Governance
+          </h3>
+          <p class="text-sm sm:text-base text-here-muted leading-relaxed">
+            Ensure high recognition accuracy even when members change hairstyles or wear glasses. Store multiple biometric feature vectors per member, calibrate matching thresholds, and batch-verify manual entries in 1 tap.
+          </p>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-here-text font-semibold">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Multi-Angle Biometric Gallery:</strong> Store up to 5 facial sample vectors per student to accommodate lighting and glasses variations.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>1-Tap Batch Verification:</strong> Admins can review all manual Typed ID check-ins and verify them in bulk with one click.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span><strong>Complete Right to Deletion:</strong> Deleting a student permanently purges their facial vectors and thumbnails from the group database.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script is:inline>
+    (function initShowcaseTabs() {
+      const tabButtons = document.querySelectorAll('.showcase-tab-btn');
+      const screens = document.querySelectorAll('.showcase-screen');
+      const infoPanels = document.querySelectorAll('.showcase-info');
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-target');
+          if (!target) return;
+
+          // Update Tab Buttons
+          tabButtons.forEach((b) => {
+            const isCurrent = b === btn;
+            b.setAttribute('aria-selected', String(isCurrent));
+            if (isCurrent) {
+              b.classList.add('border-here-primary', 'bg-here-primary', 'text-here-onPrimary');
+              b.classList.remove('border-here-border', 'bg-here-surface', 'text-here-muted');
+            } else {
+              b.classList.remove('border-here-primary', 'bg-here-primary', 'text-here-onPrimary');
+              b.classList.add('border-here-border', 'bg-here-surface', 'text-here-muted');
+            }
+          });
+
+          // Update Screens in Device Mockup
+          screens.forEach((screen) => {
+            if (screen.id === 'screen-' + target) {
+              screen.classList.remove('hidden');
+            } else {
+              screen.classList.add('hidden');
+            }
+          });
+
+          // Update Right Info Panels
+          infoPanels.forEach((panel) => {
+            if (panel.id === 'info-' + target) {
+              panel.classList.remove('hidden');
+            } else {
+              panel.classList.add('hidden');
+            }
+          });
+        });
+      });
+    })();
+  </script>
+</section>

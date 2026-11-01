@@ -7,13 +7,16 @@ const rootDir = process.cwd();
 
 test('Brand assets exist in public/assets and public/favicon.png', () => {
   const loginLogo = path.join(rootDir, 'public', 'assets', 'loginlogo.png');
+  const brandMark = path.join(rootDir, 'public', 'assets', 'brand-mark.png');
   const logo = path.join(rootDir, 'public', 'assets', 'logo.png');
   const favicon = path.join(rootDir, 'public', 'favicon.png');
 
   assert.equal(fs.existsSync(loginLogo), true, 'public/assets/loginlogo.png must exist');
+  assert.equal(fs.existsSync(brandMark), true, 'public/assets/brand-mark.png must exist');
   assert.equal(fs.existsSync(logo), true, 'public/assets/logo.png must exist');
   assert.equal(fs.existsSync(favicon), true, 'public/favicon.png must exist');
   assert.ok(fs.statSync(loginLogo).size > 1000, 'loginlogo.png should not be empty');
+  assert.ok(fs.statSync(brandMark).size > 1000, 'brand-mark.png should not be empty');
   assert.ok(fs.statSync(logo).size > 1000, 'logo.png should not be empty');
 });
 
@@ -78,7 +81,7 @@ test('Release fetcher configures GitHub releases endpoint and v2.1.0-beta.6 stat
   assert.ok(releaseSource.includes('buildNumber: 14'), 'Must include Build 14');
 });
 
-test('Built dist HTML outputs exist and contain required copy and links', () => {
+test('Built dist HTML outputs exist and contain required copy, showcase, and links', () => {
   const indexHtmlPath = path.join(rootDir, 'dist', 'index.html');
   const privacyHtmlPath = path.join(rootDir, 'dist', 'privacy', 'index.html');
   const termsHtmlPath = path.join(rootDir, 'dist', 'terms', 'index.html');
@@ -93,6 +96,13 @@ test('Built dist HTML outputs exist and contain required copy and links', () => 
   assert.ok(indexHtml.includes('here-v2.1.0-beta.6.apk'), 'Landing page must include v2.1.0-beta.6 APK link');
   assert.ok(indexHtml.includes('Face-First Check-In'), 'Landing page must highlight Face-First on-the-go registration');
   assert.ok(indexHtml.includes('No pre-built roster needed'), 'Landing page must highlight no pre-built roster needed');
+  assert.ok(indexHtml.includes('brand-mark.png'), 'Landing page must render cropped crisp brand-mark.png');
+  assert.ok(indexHtml.includes('id="showcase"'), 'Landing page must include interactive showcase section');
+  assert.ok(indexHtml.includes('See Here! in Action on Android'), 'Landing page must include showcase heading');
+  assert.ok(indexHtml.includes('id="screen-scanner"'), 'Showcase must include live face scanner mock');
+  assert.ok(indexHtml.includes('id="screen-events"'), 'Showcase must include event sessions hub mock');
+  assert.ok(indexHtml.includes('id="screen-analytics"'), 'Showcase must include turnout velocity charts mock');
+  assert.ok(indexHtml.includes('id="screen-roster"'), 'Showcase must include face gallery & roster mock');
   assert.ok(indexHtml.includes('1. Create or Join a Group'), 'Landing page must include Quick Start steps');
 
   const privacyHtml = fs.readFileSync(privacyHtmlPath, 'utf8');
@@ -104,4 +114,3 @@ test('Built dist HTML outputs exist and contain required copy and links', () => 
   assert.ok(termsHtml.includes('Terms &amp; Conditions') || termsHtml.includes('Terms & Conditions'), 'Terms page must render title');
   assert.ok(termsHtml.includes('Biometric Registration Consent'), 'Terms page must render consent section');
 });
-

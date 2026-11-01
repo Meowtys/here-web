@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
@@ -8,6 +8,9 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
   ],
+  image: {
+    service: passthroughImageService(),
+  },
   build: {
     format: 'directory',
   },
