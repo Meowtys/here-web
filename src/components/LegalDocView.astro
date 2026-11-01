@@ -1,0 +1,99 @@
+---
+import type { LegalDocument } from '../data/legal';
+
+interface Props {
+  doc: LegalDocument;
+  activeTab: 'privacy' | 'terms';
+}
+
+const { doc, activeTab } = Astro.props;
+---
+
+<section class="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
+  <!-- Breadcrumb & Toggle -->
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+    <a
+      href="/"
+      class="inline-flex items-center gap-1.5 text-sm font-bold text-here-primary hover:underline"
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      <span>Back to Showcase</span>
+    </a>
+
+    <div class="inline-flex items-center p-1 rounded-here border border-here-border bg-here-surface">
+      <a
+        href="/privacy"
+        aria-current={activeTab === 'privacy' ? 'page' : undefined}
+        class:list={[
+          'px-3 py-1.5 rounded-lg text-xs font-bold transition-colors',
+          activeTab === 'privacy'
+            ? 'bg-here-primary text-here-onPrimary'
+            : 'text-here-muted hover:text-here-text',
+        ]}
+      >
+        Privacy Policy
+      </a>
+      <a
+        href="/terms"
+        aria-current={activeTab === 'terms' ? 'page' : undefined}
+        class:list={[
+          'px-3 py-1.5 rounded-lg text-xs font-bold transition-colors',
+          activeTab === 'terms'
+            ? 'bg-here-primary text-here-onPrimary'
+            : 'text-here-muted hover:text-here-text',
+        ]}
+      >
+        Terms &amp; Conditions
+      </a>
+    </div>
+  </div>
+
+  <!-- Header matching app AppBar + TealBand/LegalDocPage -->
+  <div class="mb-5">
+    <h1 class="text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
+      {doc.title}
+    </h1>
+    <p class="mt-1 text-sm text-here-muted">
+      {doc.subtitle}
+    </p>
+  </div>
+
+  <!-- Last Updated Pill Banner matching LegalDocPage Container(color: HereColors.tint, borderRadius: 10) -->
+  <div class="flex items-center gap-2 px-3.5 py-2.5 rounded-[10px] bg-here-tint text-here-primary mb-5">
+    <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <span class="text-xs font-semibold">
+      Last updated: {doc.lastUpdated}
+    </span>
+  </div>
+
+  <!-- Legal Sections matching LegalDocPage Cards -->
+  <div class="space-y-3.5">
+    {doc.sections.map((section) => (
+      <article class="bg-here-surface border border-here-border rounded-[14px] p-4 sm:p-5">
+        <h2 class="text-[15px] sm:text-base font-bold text-here-text">
+          {section.heading}
+        </h2>
+        <div class="mt-2 text-[13px] sm:text-sm leading-relaxed text-here-text whitespace-pre-line">
+          {section.body}
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <!-- Bottom Wordmark matching LegalDocPage footer -->
+  <div class="mt-8 text-center">
+    <div class="inline-flex items-center gap-1 text-here-muted font-extrabold text-base tracking-tight">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 5L5 19M5 19h10M5 19V9" />
+      </svg>
+      <span>Here!</span>
+    </div>
+    <p class="mt-1 text-[11px] text-here-muted/80">
+      Student Organization Attendance System
+    </p>
+  </div>
+</section>

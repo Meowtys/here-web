@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalDocView from '../components/LegalDocView.astro';
+import { TERMS_AND_CONDITIONS } from '../data/legal';
+---
+
+<BaseLayout
+  title="Terms of Use — Here! Attendance System"
+  description="Terms & Conditions for Here!, detailing user roles, biometric registration consent, and attendance governance rules for student organizations."
+>
+  <LegalDocView doc={TERMS_AND_CONDITIONS} activeTab="terms" />
+</BaseLayout>
