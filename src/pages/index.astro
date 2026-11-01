@@ -1,0 +1,543 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { fetchLatestRelease, FALLBACK_RELEASE, RELEASES_API_URL, GITHUB_REPO_URL } from '../data/release';
+
+const release = await fetchLatestRelease();
+
+const features = [
+  {
+    title: 'On-Device Face Recognition & Offline Sync',
+    badge: 'Synced - Offline ready',
+    badgeStyle: 'here-pill-success',
+    description:
+      'Fast camera check-in (time-in / time-out) powered by an on-device MobileFaceNet neural network. Roster biometric templates cache locally so you can scan attendees with zero internet and sync automatically in the background.',
+    highlights: [
+      'Instant time-in & time-out camera scanning',
+      'Local biometric template caching (Synced - Offline ready)',
+      'Automatic background queue sync upon reconnect',
+    ],
+  },
+  {
+    title: 'Multi-Day & Multi-Session Events',
+    badge: 'Today',
+    badgeStyle: 'here-pill-success',
+    description:
+      'Support for single-window and multi-session schedules across multi-day conferences or club weeks. Includes automatic event lock-on-end and 1-tap batch verification for manual ID check-ins.',
+    highlights: [
+      'Single-window & multi-session custom schedules',
+      'Automatic event lock-on-end protection',
+      '1-tap batch verification for manual Typed ID check-ins',
+    ],
+  },
+  {
+    title: 'Turnout Analytics & CSV Exports',
+    badge: '10m / 15m / 30m',
+    badgeStyle: 'here-pill-tint',
+    description:
+      'Visualize check-in momentum with configurable velocity timelines (10m, 15m, or 30m intervals), peak scan tracking, cross-event member leaderboards, and spreadsheet-safe CSV exports.',
+    highlights: [
+      'Configurable check-in velocity timelines (10m / 15m / 30m)',
+      'Peak scan window tracking & punctuality breakdowns',
+      'Cross-event leaderboards & formula-sanitized CSV exports',
+    ],
+  },
+  {
+    title: 'Role-Based Governance & Audit Logs',
+    badge: 'Owner / Admin',
+    badgeStyle: 'here-pill-warning',
+    description:
+      'Granular Owner, Admin, and Member permission controls backed by strict Cloud Firestore security rules and date-filtered governance audit logs for complete organizational accountability.',
+    highlights: [
+      'Owner, Admin & Member role-based access controls',
+      '6-character group invite codes & join approval workflows',
+      'Date-filtered governance audit logs for every action',
+    ],
+  },
+];
+
+const quickStartSteps = [
+  {
+    step: '01',
+    title: '1. Create or Join a Group',
+    subtitle: 'Organization Workspace',
+    description:
+      'Tap the + button on the Groups screen to create a student organization workspace, or join an existing group using a 6-character invite code.',
+  },
+  {
+    step: '02',
+    title: '2. Build Roster & Enroll Faces',
+    subtitle: 'On-Device Biometrics',
+    description:
+      'Add student roster profiles with Student IDs and capture multi-angle facial samples using on-device MobileFaceNet embedding extraction.',
+  },
+  {
+    step: '03',
+    title: '3. Run Event Sessions',
+    subtitle: 'Online or Offline Check-In',
+    description:
+      'Schedule single or multi-session events, then scan faces for instant time-in / time-out verification or record manual Typed ID entries offline.',
+  },
+  {
+    step: '04',
+    title: '4. Verify & Export Analytics',
+    subtitle: 'Turnout & Governance',
+    description:
+      'Batch-verify manual ID entries in 1 tap, inspect 10m/15m/30m check-in velocity charts, review audit logs, and export sanitized CSV reports.',
+  },
+];
+
+const installSteps = [
+  {
+    num: '1',
+    title: 'Download the APK Package',
+    body: 'Tap the "Download for Android (.apk)" button above to download the latest signed release directly from GitHub Releases.',
+  },
+  {
+    num: '2',
+    title: 'Allow Installation from Your Browser',
+    body: 'Open the downloaded .apk file. If prompted by Android, enable "Allow from this source" for your browser or file manager.',
+  },
+  {
+    num: '3',
+    title: 'Sign In & Join Your Organization',
+    body: 'Launch Here!, sign in with your Google account, and create a new organization group or enter your club\'s 6-character code.',
+  },
+];
+---
+
+<BaseLayout title="Here! — Student Organization Attendance System (Android APK)">
+  <!-- Hero Section -->
+  <section id="download" class="pt-8 pb-12 sm:pt-14 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      <!-- Left Column: Brand & CTA -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex flex-wrap items-center gap-2">
+          <span
+            id="release-badge-version"
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-here-tint text-here-primary border border-here-primary/20"
+          >
+            <span class="w-2 h-2 rounded-full bg-here-primary"></span>
+            <span>{release.version} &middot; Build {release.buildNumber}</span>
+          </span>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold here-pill-success">
+            Synced - Offline ready
+          </span>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold here-pill-warning">
+            {release.minAndroid}
+          </span>
+        </div>
+
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <img
+              src="/assets/loginlogo.png"
+              alt="You're Here! beta — A simple and easy to use attendance system made for students."
+              width="320"
+              height="278"
+              fetchpriority="high"
+              class="w-56 sm:w-64 h-auto object-contain"
+            />
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-here-text tracking-tight leading-[1.15]">
+            You're Here! <span class="text-here-primary">beta</span> — A simple and easy to use attendance system made for students.
+          </h1>
+          <p class="text-base sm:text-lg text-here-muted leading-relaxed max-w-2xl">
+            Built for student organizations, university clubs, and academic events. Take attendance in seconds with on-device facial recognition, offline roster caching, multi-session schedules, and real-time turnout analytics.
+          </p>
+        </div>
+
+        <!-- Primary & Secondary CTAs -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+          <a
+            id="apk-download-btn"
+            href={release.downloadUrl}
+            data-fallback-url={FALLBACK_RELEASE.downloadUrl}
+            class="here-btn-primary text-base px-6 py-3.5"
+          >
+            <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            <span>Download for Android (.apk)</span>
+          </a>
+
+          <a
+            href={GITHUB_REPO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="here-btn-outline text-base px-6 py-3.5"
+          >
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+            </svg>
+            <span>View on GitHub</span>
+          </a>
+        </div>
+
+        <!-- Release Metadata Bar -->
+        <div class="here-card p-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
+          <div>
+            <div class="text-[11px] font-bold uppercase tracking-wider text-here-muted">Release Version</div>
+            <div id="release-meta-version" class="mt-0.5 text-sm font-extrabold text-here-text">
+              {release.version} (Build {release.buildNumber})
+            </div>
+          </div>
+          <div>
+            <div class="text-[11px] font-bold uppercase tracking-wider text-here-muted">APK Size</div>
+            <div id="release-meta-size" class="mt-0.5 text-sm font-extrabold text-here-text">
+              {release.sizeFormatted}
+            </div>
+          </div>
+          <div>
+            <div class="text-[11px] font-bold uppercase tracking-wider text-here-muted">Released</div>
+            <div id="release-meta-date" class="mt-0.5 text-sm font-extrabold text-here-text">
+              {release.publishedDateFormatted}
+            </div>
+          </div>
+          <div>
+            <div class="text-[11px] font-bold uppercase tracking-wider text-here-muted">Package ID</div>
+            <div class="mt-0.5 text-xs sm:text-sm font-mono font-bold text-here-primary truncate" title={release.packageName}>
+              {release.packageName}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Tactile App Interface Preview Card (matching TealBand & BandTile) -->
+      <div class="lg:col-span-5">
+        <div class="here-card overflow-hidden border border-here-border">
+          <!-- Simulated TealBand Header -->
+          <div class="bg-here-primary text-here-onPrimary p-5 rounded-b-[22px]">
+            <div class="flex items-center justify-between">
+              <div class="inline-flex items-center gap-1.5 font-extrabold text-lg tracking-tight">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.6" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 5L5 19M5 19h10M5 19V9" />
+                </svg>
+                <span>Here!</span>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-here-successBg text-here-successFg">
+                Synced - Offline ready
+              </span>
+            </div>
+
+            <div class="mt-3">
+              <div class="text-xl font-extrabold tracking-tight">CS Student Society</div>
+              <div class="text-xs text-here-onPrimary/80 mt-0.5">General Assembly &amp; Workshop &middot; Session 1</div>
+            </div>
+
+            <!-- Simulated BandTile Row -->
+            <div class="grid grid-cols-3 gap-2 mt-4">
+              <div class="bg-white/15 rounded-here py-2 px-2.5 text-center">
+                <div class="text-base font-extrabold">142</div>
+                <div class="text-[11px] font-semibold text-white/90">Checked In</div>
+              </div>
+              <div class="bg-white/15 rounded-here py-2 px-2.5 text-center">
+                <div class="text-base font-extrabold">94%</div>
+                <div class="text-[11px] font-semibold text-white/90">Face Match</div>
+              </div>
+              <div class="bg-white/15 rounded-here py-2 px-2.5 text-center">
+                <div class="text-base font-extrabold flex items-center justify-center gap-1">
+                  <span>3</span>
+                  <span class="px-1.5 py-0.2 rounded-full text-[10px] bg-here-warningBg text-here-warningFg font-extrabold">ID</span>
+                </div>
+                <div class="text-[11px] font-semibold text-white/90">Pending</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Simulated Live Check-in Feed -->
+          <div class="p-4 space-y-2.5 bg-here-bg/60">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-here-muted px-1">
+              Recent Attendance Activity
+            </div>
+
+            <div class="here-card p-3 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-10 h-10 rounded-[10px] bg-here-tint text-here-primary font-bold text-sm flex items-center justify-center shrink-0">
+                  AL
+                </div>
+                <div class="min-w-0">
+                  <div class="text-sm font-bold text-here-text truncate">Alyssa Lim</div>
+                  <div class="text-xs text-here-muted">2024-01842 &middot; Time-in 09:02 AM</div>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold here-pill-success shrink-0">
+                Face Verified
+              </span>
+            </div>
+
+            <div class="here-card p-3 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-10 h-10 rounded-[10px] bg-here-tint text-here-primary font-bold text-sm flex items-center justify-center shrink-0">
+                  MR
+                </div>
+                <div class="min-w-0">
+                  <div class="text-sm font-bold text-here-text truncate">Marcus Reyes</div>
+                  <div class="text-xs text-here-muted">2023-10944 &middot; Time-in 09:04 AM</div>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold here-pill-warning shrink-0">
+                Typed ID
+              </span>
+            </div>
+
+            <div class="here-card p-3 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-10 h-10 rounded-[10px] bg-here-mutedTile text-here-muted font-bold text-sm flex items-center justify-center shrink-0">
+                  JC
+                </div>
+                <div class="min-w-0">
+                  <div class="text-sm font-bold text-here-text truncate">Jaden Cruz</div>
+                  <div class="text-xs text-here-muted">2025-00419 &middot; Time-out 11:58 AM</div>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold here-pill-tint shrink-0">
+                Completed
+              </span>
+            </div>
+
+            <div class="pt-1 flex items-center justify-between text-xs text-here-muted px-1">
+              <span>MobileFaceNet (192-D embeddings)</span>
+              <a
+                id="release-notes-link"
+                href={release.releaseUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-bold text-here-primary hover:underline"
+              >
+                Release notes &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Highlights Grid -->
+  <section id="features" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
+    <div class="max-w-2xl">
+      <div class="text-xs font-bold uppercase tracking-wider text-here-primary">
+        Built for Real Campus Conditions
+      </div>
+      <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
+        Everything student organizers need to run high-turnout events
+      </h2>
+      <p class="mt-2 text-sm sm:text-base text-here-muted">
+        Designed with a warm, zero-bloat interface that stays fast even in crowded auditoriums or basement venues with spotty Wi-Fi.
+      </p>
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+      {features.map((feature) => (
+        <article class="here-card p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class:list={['px-2.5 py-1 rounded-full text-xs font-bold', feature.badgeStyle]}>
+                {feature.badge}
+              </span>
+            </div>
+            <h3 class="text-lg font-extrabold text-here-text tracking-tight">
+              {feature.title}
+            </h3>
+            <p class="mt-2 text-sm text-here-muted leading-relaxed">
+              {feature.description}
+            </p>
+          </div>
+
+          <ul class="mt-5 pt-4 border-t border-here-border space-y-2">
+            {feature.highlights.map((item) => (
+              <li class="flex items-start gap-2 text-xs sm:text-sm font-semibold text-here-text">
+                <svg class="w-4 h-4 text-here-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Quick Start / How It Works Section -->
+  <section id="how-it-works" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div class="max-w-2xl">
+        <div class="text-xs font-bold uppercase tracking-wider text-here-primary">
+          In-App Onboarding Walkthrough
+        </div>
+        <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
+          How It Works in 4 Simple Steps
+        </h2>
+        <p class="mt-2 text-sm sm:text-base text-here-muted">
+          Mirrors the interactive Quick Start Guide built directly into the Here! app settings.
+        </p>
+      </div>
+      <span class="inline-flex items-center px-3 py-1.5 rounded-here bg-here-tint text-here-primary text-xs font-bold self-start md:self-auto">
+        Ready in under 3 minutes
+      </span>
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {quickStartSteps.map((item) => (
+        <div class="here-card p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="w-9 h-9 rounded-[10px] bg-here-tint text-here-primary font-extrabold text-sm flex items-center justify-center">
+                {item.step}
+              </span>
+              <span class="text-[11px] font-bold text-here-muted uppercase tracking-wider">
+                {item.subtitle}
+              </span>
+            </div>
+            <h3 class="text-base font-extrabold text-here-text">
+              {item.title}
+            </h3>
+            <p class="mt-2 text-xs sm:text-sm text-here-muted leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 3-Step Android APK Installation Guide -->
+  <section id="install" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
+    <div class="here-card p-6 sm:p-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-here-border">
+        <div>
+          <div class="inline-flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-tint">
+              Android Sideloading Guide
+            </span>
+            <span class="text-xs font-semibold text-here-muted">
+              Package: <code class="font-mono text-here-text">com.meowtys.here</code>
+            </span>
+          </div>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
+            Install Here! on Your Android Device
+          </h2>
+          <p class="mt-1 text-sm text-here-muted">
+            Follow these 3 quick steps to install the beta APK on Android 7.0 (Nougat) or newer.
+          </p>
+        </div>
+
+        <a
+          id="apk-download-btn-bottom"
+          href={release.downloadUrl}
+          class="here-btn-primary shrink-0"
+        >
+          <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          <span>Download {release.version} (.apk)</span>
+        </a>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+        {installSteps.map((step) => (
+          <div class="p-4 rounded-here bg-here-bg border border-here-border">
+            <div class="flex items-center gap-2.5">
+              <span class="w-7 h-7 rounded-lg bg-here-primary text-here-onPrimary font-extrabold text-xs flex items-center justify-center">
+                {step.num}
+              </span>
+              <h3 class="text-sm sm:text-base font-extrabold text-here-text">
+                {step.title}
+              </h3>
+            </div>
+            <p class="mt-2.5 text-xs sm:text-sm text-here-muted leading-relaxed">
+              {step.body}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-6 pt-5 border-t border-here-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-here-muted">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded-full font-bold here-pill-success">Privacy First</span>
+          <span>Facial feature vectors are computed on-device and never shared with third parties.</span>
+        </div>
+        <div class="flex items-center gap-4 font-bold text-here-primary">
+          <a href="/privacy" class="hover:underline">Read Privacy Policy &rarr;</a>
+          <a href="/terms" class="hover:underline">Terms of Use &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightweight Client-Side Release Hydrator (queries /releases and picks first .apk asset, with static v2.1.0-beta.6 fallback) -->
+  <script is:inline define:vars={{ RELEASES_API_URL, FALLBACK_RELEASE }}>
+    (async function hydrateLatestApkRelease() {
+      try {
+        const res = await fetch(RELEASES_API_URL, {
+          headers: { Accept: 'application/vnd.github+json' },
+        });
+        if (!res.ok) return;
+        const releases = await res.json();
+        if (!Array.isArray(releases)) return;
+
+        let matchedRelease = null;
+        let matchedApk = null;
+        for (const rel of releases) {
+          if (!rel || !Array.isArray(rel.assets)) continue;
+          const apk = rel.assets.find(
+            (a) =>
+              a &&
+              typeof a.name === 'string' &&
+              a.name.toLowerCase().endsWith('.apk') &&
+              typeof a.browser_download_url === 'string'
+          );
+          if (apk) {
+            matchedRelease = rel;
+            matchedApk = apk;
+            break;
+          }
+        }
+
+        if (!matchedRelease || !matchedApk) return;
+
+        const version = matchedRelease.tag_name || FALLBACK_RELEASE.version;
+        const downloadUrl = matchedApk.browser_download_url || FALLBACK_RELEASE.downloadUrl;
+        const sizeMB =
+          typeof matchedApk.size === 'number' && matchedApk.size > 0
+            ? (matchedApk.size / (1024 * 1024)).toFixed(1) + ' MB'
+            : FALLBACK_RELEASE.sizeFormatted;
+        const dateStr = matchedRelease.published_at
+          ? new Date(matchedRelease.published_at).toLocaleDateString('en-US', {
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric',
+            })
+          : FALLBACK_RELEASE.publishedDateFormatted;
+
+        const btnPrimary = document.getElementById('apk-download-btn');
+        const btnBottom = document.getElementById('apk-download-btn-bottom');
+        const badgeVer = document.getElementById('release-badge-version');
+        const metaVer = document.getElementById('release-meta-version');
+        const metaSize = document.getElementById('release-meta-size');
+        const metaDate = document.getElementById('release-meta-date');
+        const notesLink = document.getElementById('release-notes-link');
+
+        if (btnPrimary) btnPrimary.setAttribute('href', downloadUrl);
+        if (btnBottom) {
+          btnBottom.setAttribute('href', downloadUrl);
+          const span = btnBottom.querySelector('span');
+          if (span) span.textContent = 'Download ' + version + ' (.apk)';
+        }
+        if (badgeVer) {
+          const textSpan = badgeVer.querySelector('span:last-child');
+          if (textSpan) textSpan.textContent = version + ' · Build ' + FALLBACK_RELEASE.buildNumber;
+        }
+        if (metaVer) metaVer.textContent = version + ' (Build ' + FALLBACK_RELEASE.buildNumber + ')';
+        if (metaSize) metaSize.textContent = sizeMB;
+        if (metaDate) metaDate.textContent = dateStr;
+        if (notesLink && matchedRelease.html_url) {
+          notesLink.setAttribute('href', matchedRelease.html_url);
+        }
+      } catch (_err) {
+        // Static fallback (v2.1.0-beta.6) remains in place
+      }
+    })();
+  </script>
+</BaseLayout>
