@@ -20,6 +20,7 @@ test('Brand and showcase assets exist in public/assets and public/favicon.png', 
   assert.ok(fs.statSync(logo).size > 1000, 'logo.png should not be empty');
 
   const showcaseFiles = [
+    'group-workspace.png',
     'live-scanner.png',
     'events-hub.png',
     'event-analytics.png',
@@ -108,9 +109,11 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
   assert.ok(indexHtml.includes('here-v2.1.0-beta.6.apk'), 'Landing page must include v2.1.0-beta.6 APK link');
   assert.ok(indexHtml.includes('Face-First Check-In'), 'Landing page must highlight Face-First on-the-go registration');
   assert.ok(indexHtml.includes('No pre-built roster needed'), 'Landing page must highlight no pre-built roster needed');
+  assert.ok(indexHtml.includes('Single-Session &amp; Multi-Session Events') || indexHtml.includes('Single-Session & Multi-Session Events'), 'Landing page must highlight both 1-session and multi-session events');
   assert.ok(indexHtml.includes('brand-mark.png'), 'Landing page must render cropped crisp brand-mark.png');
   assert.ok(indexHtml.includes('id="showcase"'), 'Landing page must include interactive showcase section');
   assert.ok(indexHtml.includes('See Here! in Action on Android'), 'Landing page must include showcase heading');
+  assert.ok(indexHtml.includes('/assets/showcase/group-workspace.png'), 'Showcase must render real group-workspace.png');
   assert.ok(indexHtml.includes('/assets/showcase/live-scanner.png'), 'Showcase must render real live-scanner.png');
   assert.ok(indexHtml.includes('/assets/showcase/events-hub.png'), 'Showcase must render real events-hub.png');
   assert.ok(indexHtml.includes('/assets/showcase/event-analytics.png'), 'Showcase must render real event-analytics.png');
