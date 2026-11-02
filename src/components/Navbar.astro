@@ -10,7 +10,7 @@ const { currentPath = '/' } = Astro.props;
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
     <a
       href="/"
-      class="inline-flex items-center gap-2 text-here-text font-extrabold text-xl tracking-tight rounded-lg py-1 px-1.5 -ml-1.5 hover:bg-here-tint/60 transition-colors shrink-0"
+      class="inline-flex items-center gap-2 text-here-text font-extrabold text-xl tracking-tight rounded-lg py-1 px-1.5 -ml-1.5 hover:bg-here-tint/60 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors shrink-0"
       aria-label="Here! Home"
     >
       <img
@@ -30,25 +30,25 @@ const { currentPath = '/' } = Astro.props;
     <nav aria-label="Primary Navigation" class="hidden md:flex items-center gap-1">
       <a
         href="/#showcase"
-        class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 transition-colors"
+        class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors"
       >
         Showcase
       </a>
       <a
         href="/#features"
-        class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 transition-colors"
+        class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors"
       >
         Features
       </a>
       <a
         href="/#how-it-works"
-        class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 transition-colors"
+        class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors"
       >
         How It Works
       </a>
       <a
         href="/#install"
-        class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 transition-colors"
+        class="px-3 py-2 rounded-lg text-sm font-semibold text-here-muted hover:text-here-text hover:bg-here-tint/50 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors"
       >
         Install Guide
       </a>
@@ -56,7 +56,7 @@ const { currentPath = '/' } = Astro.props;
         href="/privacy"
         aria-current={currentPath.startsWith('/privacy') ? 'page' : undefined}
         class:list={[
-          'px-3 py-2 rounded-lg text-sm font-semibold transition-colors',
+          'px-3 py-2 rounded-lg text-sm font-semibold focus-visible:ring-2 focus-visible:ring-here-primary transition-colors',
           currentPath.startsWith('/privacy')
             ? 'bg-here-tint text-here-primary font-bold'
             : 'text-here-muted hover:text-here-text hover:bg-here-tint/50',
@@ -68,7 +68,7 @@ const { currentPath = '/' } = Astro.props;
         href="/terms"
         aria-current={currentPath.startsWith('/terms') ? 'page' : undefined}
         class:list={[
-          'px-3 py-2 rounded-lg text-sm font-semibold transition-colors',
+          'px-3 py-2 rounded-lg text-sm font-semibold focus-visible:ring-2 focus-visible:ring-here-primary transition-colors',
           currentPath.startsWith('/terms')
             ? 'bg-here-tint text-here-primary font-bold'
             : 'text-here-muted hover:text-here-text hover:bg-here-tint/50',
@@ -83,7 +83,7 @@ const { currentPath = '/' } = Astro.props;
         href="https://github.com/Meowtys/here-next"
         target="_blank"
         rel="noopener noreferrer"
-        class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-here border border-here-border bg-here-surface text-here-text text-xs sm:text-sm font-bold hover:bg-here-tint/50 transition-colors"
+        class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-here border border-here-border bg-here-surface text-here-text text-xs sm:text-sm font-bold hover:bg-here-tint/50 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors"
       >
         <svg class="w-4 h-4 text-here-text shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
@@ -93,16 +93,16 @@ const { currentPath = '/' } = Astro.props;
 
       <a
         href="/#download"
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-here bg-here-primary text-here-onPrimary text-xs sm:text-sm font-bold hover:bg-[#184B66] transition-colors shrink-0"
+        class="inline-flex items-center justify-center min-h-[40px] px-3.5 py-2 rounded-here bg-here-primary text-here-onPrimary text-xs sm:text-sm font-bold hover:bg-[#184B66] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-here-primary transition-colors shrink-0"
       >
         <span>Get APK</span>
       </a>
 
-      <!-- Mobile Menu Toggle Button -->
+      <!-- Mobile Menu Toggle Button (44x44px touch target) -->
       <button
         id="mobile-nav-toggle"
         type="button"
-        class="md:hidden inline-flex items-center justify-center p-1.5 sm:p-2 rounded-here border border-here-border bg-here-surface text-here-text hover:bg-here-tint/50 transition-colors shrink-0"
+        class="md:hidden inline-flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-here border border-here-border bg-here-surface text-here-text hover:bg-here-tint/50 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors shrink-0 cursor-pointer"
         aria-controls="mobile-nav-menu"
         aria-expanded="false"
         aria-label="Toggle navigation menu"
@@ -121,32 +121,32 @@ const { currentPath = '/' } = Astro.props;
   <div id="mobile-nav-menu" class="hidden md:hidden border-t border-here-border bg-here-surface px-4 py-3 space-y-1">
     <a
       href="/#showcase"
-      class="block px-3 py-2 rounded-lg text-sm font-semibold text-here-text hover:bg-here-tint/50 transition-colors"
+      class="flex items-center min-h-[44px] px-3 rounded-lg text-sm font-semibold text-here-text hover:bg-here-tint/50 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors"
     >
       Showcase
     </a>
     <a
       href="/#features"
-      class="block px-3 py-2 rounded-lg text-sm font-semibold text-here-text hover:bg-here-tint/50 transition-colors"
+      class="flex items-center min-h-[44px] px-3 rounded-lg text-sm font-semibold text-here-text hover:bg-here-tint/50 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors"
     >
       Features
     </a>
     <a
       href="/#how-it-works"
-      class="block px-3 py-2 rounded-lg text-sm font-semibold text-here-text hover:bg-here-tint/50 transition-colors"
+      class="flex items-center min-h-[44px] px-3 rounded-lg text-sm font-semibold text-here-text hover:bg-here-tint/50 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors"
     >
       How It Works
     </a>
     <a
       href="/#install"
-      class="block px-3 py-2 rounded-lg text-sm font-semibold text-here-text hover:bg-here-tint/50 transition-colors"
+      class="flex items-center min-h-[44px] px-3 rounded-lg text-sm font-semibold text-here-text hover:bg-here-tint/50 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors"
     >
       Install Guide
     </a>
     <a
       href="/privacy"
       class:list={[
-        'block px-3 py-2 rounded-lg text-sm font-semibold transition-colors',
+        'flex items-center min-h-[44px] px-3 rounded-lg text-sm font-semibold focus-visible:ring-2 focus-visible:ring-here-primary transition-colors',
         currentPath.startsWith('/privacy') ? 'bg-here-tint text-here-primary font-bold' : 'text-here-text hover:bg-here-tint/50',
       ]}
     >
@@ -155,7 +155,7 @@ const { currentPath = '/' } = Astro.props;
     <a
       href="/terms"
       class:list={[
-        'block px-3 py-2 rounded-lg text-sm font-semibold transition-colors',
+        'flex items-center min-h-[44px] px-3 rounded-lg text-sm font-semibold focus-visible:ring-2 focus-visible:ring-here-primary transition-colors',
         currentPath.startsWith('/terms') ? 'bg-here-tint text-here-primary font-bold' : 'text-here-text hover:bg-here-tint/50',
       ]}
     >
@@ -166,7 +166,7 @@ const { currentPath = '/' } = Astro.props;
         href="https://github.com/Meowtys/here-next"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold text-here-text hover:bg-here-tint/50 transition-colors"
+        class="flex items-center min-h-[44px] gap-2 px-3 rounded-lg text-sm font-semibold text-here-text hover:bg-here-tint/50 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors"
       >
         <svg class="w-4 h-4 text-here-text shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />

@@ -108,7 +108,7 @@ const installSteps = [
 
 <BaseLayout title="Here! — Face-First Student Organization Attendance System (Android APK)">
   <!-- Hero Section -->
-  <section id="download" class="pt-8 pb-12 sm:pt-14 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+  <section id="download" class="scroll-mt-20 pt-8 pb-12 sm:pt-14 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
       <!-- Left Column: Brand & CTA -->
       <div class="lg:col-span-7 space-y-6">
@@ -141,14 +141,14 @@ const installSteps = [
             />
           </div>
 
-          <h1 class="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-here-text tracking-tight leading-tight">
+          <h1 class="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-here-text tracking-tight leading-tight text-balance">
             A simple, face-first attendance system made for students.
           </h1>
-          <p class="text-base sm:text-lg font-bold text-here-primary leading-snug">
+          <p class="text-base sm:text-lg font-bold text-here-primary leading-snug text-pretty">
             No pre-built roster needed. Attendance checkers can scan faces, register walk-ins, and check students in on the go.
           </p>
-          <p class="text-sm sm:text-base text-here-muted leading-relaxed max-w-2xl">
-            Built for student organizations, university clubs, and academic events. Whether it's a quick single-session meeting or a multi-day event, Here! combines on-device facial recognition with offline check-in caching and instant CSV exports — so you can take attendance anywhere, even without Wi-Fi.
+          <p class="text-sm sm:text-base text-here-muted leading-relaxed max-w-2xl text-pretty">
+            Built for student organizations, university clubs, and academic events. Whether it’s a quick single-session meeting or a multi-day event, Here! combines on-device facial recognition with offline check-in caching and instant CSV exports — so you can take attendance anywhere, even without Wi-Fi.
           </p>
         </div>
 
@@ -158,7 +158,7 @@ const installSteps = [
             id="apk-download-btn"
             href={release.downloadUrl}
             data-fallback-url={FALLBACK_RELEASE.downloadUrl}
-            class="here-btn-primary text-base px-6 py-3.5"
+            class="here-btn-primary text-base px-6 py-3.5 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-here-primary"
           >
             <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -170,7 +170,7 @@ const installSteps = [
             href={GITHUB_REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            class="here-btn-outline text-base px-6 py-3.5"
+            class="here-btn-outline text-base px-6 py-3.5 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-here-primary"
           >
             <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
@@ -180,7 +180,7 @@ const installSteps = [
         </div>
 
         <!-- Release Metadata Bar -->
-        <div class="here-card p-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
+        <div class="here-card p-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left tabular-nums">
           <div>
             <div class="text-[11px] font-bold uppercase tracking-wider text-here-muted">Release Version</div>
             <div id="release-meta-version" class="mt-0.5 text-sm font-extrabold text-here-text">
@@ -245,10 +245,10 @@ const installSteps = [
 
             <!-- Active / Archived Tab Selector -->
             <div class="mt-3.5 p-1 bg-white/15 rounded-xl flex items-center gap-1 text-xs">
-              <div class="flex-1 py-1 px-3 rounded-lg font-extrabold bg-here-surface text-here-primary shadow-xs text-center">
+              <div class="flex-1 py-1 px-3 rounded-lg font-extrabold bg-here-surface text-here-primary shadow-xs text-center tabular-nums">
                 Active (3)
               </div>
-              <div class="flex-1 py-1 px-3 rounded-lg font-semibold text-white/80 text-center">
+              <div class="flex-1 py-1 px-3 rounded-lg font-semibold text-white/80 text-center tabular-nums">
                 Archived (0)
               </div>
             </div>
@@ -336,16 +336,16 @@ const installSteps = [
   <AppShowcase />
 
   <!-- Feature Highlights Grid -->
-  <section id="features" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
+  <section id="features" class="scroll-mt-20 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
     <div class="max-w-2xl">
       <div class="text-xs font-bold uppercase tracking-wider text-here-primary">
         Face-First &amp; Built for Real Campus Conditions
       </div>
-      <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
+      <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight text-balance">
         Skip the spreadsheet prep — check students in on the go
       </h2>
       <p class="mt-2 text-sm sm:text-base text-here-muted">
-        Whether 20 or 500 students show up, attendance checkers don't need to collect photos or CSV rosters ahead of time. Scan faces on the go, register walk-in attendees on the spot, and recognize them automatically at every future event.
+        Whether 20 or 500 students show up, attendance checkers don’t need to collect photos or CSV rosters ahead of time. Scan faces on the go, register walk-in attendees on the spot, and recognize them automatically at every future event.
       </p>
     </div>
 
@@ -382,17 +382,17 @@ const installSteps = [
   </section>
 
   <!-- Quick Start / How It Works Section -->
-  <section id="how-it-works" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
+  <section id="how-it-works" class="scroll-mt-20 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
       <div class="max-w-2xl">
         <div class="text-xs font-bold uppercase tracking-wider text-here-primary">
           Zero-Prep Workflow
         </div>
-        <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
+        <h2 class="mt-1 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight text-balance">
           How It Works in 4 Simple Steps
         </h2>
         <p class="mt-2 text-sm sm:text-base text-here-muted">
-          Mirrors the in-app Quick Start Guide — go from creating a group to checking students' attendance on the go in under a minute.
+          Mirrors the in-app Quick Start Guide — go from creating a group to checking students’ attendance on the go in under a minute.
         </p>
       </div>
       <span class="inline-flex items-center px-3 py-1.5 rounded-here bg-here-tint text-here-primary text-xs font-bold self-start md:self-auto">
@@ -425,7 +425,7 @@ const installSteps = [
   </section>
 
   <!-- 3-Step Android APK Installation Guide -->
-  <section id="install" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
+  <section id="install" class="scroll-mt-20 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
     <div class="here-card p-6 sm:p-8">
       <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-here-border">
         <div>
@@ -437,7 +437,7 @@ const installSteps = [
               Package: <code class="font-mono text-here-text">com.meowtys.here</code>
             </span>
           </div>
-          <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
+          <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight text-balance">
             Install Here! on Your Android Device
           </h2>
           <p class="mt-1 text-sm text-here-muted">
@@ -448,7 +448,7 @@ const installSteps = [
         <a
           id="apk-download-btn-bottom"
           href={release.downloadUrl}
-          class="here-btn-primary shrink-0"
+          class="here-btn-primary shrink-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-here-primary"
         >
           <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />

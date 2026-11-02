@@ -27,7 +27,7 @@ const { doc, activeTab } = Astro.props;
         href="/privacy"
         aria-current={activeTab === 'privacy' ? 'page' : undefined}
         class:list={[
-          'px-3 py-1.5 rounded-lg text-xs font-bold transition-colors',
+          'min-h-[40px] inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors focus-visible:ring-2 focus-visible:ring-here-primary',
           activeTab === 'privacy'
             ? 'bg-here-primary text-here-onPrimary'
             : 'text-here-muted hover:text-here-text',
@@ -39,7 +39,7 @@ const { doc, activeTab } = Astro.props;
         href="/terms"
         aria-current={activeTab === 'terms' ? 'page' : undefined}
         class:list={[
-          'px-3 py-1.5 rounded-lg text-xs font-bold transition-colors',
+          'min-h-[40px] inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors focus-visible:ring-2 focus-visible:ring-here-primary',
           activeTab === 'terms'
             ? 'bg-here-primary text-here-onPrimary'
             : 'text-here-muted hover:text-here-text',
@@ -52,7 +52,7 @@ const { doc, activeTab } = Astro.props;
 
   <!-- Header matching app AppBar + TealBand/LegalDocPage -->
   <div class="mb-5">
-    <h1 class="text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight">
+    <h1 class="text-2xl sm:text-3xl font-extrabold text-here-text tracking-tight text-balance">
       {doc.title}
     </h1>
     <p class="mt-1 text-sm text-here-muted">
@@ -65,9 +65,7 @@ const { doc, activeTab } = Astro.props;
     <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
-    <span class="text-xs font-semibold">
-      Last updated: {doc.lastUpdated}
-    </span>
+    <span class="text-xs font-semibold tabular-nums">Last updated: {doc.lastUpdated}</span>
   </div>
 
   <!-- Legal Sections matching LegalDocPage Cards -->
