@@ -17,7 +17,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-pt-20 scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,7 +33,7 @@ const currentPath = Astro.url.pathname;
   <body class="bg-here-bg text-here-text font-sans selection:bg-here-tint selection:text-here-primary">
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-here-primary focus:text-here-onPrimary focus:rounded-here focus:font-bold"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-here-primary focus:text-here-onPrimary focus:rounded-here focus:font-bold focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
     >
       Skip to main content
     </a>
