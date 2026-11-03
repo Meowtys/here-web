@@ -106,14 +106,16 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
   const indexHtmlPath = path.join(rootDir, 'dist', 'index.html');
   const privacyHtmlPath = path.join(rootDir, 'dist', 'privacy', 'index.html');
   const termsHtmlPath = path.join(rootDir, 'dist', 'terms', 'index.html');
+  const changelogHtmlPath = path.join(rootDir, 'dist', 'changelog', 'index.html');
 
   assert.equal(fs.existsSync(indexHtmlPath), true, 'dist/index.html must be generated');
   assert.equal(fs.existsSync(privacyHtmlPath), true, 'dist/privacy/index.html must be generated');
   assert.equal(fs.existsSync(termsHtmlPath), true, 'dist/terms/index.html must be generated');
+  assert.equal(fs.existsSync(changelogHtmlPath), true, 'dist/changelog/index.html must be generated');
 
   const indexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
   assert.ok(indexHtml.includes('Download for Android (.apk)'), 'Landing page must contain primary APK CTA');
-  assert.ok(indexHtml.includes('https://github.com/Meowtys/here-next'), 'Landing page must link to GitHub repo');
+  assert.ok(indexHtml.includes('/changelog'), 'Landing page must link to Changelog');
   assert.ok(indexHtml.includes('here-v2.1.0-beta.6.apk'), 'Landing page must include v2.1.0-beta.6 APK link');
   assert.ok(indexHtml.includes('Face-First Check-In'), 'Landing page must highlight Face-First on-the-go registration');
   assert.ok(indexHtml.includes('No pre-built roster needed'), 'Landing page must highlight no pre-built roster needed');
@@ -155,4 +157,9 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
   const termsHtml = fs.readFileSync(termsHtmlPath, 'utf8');
   assert.ok(termsHtml.includes('Terms &amp; Conditions') || termsHtml.includes('Terms & Conditions'), 'Terms page must render title');
   assert.ok(termsHtml.includes('Biometric Registration Consent'), 'Terms page must render consent section');
+
+  const changelogHtml = fs.readFileSync(changelogHtmlPath, 'utf8');
+  assert.ok(changelogHtml.includes('Changelog &amp; Release Notes') || changelogHtml.includes('Changelog & Release Notes'), 'Changelog page must render title');
+  assert.ok(changelogHtml.includes('v2.1.0-beta.6'), 'Changelog must include latest version');
+  assert.ok(changelogHtml.includes('com.meowtys.here'), 'Changelog must include package name');
 });
