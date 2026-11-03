@@ -206,12 +206,12 @@ const installSteps = [
         </div>
 
         <!-- SHA-256 Checksum Verification -->
-        <div class="p-3 rounded-here bg-here-surface border border-here-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
-          <div class="flex items-center gap-2 min-w-0 max-w-full">
+        <div class="p-3 rounded-here bg-here-surface border border-here-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs w-full max-w-full overflow-hidden">
+          <div class="flex items-center gap-2 min-w-0 max-w-full overflow-hidden">
             <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide here-pill-success shrink-0">
               SHA-256
             </span>
-            <code id="release-meta-checksum" class="font-mono text-here-text text-[11px] sm:text-xs truncate select-all" title={release.checksumSha256}>
+            <code id="release-meta-checksum" class="font-mono text-here-text text-[11px] sm:text-xs truncate block min-w-0 select-all" title={release.checksumSha256}>
               {release.checksumSha256}
             </code>
           </div>
@@ -496,10 +496,10 @@ const installSteps = [
         ))}
       </div>
 
-      <div class="mt-6 pt-5 border-t border-here-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-here-muted">
-        <div class="flex items-center gap-2 min-w-0">
+      <div class="mt-6 pt-5 border-t border-here-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-here-muted w-full max-w-full overflow-hidden">
+        <div class="flex items-center gap-2 min-w-0 max-w-full overflow-hidden">
           <span class="px-2 py-0.5 rounded-full font-bold here-pill-success shrink-0">Verified APK</span>
-          <span id="release-bottom-checksum" class="font-mono text-[11px] text-here-text truncate select-all" title={release.checksumSha256}>
+          <span id="release-bottom-checksum" class="font-mono text-[11px] text-here-text truncate block min-w-0 select-all" title={release.checksumSha256}>
             SHA-256: {release.checksumSha256}
           </span>
         </div>
