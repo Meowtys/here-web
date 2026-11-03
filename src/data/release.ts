@@ -14,24 +14,24 @@ export interface ReleaseMetadata {
   releaseUrl: string;
 }
 
-export const RELEASES_API_URL = 'https://api.github.com/repos/Meowtys/here-next/releases';
-export const GITHUB_REPO_URL = 'https://github.com/Meowtys/here-next';
+export const RELEASES_API_URL = 'https://api.github.com/repos/Meowtys/here-releases/releases';
+export const GITHUB_REPO_URL = 'https://github.com/Meowtys/here-releases';
 
 export const FALLBACK_RELEASE: ReleaseMetadata = {
-  version: 'v2.1.0-beta.6',
-  name: 'Here! v2.1.0-beta.6',
-  buildNumber: 14,
+  version: 'v2.1.0-beta.7',
+  name: 'Here! v2.1.0-beta.7 (Build 15)',
+  buildNumber: 15,
   packageName: 'com.meowtys.here',
   minAndroid: 'Android 7.0+ (API 24+)',
   downloadUrl:
-    'https://github.com/Meowtys/here-next/releases/download/v2.1.0-beta.6/here-v2.1.0-beta.6.apk',
-  assetName: 'here-v2.1.0-beta.6.apk',
-  sizeBytes: 135860469,
-  sizeFormatted: '129.6 MB',
-  publishedAt: '2026-11-01T19:22:26Z',
-  publishedDateFormatted: 'Nov 1, 2026',
+    'https://github.com/Meowtys/here-releases/releases/download/v2.1.0-beta.7/here-v2.1.0-beta.7.apk',
+  assetName: 'here-v2.1.0-beta.7.apk',
+  sizeBytes: 136781684,
+  sizeFormatted: '130.4 MB',
+  publishedAt: '2026-11-03T07:45:00Z',
+  publishedDateFormatted: 'Nov 3, 2026',
   prerelease: true,
-  releaseUrl: 'https://github.com/Meowtys/here-next/releases/tag/v2.1.0-beta.6',
+  releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.7',
 };
 
 export function formatBytesToMB(bytes: number): string {
@@ -56,6 +56,13 @@ export function formatReleaseDate(isoDate: string): string {
   });
 }
 
+export function parseBuildNumber(name: string, fallback: number = FALLBACK_RELEASE.buildNumber): number {
+  const match = /\(Build\s+(\d+)\)/i.exec(name);
+  if (!match) return fallback;
+  const parsed = Number.parseInt(match[1], 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
 export function parseReleasePayload(payload: unknown): ReleaseMetadata {
   if (!Array.isArray(payload) || payload.length === 0) {
     return { ...FALLBACK_RELEASE };
@@ -63,6 +70,8 @@ export function parseReleasePayload(payload: unknown): ReleaseMetadata {
 
   for (const item of payload) {
     if (!item || typeof item !== 'object') continue;
+    if ((item as Record<string, unknown>).draft === true) continue;
+
     const assets = Array.isArray((item as Record<string, unknown>).assets)
       ? ((item as Record<string, unknown>).assets as Array<Record<string, unknown>>)
       : [];
@@ -90,6 +99,8 @@ export function parseReleasePayload(payload: unknown): ReleaseMetadata {
         ? ((item as Record<string, unknown>).name as string).trim()
         : `Here! ${tagName}`;
 
+    const buildNumber = parseBuildNumber(releaseName, FALLBACK_RELEASE.buildNumber);
+
     const sizeBytes =
       typeof apkAsset.size === 'number' && apkAsset.size > 0
         ? apkAsset.size
@@ -103,12 +114,12 @@ export function parseReleasePayload(payload: unknown): ReleaseMetadata {
     const htmlUrl =
       typeof (item as Record<string, unknown>).html_url === 'string'
         ? ((item as Record<string, unknown>).html_url as string)
-        : `https://github.com/Meowtys/here-next/releases/tag/${tagName}`;
+        : `https://github.com/Meowtys/here-releases/releases/tag/${tagName}`;
 
     return {
       version: tagName,
       name: releaseName,
-      buildNumber: FALLBACK_RELEASE.buildNumber,
+      buildNumber,
       packageName: FALLBACK_RELEASE.packageName,
       minAndroid: FALLBACK_RELEASE.minAndroid,
       downloadUrl: apkAsset.browser_download_url as string,

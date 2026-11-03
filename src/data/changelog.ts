@@ -15,13 +15,35 @@ export interface ChangelogRelease {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: 'v2.1.0-beta.7',
+    buildNumber: 15,
+    date: 'Nov 3, 2026',
+    title: 'In-App Auto-Updates & Public Release Channel',
+    summary:
+      'Added native in-app over-the-air (OTA) update checking and installation with SHA-256 verification, and launched the dedicated public release distribution channel.',
+    isLatest: true,
+    items: [
+      {
+        type: 'added',
+        text: 'Added automatic in-app update prompts on startup and manual Check for updates in Settings with live download progress and release notes.',
+      },
+      {
+        type: 'security',
+        text: 'Enforced SHA-256 checksum verification on downloaded APK updates before invoking the Android package installer.',
+      },
+      {
+        type: 'improved',
+        text: 'Migrated APK binary hosting to the public Meowtys/here-releases repository for direct, unthrottled downloads.',
+      },
+    ],
+  },
+  {
     version: 'v2.1.0-beta.6',
     buildNumber: 14,
     date: 'Nov 1, 2026',
     title: 'Production Identity & Performance Hardening',
     summary:
       'Migrated package identity to com.meowtys.here, updated production signing configurations, and reinforced Cloud Firestore security rules.',
-    isLatest: true,
     items: [
       {
         type: 'improved',

@@ -484,7 +484,7 @@ const installSteps = [
     </div>
   </section>
 
-  <!-- Lightweight Client-Side Release Hydrator (queries /releases and picks first .apk asset, with static v2.1.0-beta.6 fallback) -->
+  <!-- Lightweight Client-Side Release Hydrator (queries /releases and picks first .apk asset, with static v2.1.0-beta.7 fallback) -->
   <script is:inline define:vars={{ RELEASES_API_URL, FALLBACK_RELEASE }}>
     (async function hydrateLatestApkRelease() {
       try {
@@ -498,7 +498,7 @@ const installSteps = [
         let matchedRelease = null;
         let matchedApk = null;
         for (const rel of releases) {
-          if (!rel || !Array.isArray(rel.assets)) continue;
+          if (!rel || rel.draft === true || !Array.isArray(rel.assets)) continue;
           const apk = rel.assets.find(
             (a) =>
               a &&
@@ -516,6 +516,8 @@ const installSteps = [
         if (!matchedRelease || !matchedApk) return;
 
         const version = matchedRelease.tag_name || FALLBACK_RELEASE.version;
+        const buildMatch = typeof matchedRelease.name === 'string' ? /\(Build\s+(\d+)\)/i.exec(matchedRelease.name) : null;
+        const buildNum = buildMatch ? Number.parseInt(buildMatch[1], 10) : FALLBACK_RELEASE.buildNumber;
         const downloadUrl = matchedApk.browser_download_url || FALLBACK_RELEASE.downloadUrl;
         const sizeMB =
           typeof matchedApk.size === 'number' && matchedApk.size > 0
@@ -544,13 +546,15 @@ const installSteps = [
         }
         if (badgeVer) {
           const textSpan = badgeVer.querySelector('span:last-child');
-          if (textSpan) textSpan.textContent = version + ' · Build ' + FALLBACK_RELEASE.buildNumber;
+          if (textSpan) textSpan.textContent = version + ' · Build ' + buildNum;
         }
-        if (metaVer) metaVer.textContent = version + ' (Build ' + FALLBACK_RELEASE.buildNumber + ')';
+        if (metaVer) metaVer.textContent = version + ' (Build ' + buildNum + ')';
+        const footerVer = document.getElementById('footer-release-version');
+        if (footerVer) footerVer.textContent = version;
         if (metaSize) metaSize.textContent = sizeMB;
         if (metaDate) metaDate.textContent = dateStr;
       } catch (_err) {
-        // Static fallback (v2.1.0-beta.6) remains in place
+        // Static fallback (v2.1.0-beta.7) remains in place
       }
     })();
   </script>

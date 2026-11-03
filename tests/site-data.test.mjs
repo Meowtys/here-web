@@ -85,21 +85,21 @@ test('Legal documents match here-next legal_doc_page.dart 1:1', () => {
   }
 });
 
-test('Release fetcher configures GitHub releases endpoint and v2.1.0-beta.6 static fallback', () => {
+test('Release fetcher configures GitHub releases endpoint and v2.1.0-beta.7 static fallback', () => {
   const releaseSource = fs.readFileSync(path.join(rootDir, 'src', 'data', 'release.ts'), 'utf8');
 
   assert.ok(
-    releaseSource.includes('https://api.github.com/repos/Meowtys/here-next/releases'),
+    releaseSource.includes('https://api.github.com/repos/Meowtys/here-releases/releases'),
     'Must use /releases endpoint (not /releases/latest) to support pre-releases'
   );
   assert.ok(
     releaseSource.includes(
-      'https://github.com/Meowtys/here-next/releases/download/v2.1.0-beta.6/here-v2.1.0-beta.6.apk'
+      'https://github.com/Meowtys/here-releases/releases/download/v2.1.0-beta.7/here-v2.1.0-beta.7.apk'
     ),
-    'Must include static fallback APK download URL for v2.1.0-beta.6'
+    'Must include static fallback APK download URL for v2.1.0-beta.7'
   );
   assert.ok(releaseSource.includes('com.meowtys.here'), 'Must include package name com.meowtys.here');
-  assert.ok(releaseSource.includes('buildNumber: 14'), 'Must include Build 14');
+  assert.ok(releaseSource.includes('buildNumber: 15'), 'Must include Build 15');
 });
 
 test('Built dist HTML outputs exist and contain required copy, real showcase screenshots, and links', () => {
@@ -116,7 +116,7 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
   const indexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
   assert.ok(indexHtml.includes('Download for Android (.apk)'), 'Landing page must contain primary APK CTA');
   assert.ok(indexHtml.includes('/changelog'), 'Landing page must link to Changelog');
-  assert.ok(indexHtml.includes('here-v2.1.0-beta.6.apk'), 'Landing page must include v2.1.0-beta.6 APK link');
+  assert.ok(indexHtml.includes('here-v2.1.0-beta.7.apk'), 'Landing page must include v2.1.0-beta.7 APK link');
   assert.ok(indexHtml.includes('Face-First Check-In'), 'Landing page must highlight Face-First on-the-go registration');
   assert.ok(indexHtml.includes('No pre-built roster needed'), 'Landing page must highlight no pre-built roster needed');
   assert.ok(indexHtml.includes('Single-Session &amp; Multi-Session Events') || indexHtml.includes('Single-Session & Multi-Session Events'), 'Landing page must highlight both 1-session and multi-session events');
@@ -160,6 +160,6 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
 
   const changelogHtml = fs.readFileSync(changelogHtmlPath, 'utf8');
   assert.ok(changelogHtml.includes('Changelog &amp; Release Notes') || changelogHtml.includes('Changelog & Release Notes'), 'Changelog page must render title');
-  assert.ok(changelogHtml.includes('v2.1.0-beta.6'), 'Changelog must include latest version');
+  assert.ok(changelogHtml.includes('v2.1.0-beta.7'), 'Changelog must include latest version');
   assert.ok(changelogHtml.includes('com.meowtys.here'), 'Changelog must include package name');
 });
