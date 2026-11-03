@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CHANGELOG_RELEASES } from '../data/changelog';
+import { FALLBACK_RELEASE } from '../data/release';
+---
+
+<BaseLayout
+  title="Changelog & Release Notes — Here!"
+  description="Discover what's new in Here! Android attendance system. Release notes, new features, performance improvements, and bug fixes."
+>
+  <div class="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <!-- Breadcrumb -->
+    <div class="mb-6">
+      <a
+        href="/"
+        class="inline-flex items-center gap-1.5 text-sm font-bold text-here-primary hover:underline focus-visible:ring-2 focus-visible:ring-here-primary rounded-lg py-1 px-1.5 -ml-1.5"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span>Back to Home</span>
+      </a>
+    </div>
+
+    <!-- Header matching TealBand branding -->
+    <div class="here-card bg-here-primary text-here-onPrimary p-6 sm:p-8 rounded-[20px] mb-8 shadow-sm">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white/15 text-white mb-3">
+        <span>Release History</span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-balance">
+        Changelog &amp; Release Notes
+      </h1>
+      <p class="mt-2 text-sm sm:text-base text-here-onPrimary/85 max-w-2xl text-pretty">
+        Follow the evolution of Here! — from on-device facial recognition to multi-session event tracking, group analytics, and security hardening.
+      </p>
+      <div class="mt-4 pt-4 border-t border-white/15 flex flex-wrap items-center gap-4 text-xs font-semibold text-here-onPrimary/80">
+        <span>Current Version: <strong class="text-white">{FALLBACK_RELEASE.version} (Build {FALLBACK_RELEASE.buildNumber})</strong></span>
+        <span>&middot;</span>
+        <span>Package: <code class="font-mono text-white/95">{FALLBACK_RELEASE.packageName}</code></span>
+        <span>&middot;</span>
+        <span>Target: <strong class="text-white">{FALLBACK_RELEASE.minAndroid}</strong></span>
+      </div>
+    </div>
+
+    <!-- Timeline of Releases -->
+    <div class="space-y-6">
+      {CHANGELOG_RELEASES.map((rel) => (
+        <article class="here-card p-6 sm:p-7 border border-here-border shadow-xs hover:border-here-primary/30 transition-colors">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-4 border-b border-here-border">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-base sm:text-lg font-extrabold text-here-text tracking-tight font-mono">
+                {rel.version}
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-here-tint text-here-primary">
+                Build {rel.buildNumber}
+              </span>
+              {rel.isLatest && (
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold here-pill-success">
+                  Latest Release
+                </span>
+              )}
+            </div>
+            <time class="text-xs font-bold text-here-muted tabular-nums">
+              {rel.date}
+            </time>
+          </div>
+
+          <div class="mt-4">
+            <h2 class="text-lg sm:text-xl font-extrabold text-here-text tracking-tight text-balance">
+              {rel.title}
+            </h2>
+            <p class="mt-1.5 text-sm text-here-muted leading-relaxed">
+              {rel.summary}
+            </p>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-here-border/60">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-here-muted mb-3">Changes &amp; Updates</div>
+            <ul class="space-y-2.5">
+              {rel.items.map((item) => (
+                <li class="flex items-start gap-2.5 text-xs sm:text-sm text-here-text leading-relaxed">
+                  {item.type === 'added' && (
+                    <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide here-pill-success shrink-0 mt-0.5">
+                      Added
+                    </span>
+                  )}
+                  {item.type === 'improved' && (
+                    <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide here-pill-tint shrink-0 mt-0.5">
+                      Improved
+                    </span>
+                  )}
+                  {item.type === 'fixed' && (
+                    <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide here-pill-warning shrink-0 mt-0.5">
+                      Fixed
+                    </span>
+                  )}
+                  {item.type === 'security' && (
+                    <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide bg-purple-100 text-purple-800 border border-purple-200 shrink-0 mt-0.5">
+                      Security
+                    </span>
+                  )}
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Download Bottom Card -->
+    <div class="mt-10 p-6 sm:p-8 rounded-[18px] bg-here-surface border border-here-border text-center space-y-4">
+      <h2 class="text-xl sm:text-2xl font-extrabold text-here-text tracking-tight text-balance">
+        Ready to take attendance on the go?
+      </h2>
+      <p class="text-sm text-here-muted max-w-lg mx-auto text-pretty">
+        Download the latest signed Android APK package and set up your student organization in seconds — no pre-built roster required.
+      </p>
+      <div class="pt-2">
+        <a
+          href="/#download"
+          class="here-btn-primary px-6 py-3"
+        >
+          <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          <span>Download {FALLBACK_RELEASE.version} (.apk)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
