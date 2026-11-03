@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { CHANGELOG_RELEASES } from '../data/changelog';
-import { FALLBACK_RELEASE } from '../data/release';
+import { FALLBACK_RELEASE, GITHUB_REPO_URL } from '../data/release';
 ---
 
 <BaseLayout
@@ -10,7 +10,7 @@ import { FALLBACK_RELEASE } from '../data/release';
 >
   <div class="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
     <!-- Breadcrumb -->
-    <div class="mb-6">
+    <div class="mb-6 flex items-center justify-between gap-4">
       <a
         href="/"
         class="inline-flex items-center gap-1.5 text-sm font-bold text-here-primary hover:underline focus-visible:ring-2 focus-visible:ring-here-primary rounded-lg py-1 px-1.5 -ml-1.5"
@@ -19,6 +19,18 @@ import { FALLBACK_RELEASE } from '../data/release';
           <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
         <span>Back to Home</span>
+      </a>
+
+      <a
+        href={GITHUB_REPO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-xs font-bold text-here-muted hover:text-here-primary transition-colors"
+      >
+        <span>Releases Repo (GitHub)</span>
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
       </a>
     </div>
 
@@ -39,6 +51,10 @@ import { FALLBACK_RELEASE } from '../data/release';
         <span>Package: <code class="font-mono text-white/95">{FALLBACK_RELEASE.packageName}</code></span>
         <span>&middot;</span>
         <span>Target: <strong class="text-white">{FALLBACK_RELEASE.minAndroid}</strong></span>
+        <span>&middot;</span>
+        <a href={FALLBACK_RELEASE.releaseUrl} target="_blank" rel="noopener noreferrer" class="text-white underline hover:text-white/90">
+          GitHub Release &rarr;
+        </a>
       </div>
     </div>
 
@@ -73,6 +89,32 @@ import { FALLBACK_RELEASE } from '../data/release';
               {rel.summary}
             </p>
           </div>
+
+          {rel.checksumSha256 && (
+            <div class="mt-4 p-3 rounded-lg bg-here-surface border border-here-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
+              <div class="flex items-center gap-2 min-w-0 max-w-full">
+                <span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide here-pill-success shrink-0">
+                  SHA-256
+                </span>
+                <code class="font-mono text-here-text text-[11px] sm:text-xs truncate select-all" title={rel.checksumSha256}>
+                  {rel.checksumSha256}
+                </code>
+              </div>
+              {rel.releaseUrl && (
+                <a
+                  href={rel.releaseUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-bold text-here-primary hover:underline shrink-0 text-xs inline-flex items-center gap-1"
+                >
+                  <span>Release on GitHub</span>
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              )}
+            </div>
+          )}
 
           <div class="mt-5 pt-4 border-t border-here-border/60">
             <div class="text-[11px] font-bold uppercase tracking-wider text-here-muted mb-3">Changes &amp; Updates</div>
@@ -116,15 +158,23 @@ import { FALLBACK_RELEASE } from '../data/release';
       <p class="text-sm text-here-muted max-w-lg mx-auto text-pretty">
         Download the latest signed Android APK package and set up your student organization in seconds — no pre-built roster required.
       </p>
-      <div class="pt-2">
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
         <a
-          href="/#download"
-          class="here-btn-primary px-6 py-3"
+          href={FALLBACK_RELEASE.downloadUrl}
+          class="here-btn-primary px-6 py-3 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-here-primary"
         >
           <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
           <span>Download {FALLBACK_RELEASE.version} (.apk)</span>
+        </a>
+        <a
+          href={FALLBACK_RELEASE.releaseUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="here-btn-outline px-5 py-3 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-here-primary"
+        >
+          <span>View on GitHub &rarr;</span>
         </a>
       </div>
     </div>

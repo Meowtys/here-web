@@ -10,6 +10,8 @@ export interface ChangelogRelease {
   title: string;
   summary: string;
   isLatest?: boolean;
+  releaseUrl?: string;
+  checksumSha256?: string;
   items: ChangelogItem[];
 }
 
@@ -18,34 +20,32 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     version: 'v2.1.1-beta',
     buildNumber: 16,
     date: 'Nov 3, 2026',
-    title: 'Open Beta: Observability, Official Keystore Signing & Sample Optimization',
+    title: 'Open Beta: In-App Feedback, Changelog Viewer & Optimized Face Recognition',
     summary:
-      'Added remote beta sunset control, built and cryptographically signed with the official Android Release Keystore for Google Sign-In, integrated full Firebase observability, and optimized biometric face matching.',
+      'Added interactive Privacy Policy and Terms links on the sign-in screen, in-app feedback and bug reporting, an in-app changelog viewer, and streamlined face enrollment to 5 high-accuracy samples.',
     isLatest: true,
+    releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.1-beta',
+    checksumSha256: 'f9d0e4138d5bb6e5a455383fd4f6ae54d78e81e28d0d5e080b019f35c575a7a6',
     items: [
       {
         type: 'added',
-        text: 'Remote Beta Sunset Gate: Added cloud-controlled version management via Firebase configuration so test phases can be concluded gracefully.',
-      },
-      {
-        type: 'security',
-        text: 'Production Keystore & Google Sign-In: Release APK is signed with the official Android Release Keystore with SHA-1 and SHA-256 registered for seamless Google Sign-In and OTA auto-updates.',
+        text: 'Interactive Terms & Privacy Links: Review Privacy Policy and Terms of Use directly on the sign-in screen before getting started.',
       },
       {
         type: 'added',
-        text: 'Firebase Observability: Integrated Firebase Crashlytics, Google Analytics, and Firebase Performance Monitoring to automatically detect crashes and monitor app startup latency.',
+        text: 'In-App Feedback & Bug Reporting: Share thoughts, report issues, or suggest new features anytime via Settings > Help & Feedback.',
       },
       {
         type: 'added',
-        text: 'In-App Changelog Viewer: Users can now view release notes and version details directly inside the app under Settings > About Here!.',
+        text: 'In-App Changelog Viewer: View release notes and update details directly inside the app under Settings > About Here!.',
       },
       {
         type: 'improved',
-        text: 'Face Sample Optimization: Enforced a 5-sample limit per person for optimal recognition speed, camera FPS, and storage efficiency.',
+        text: 'Optimized Face Recognition: Face enrollment is now streamlined to 5 high-accuracy samples per attendee for faster scanning and reliable recognition.',
       },
       {
-        type: 'security',
-        text: 'Production Build Hardening: Disabled internal developer-only face calibration tools in release builds.',
+        type: 'improved',
+        text: 'Stability & Polish: General performance enhancements and a smoother onboarding experience.',
       },
     ],
   },
@@ -56,6 +56,7 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     title: 'In-App Auto-Updates & Public Release Channel',
     summary:
       'Added native in-app over-the-air (OTA) update checking and installation with SHA-256 verification, and launched the dedicated public release distribution channel.',
+    releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.7',
     items: [
       {
         type: 'added',
@@ -78,6 +79,7 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     title: 'Production Identity & Performance Hardening',
     summary:
       'Migrated package identity to com.meowtys.here, updated production signing configurations, and reinforced Cloud Firestore security rules.',
+    releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.6',
     items: [
       {
         type: 'improved',
@@ -104,6 +106,7 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     title: 'Branded Splash, Quick Start Guide & Record Management',
     summary:
       'Introduced the official You’re Here! branded splash screen, in-app Quick Start onboarding, individual attendance record deletion, and input safety limits.',
+    releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.5',
     items: [
       {
         type: 'added',
@@ -134,6 +137,7 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     title: 'Group Analytics, Cross-Event Leaderboards & CSV Exports',
     summary:
       'Rolled out high-level organizational analytics, cross-event attendee participation rankings, and formula-sanitized CSV exports.',
+    releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.4',
     items: [
       {
         type: 'added',
@@ -160,6 +164,7 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     title: 'Attendance Verification Tags & 1-Tap Batch Verification',
     summary:
       'Differentiated biometric face scans from manual inputs with distinct tags and added 1-tap bulk verification for officers.',
+    releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.3',
     items: [
       {
         type: 'added',
@@ -186,6 +191,7 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     title: 'Multi-Session Architecture & Single-Session Toggle',
     summary:
       'Support for both quick single-window meetings and multi-day / AM-PM conference tracking in one unified interface.',
+    releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.1',
     items: [
       {
         type: 'added',
@@ -208,6 +214,7 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     title: 'On-Device MobileFaceNet Biometrics & Zero-Prep Walk-Ins',
     summary:
       'Rebuilt attendance engine around fully on-device facial recognition using MobileFaceNet, offline caching, and instant walk-in registration.',
+    releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.0.0-beta.1',
     items: [
       {
         type: 'added',

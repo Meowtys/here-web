@@ -12,10 +12,13 @@ export interface ReleaseMetadata {
   publishedDateFormatted: string;
   prerelease: boolean;
   releaseUrl: string;
+  latestReleaseUrl: string;
+  checksumSha256: string;
 }
 
 export const RELEASES_API_URL = 'https://api.github.com/repos/Meowtys/here-releases/releases';
 export const GITHUB_REPO_URL = 'https://github.com/Meowtys/here-releases';
+export const LATEST_RELEASE_URL = 'https://github.com/Meowtys/here-releases/releases/latest';
 
 export const FALLBACK_RELEASE: ReleaseMetadata = {
   version: 'v2.1.1-beta',
@@ -28,10 +31,12 @@ export const FALLBACK_RELEASE: ReleaseMetadata = {
   assetName: 'here-v2.1.1-beta.apk',
   sizeBytes: 137630234,
   sizeFormatted: '131.3 MB',
-  publishedAt: '2026-11-03T15:34:41Z',
+  publishedAt: '2026-11-03T17:20:20Z',
   publishedDateFormatted: 'Nov 3, 2026',
   prerelease: true,
   releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.1-beta',
+  latestReleaseUrl: 'https://github.com/Meowtys/here-releases/releases/latest',
+  checksumSha256: 'f9d0e4138d5bb6e5a455383fd4f6ae54d78e81e28d0d5e080b019f35c575a7a6',
 };
 
 export function formatBytesToMB(bytes: number): string {
@@ -61,6 +66,18 @@ export function parseBuildNumber(name: string, fallback: number = FALLBACK_RELEA
   if (!match) return fallback;
   const parsed = Number.parseInt(match[1], 10);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+export function parseChecksum(body?: string, digest?: string): string {
+  if (digest && typeof digest === 'string') {
+    const cleanDigest = digest.replace(/^sha256:/i, '').trim();
+    if (/^[a-f0-9]{64}$/i.test(cleanDigest)) return cleanDigest.toLowerCase();
+  }
+  if (body && typeof body === 'string') {
+    const match = /SHA-256:\s*([a-f0-9]{64})/i.exec(body);
+    if (match) return match[1].toLowerCase();
+  }
+  return FALLBACK_RELEASE.checksumSha256;
 }
 
 export function parseReleasePayload(payload: unknown): ReleaseMetadata {
@@ -116,6 +133,13 @@ export function parseReleasePayload(payload: unknown): ReleaseMetadata {
         ? ((item as Record<string, unknown>).html_url as string)
         : `https://github.com/Meowtys/here-releases/releases/tag/${tagName}`;
 
+    const checksumSha256 = parseChecksum(
+      typeof (item as Record<string, unknown>).body === 'string'
+        ? ((item as Record<string, unknown>).body as string)
+        : undefined,
+      typeof apkAsset.digest === 'string' ? (apkAsset.digest as string) : undefined
+    );
+
     return {
       version: tagName,
       name: releaseName,
@@ -130,6 +154,8 @@ export function parseReleasePayload(payload: unknown): ReleaseMetadata {
       publishedDateFormatted: formatReleaseDate(publishedAt),
       prerelease: Boolean((item as Record<string, unknown>).prerelease ?? true),
       releaseUrl: htmlUrl,
+      latestReleaseUrl: LATEST_RELEASE_URL,
+      checksumSha256,
     };
   }
 
