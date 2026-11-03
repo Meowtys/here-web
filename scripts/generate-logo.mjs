@@ -15,13 +15,19 @@ const arrowSvg = `
 `;
 
 // Squircle favicon for browser tab visibility across light and dark themes
-const faviconSvg = `
+const squircleFaviconSvg = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-  <rect x="6" y="6" width="116" height="116" rx="28" fill="#22678A"/>
-  <path d="M96 32 L36 92 M36 92 H78 M36 92 V50" 
+  <defs>
+    <linearGradient id="favGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#247196"/>
+      <stop offset="100%" stop-color="#1A516E"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#favGrad)"/>
+  <path d="M92 36 L36 92 M36 92 H78 M36 92 V50" 
         fill="none" 
         stroke="#FFFFFF" 
-        stroke-width="14" 
+        stroke-width="15" 
         stroke-linecap="round" 
         stroke-linejoin="round"/>
 </svg>
@@ -29,9 +35,10 @@ const faviconSvg = `
 
 async function run() {
   await sharp(Buffer.from(arrowSvg)).png().toFile('public/assets/logo.png');
-  await sharp(Buffer.from(faviconSvg)).resize(64, 64).png().toFile('public/favicon.png');
-  await sharp(Buffer.from(arrowSvg)).resize(256, 256).png().toFile('C:/Users/Westen/.gemini/antigravity/brain/7f483af0-01e0-4d76-8af3-399c8074c24c/new_arrow_logo_inspect.png');
-  console.log('Successfully generated public/assets/logo.png and public/favicon.png');
+  fs.writeFileSync('public/favicon.svg', squircleFaviconSvg.trim(), 'utf8');
+  await sharp(Buffer.from(squircleFaviconSvg)).resize(64, 64).png().toFile('public/favicon.png');
+  await sharp(Buffer.from(squircleFaviconSvg)).resize(180, 180).png().toFile('public/apple-touch-icon.png');
+  console.log('Successfully generated public/assets/logo.png, public/favicon.svg, public/favicon.png, and public/apple-touch-icon.png');
 }
 
 run().catch(err => {
