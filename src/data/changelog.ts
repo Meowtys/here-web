@@ -53,22 +53,22 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     version: 'v2.1.0-beta.7',
     buildNumber: 15,
     date: 'Nov 3, 2026',
-    title: 'In-App Auto-Updates & Public Release Channel',
+    title: 'In-App Auto-Updates & Direct Download Channel',
     summary:
-      'Added native in-app over-the-air (OTA) update checking and installation with SHA-256 verification, and launched the dedicated public release distribution channel.',
+      'Added native in-app update checking and installation with integrity verification, and launched a dedicated high-speed download distribution channel.',
     releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.7',
     items: [
       {
         type: 'added',
-        text: 'Added automatic in-app update prompts on startup and manual Check for updates in Settings with live download progress and release notes.',
+        text: 'In-App Updates: Added automatic update alerts on launch and a manual "Check for updates" option in Settings with live download progress.',
       },
       {
         type: 'security',
-        text: 'Enforced SHA-256 checksum verification on downloaded APK updates before invoking the Android package installer.',
+        text: 'Cryptographic Verification: Automatically verifies package integrity before installation to protect against corrupted downloads.',
       },
       {
         type: 'improved',
-        text: 'Migrated APK binary hosting to the public Meowtys/here-releases repository for direct, unthrottled downloads.',
+        text: 'High-Speed Downloads: Migrated APK distribution to a dedicated global channel for faster, reliable direct downloads.',
       },
     ],
   },
@@ -76,26 +76,26 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     version: 'v2.1.0-beta.6',
     buildNumber: 14,
     date: 'Nov 1, 2026',
-    title: 'Production Identity & Performance Hardening',
+    title: 'Performance Optimization & Account Security',
     summary:
-      'Migrated package identity to com.meowtys.here, updated production signing configurations, and reinforced Cloud Firestore security rules.',
+      'Standardized official app identity for seamless Google Sign-In, fortified group role permissions, reduced download footprint, and improved offline check-in queuing.',
     releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.6',
     items: [
       {
         type: 'improved',
-        text: 'Migrated Android application package name from development default to com.meowtys.here.',
+        text: 'Official App Identity: Finalized official app identifiers to ensure seamless Google Sign-In and reliable automatic updates.',
       },
       {
         type: 'security',
-        text: 'Hardened Cloud Firestore security rules with granular role-based checks for Group Owners, Admins, and Members.',
+        text: 'Granular Group Security: Enforced strict permission checks so only verified Group Owners and Admins can edit rosters and event settings.',
       },
       {
         type: 'improved',
-        text: 'Optimized build assets and reduced APK footprint down to 129.6 MB.',
+        text: 'Reduced Download Size: Optimized graphics and app resources to bring the initial download size down to 129.6 MB.',
       },
       {
         type: 'fixed',
-        text: 'Resolved edge-case timestamp synchronization during offline check-in queuing.',
+        text: 'Offline Sync Reliability: Ensured precise check-in timestamps are preserved and synchronized accurately when reconnecting to the internet.',
       },
     ],
   },
@@ -103,30 +103,30 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     version: 'v2.1.0-beta.5',
     buildNumber: 13,
     date: 'Oct 31, 2026',
-    title: 'Branded Splash, Quick Start Guide & Record Management',
+    title: 'Branded Launch, Quick Start Guide & Record Management',
     summary:
-      'Introduced the official You’re Here! branded splash screen, in-app Quick Start onboarding, individual attendance record deletion, and input safety limits.',
+      'Introduced a smooth branded splash screen, in-app Quick Start onboarding, individual record management, and improved input assistance.',
     releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.5',
     items: [
       {
         type: 'added',
-        text: 'Added official You’re Here! animated splash loading screen with pre-decoded logo assets to eliminate startup flash.',
+        text: 'Smooth Launch Animation: Added an official branded splash screen for a smoother, flicker-free app startup.',
       },
       {
         type: 'added',
-        text: 'Added individual delete actions for time-in and time-out records on attendee cards.',
+        text: 'Record Management: Added individual delete actions for time-in and time-out records on attendee cards.',
       },
       {
         type: 'added',
-        text: 'Introduced in-app 4-step Quick Start Guide accessible from settings and help menus.',
+        text: 'Quick Start Guide: Introduced an interactive 4-step onboarding guide accessible anytime from settings and help menus.',
       },
       {
         type: 'improved',
-        text: 'Added strict character limits and real-time validation across group, event, and attendee text inputs.',
+        text: 'Input Assistance: Added helpful character limits and formatting hints when naming groups, events, and attendees.',
       },
       {
         type: 'fixed',
-        text: 'Refined settings scroll layout and fixed counter visibility bugs on smaller screen viewports.',
+        text: 'Screen Compatibility: Improved scrolling layout and counter visibility on compact phone screens.',
       },
     ],
   },
@@ -134,26 +134,26 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     version: 'v2.1.0-beta.4',
     buildNumber: 12,
     date: 'Oct 29, 2026',
-    title: 'Group Analytics, Cross-Event Leaderboards & CSV Exports',
+    title: 'Group Analytics, Attendee Leaderboards & CSV Exports',
     summary:
-      'Rolled out high-level organizational analytics, cross-event attendee participation rankings, and formula-sanitized CSV exports.',
+      'Rolled out high-level organizational analytics, cross-event attendee participation rankings, and 1-tap spreadsheet exports.',
     releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.4',
     items: [
       {
         type: 'added',
-        text: 'Created Group Analytics dashboard tracking Total Events, Roster Members, and Active Events at a glance.',
+        text: 'Group Analytics Dashboard: Track total events, roster members, and active sessions at a glance.',
       },
       {
         type: 'added',
-        text: 'Added top attendees leaderboard and cross-event attendance rate percentages.',
+        text: 'Member Leaderboards: View top attendees and cross-event attendance percentages across your organization.',
       },
       {
         type: 'added',
-        text: 'Integrated 1-tap CSV export with automatic defense against CSV formula injection.',
+        text: '1-Tap Spreadsheet Exports: Export attendance records in 1 tap with built-in formatting protections for Microsoft Excel and Google Sheets.',
       },
       {
         type: 'improved',
-        text: 'Enhanced multi-session comparison progress bars to clearly show participant drop-off between sessions.',
+        text: 'Session Retention Bars: Enhanced visual comparison bars to clearly show participant retention between multi-session events.',
       },
     ],
   },
@@ -161,26 +161,26 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     version: 'v2.1.0-beta.3',
     buildNumber: 11,
     date: 'Oct 27, 2026',
-    title: 'Attendance Verification Tags & 1-Tap Batch Verification',
+    title: 'Verification Tags & 1-Tap Batch Verification',
     summary:
-      'Differentiated biometric face scans from manual inputs with distinct tags and added 1-tap bulk verification for officers.',
+      'Differentiated biometric face scans from manual inputs with clear tags, added 1-tap batch review for organizers, and automated event locking.',
     releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.3',
     items: [
       {
         type: 'added',
-        text: 'Added distinct "Typed ID" vs "Face Verified" badges on student attendance cards.',
+        text: 'Verification Badges: Added clear "Typed ID" vs "Face Verified" tags on attendee attendance cards.',
       },
       {
         type: 'added',
-        text: 'Added 1-tap batch verification button for organizers under the "To check" review filter.',
+        text: '1-Tap Batch Verification: Organizers can approve pending manual check-ins in one tap under the "To check" review filter.',
       },
       {
         type: 'added',
-        text: 'Implemented automatic event locking when scheduled event duration has concluded.',
+        text: 'Automatic Event Lock: Events now lock automatically once their scheduled duration concludes to prevent accidental late entries.',
       },
       {
         type: 'improved',
-        text: 'Enhanced live door scanner overlay with instant detection feedback and confidence tags.',
+        text: 'Live Scanner Feedback: Enhanced camera viewfinder with real-time detection indicators when matching registered members.',
       },
     ],
   },
@@ -188,22 +188,22 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     version: 'v2.1.0-beta.1',
     buildNumber: 9,
     date: 'Oct 26, 2026',
-    title: 'Multi-Session Architecture & Single-Session Toggle',
+    title: 'Multi-Session Events & Arrival Velocity Charts',
     summary:
-      'Support for both quick single-window meetings and multi-day / AM-PM conference tracking in one unified interface.',
+      'Support for single-window meetings and multi-day / AM-PM conference tracking in one unified interface with arrival velocity graphs.',
     releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.0-beta.1',
     items: [
       {
         type: 'added',
-        text: 'Single-session or multi-session toggle on event creation.',
+        text: 'Flexible Event Schedules: Easily switch between a quick 1-session meeting or multi-session AM/PM schedules on event creation.',
       },
       {
         type: 'added',
-        text: 'Arrival velocity histograms supporting 10-minute, 15-minute, and 30-minute bucket intervals.',
+        text: 'Arrival Velocity Graphs: Visual charts showing check-in velocity across 10, 15, or 30-minute intervals to pinpoint peak arrival times.',
       },
       {
         type: 'improved',
-        text: 'Refined TealBand header with synchronized attendee counts and active/archived group tabs.',
+        text: 'Refreshed Navigation Header: View live attendee totals and switch effortlessly between active and archived groups.',
       },
     ],
   },
@@ -211,26 +211,26 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     version: 'v2.0.0-beta.1',
     buildNumber: 5,
     date: 'Oct 22, 2026',
-    title: 'On-Device MobileFaceNet Biometrics & Zero-Prep Walk-Ins',
+    title: 'On-Device Face Recognition & Zero-Prep Walk-Ins',
     summary:
-      'Rebuilt attendance engine around fully on-device facial recognition using MobileFaceNet, offline caching, and instant walk-in registration.',
+      'Rebuilt attendance engine around private on-device facial recognition, automatic offline check-in queuing, and instant walk-in registration.',
     releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.0.0-beta.1',
     items: [
       {
         type: 'added',
-        text: 'On-device facial embedding extraction and recognition via MobileFaceNet TFLite model.',
+        text: 'Instant On-Device Facial Matching: Face verification runs locally on your phone in under 350ms with zero cloud delay and full offline support.',
       },
       {
         type: 'added',
-        text: 'Zero-prep walk-in registration: capture face and Student ID on first scan without importing a pre-existing roster.',
+        text: 'Zero-Prep Walk-In Registration: Capture face data and Student ID on the first scan without needing to import a pre-existing roster.',
       },
       {
         type: 'added',
-        text: 'Local SQLite offline check-in queue that syncs automatically when Wi-Fi or cellular reconnects.',
+        text: 'Automatic Offline Sync: Check in attendees anywhere without Wi-Fi; records queue securely on your device and sync automatically when back online.',
       },
       {
         type: 'security',
-        text: 'Privacy-first architecture: raw facial photos are never stored or transmitted; only mathematical vector embeddings remain on-device with explicit consent.',
+        text: 'Privacy-First Biometrics: Photos are never saved, uploaded, or shared; only secure mathematical feature vectors stay on your device with explicit consent.',
       },
     ],
   },
