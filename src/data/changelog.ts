@@ -25,7 +25,7 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
       'Added interactive Privacy Policy and Terms links on the sign-in screen, in-app feedback and bug reporting, an in-app changelog viewer, and streamlined face enrollment to 5 high-accuracy samples.',
     isLatest: true,
     releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.1-beta',
-    checksumSha256: 'f9d0e4138d5bb6e5a455383fd4f6ae54d78e81e28d0d5e080b019f35c575a7a6',
+    checksumSha256: '4ddb648fcbe44e8f20ffd495f8a5a454cb040cec0d82f3a4bf792f6213fefcbd',
     items: [
       {
         type: 'added',
