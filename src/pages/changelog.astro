@@ -91,12 +91,12 @@ import { FALLBACK_RELEASE, GITHUB_REPO_URL } from '../data/release';
           </div>
 
           {rel.checksumSha256 && (
-            <div class="mt-4 p-3 rounded-lg bg-here-surface border border-here-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
-              <div class="flex items-center gap-2 min-w-0 max-w-full">
+            <div class="mt-4 p-3 rounded-lg bg-here-surface border border-here-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs w-full max-w-full overflow-hidden">
+              <div class="flex items-center gap-2 min-w-0 max-w-full overflow-hidden">
                 <span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide here-pill-success shrink-0">
                   SHA-256
                 </span>
-                <code class="font-mono text-here-text text-[11px] sm:text-xs truncate select-all" title={rel.checksumSha256}>
+                <code class="font-mono text-here-text text-[11px] sm:text-xs truncate block min-w-0 select-all" title={rel.checksumSha256}>
                   {rel.checksumSha256}
                 </code>
               </div>

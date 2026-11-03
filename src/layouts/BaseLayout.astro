@@ -17,7 +17,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-pt-20 scroll-smooth">
+<html lang="en" class="scroll-pt-20 scroll-smooth max-w-full overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,7 +32,7 @@ const currentPath = Astro.url.pathname;
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/loginlogo.png" />
   </head>
-  <body class="bg-here-bg text-here-text font-sans selection:bg-here-tint selection:text-here-primary">
+  <body class="bg-here-bg text-here-text font-sans selection:bg-here-tint selection:text-here-primary max-w-full overflow-x-hidden min-h-screen flex flex-col">
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-here-primary focus:text-here-onPrimary focus:rounded-here focus:font-bold focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
@@ -40,7 +40,7 @@ const currentPath = Astro.url.pathname;
       Skip to main content
     </a>
     <Navbar currentPath={currentPath} />
-    <main id="main-content" class="flex-1">
+    <main id="main-content" class="flex-1 w-full max-w-full overflow-x-hidden">
       <slot />
     </main>
     <Footer />

@@ -421,7 +421,7 @@ const categories: Category[] = [
   </div>
 
   <!-- Main Category Tabs -->
-  <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar" role="tablist" aria-label="Showcase Categories">
+  <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar w-full max-w-full min-w-0" role="tablist" aria-label="Showcase Categories">
     {categories.map((cat, idx) => (
       <button
         id={`cat-btn-${cat.id}`}
@@ -456,7 +456,7 @@ const categories: Category[] = [
       </div>
 
       <!-- Slide Selector Pills Container -->
-      <div id="sub-tabs-container" class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 no-scrollbar" role="tablist" aria-label="Gallery Slides">
+      <div id="sub-tabs-container" class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 no-scrollbar w-full max-w-full min-w-0" role="tablist" aria-label="Gallery Slides">
         <!-- Injected via JavaScript based on active category -->
       </div>
     </div>
