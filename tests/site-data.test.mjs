@@ -41,10 +41,10 @@ test('Brand and showcase assets exist in public/assets and public/favicon.png', 
   }
 });
 
-test('Legal documents match here-next legal_doc_page.dart 1:1', () => {
+test('Legal documents match official legal terms and privacy policy 1:1', () => {
   const legalSource = fs.readFileSync(path.join(rootDir, 'src', 'data', 'legal.ts'), 'utf8');
 
-  // Privacy Policy headings & key phrases from legal_doc_page.dart
+  // Privacy Policy headings & key phrases
   const privacyChecks = [
     '1. Overview & Purpose',
     'Here! is an attendance check-in platform designed for student organizations, clubs, and academic events.',
@@ -65,7 +65,7 @@ test('Legal documents match here-next legal_doc_page.dart 1:1', () => {
     );
   }
 
-  // Terms & Conditions headings & key phrases from legal_doc_page.dart
+  // Terms & Conditions headings & key phrases
   const termsChecks = [
     '1. Acceptance of Terms',
     'By accessing or using Here!, you agree to be bound by these Terms and Conditions.',
@@ -90,7 +90,7 @@ test('Release fetcher configures GitHub releases endpoint and v2.1.1-beta static
 
   assert.ok(
     releaseSource.includes('https://api.github.com/repos/Meowtys/here-releases/releases'),
-    'Must use /releases endpoint (not /releases/latest) to support pre-releases'
+    'Must use Meowtys/here-releases /releases endpoint'
   );
   assert.ok(
     releaseSource.includes(
@@ -98,8 +98,61 @@ test('Release fetcher configures GitHub releases endpoint and v2.1.1-beta static
     ),
     'Must include static fallback APK download URL for v2.1.1-beta'
   );
+  assert.ok(
+    releaseSource.includes('https://github.com/Meowtys/here-releases/releases/tag/v2.1.1-beta'),
+    'Must include release page URL'
+  );
+  assert.ok(
+    releaseSource.includes('https://github.com/Meowtys/here-releases/releases/latest'),
+    'Must include latest release URL'
+  );
+  assert.ok(
+    releaseSource.includes('f9d0e4138d5bb6e5a455383fd4f6ae54d78e81e28d0d5e080b019f35c575a7a6'),
+    'Must include SHA-256 checksum'
+  );
   assert.ok(releaseSource.includes('com.meowtys.here'), 'Must include package name com.meowtys.here');
   assert.ok(releaseSource.includes('buildNumber: 16'), 'Must include Build 16');
+  assert.ok(releaseSource.includes('131.3 MB'), 'Must include 131.3 MB size');
+});
+
+test('Changelog contains clean user-focused release notes for v2.1.1-beta', () => {
+  const changelogSource = fs.readFileSync(path.join(rootDir, 'src', 'data', 'changelog.ts'), 'utf8');
+
+  assert.ok(changelogSource.includes('Interactive Terms & Privacy Links'), 'Must include Interactive Terms & Privacy Links');
+  assert.ok(changelogSource.includes('In-App Feedback & Bug Reporting'), 'Must include In-App Feedback & Bug Reporting');
+  assert.ok(changelogSource.includes('In-App Changelog Viewer'), 'Must include In-App Changelog Viewer');
+  assert.ok(changelogSource.includes('Optimized Face Recognition'), 'Must include Optimized Face Recognition');
+  assert.ok(changelogSource.includes('Stability & Polish'), 'Must include Stability & Polish');
+  assert.ok(
+    changelogSource.includes('f9d0e4138d5bb6e5a455383fd4f6ae54d78e81e28d0d5e080b019f35c575a7a6'),
+    'Changelog must include SHA-256 checksum'
+  );
+});
+
+test('No references to private repositories exist in source code', () => {
+  const forbidden = ['here', 'next'].join('-');
+  const searchDirs = ['src'];
+  for (const dir of searchDirs) {
+    const fullDir = path.join(rootDir, dir);
+    if (!fs.existsSync(fullDir)) continue;
+
+    function scan(d) {
+      for (const entry of fs.readdirSync(d, { withFileTypes: true })) {
+        const fullPath = path.join(d, entry.name);
+        if (entry.isDirectory()) {
+          scan(fullPath);
+        } else if (/\.(ts|mjs|astro|html|json)$/.test(entry.name)) {
+          const fileContent = fs.readFileSync(fullPath, 'utf8');
+          assert.equal(
+            fileContent.toLowerCase().includes(forbidden),
+            false,
+            `File ${fullPath} must not contain references to private repository`
+          );
+        }
+      }
+    }
+    scan(fullDir);
+  }
 });
 
 test('Built dist HTML outputs exist and contain required copy, real showcase screenshots, and links', () => {
@@ -117,6 +170,10 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
   assert.ok(indexHtml.includes('Download for Android (.apk)'), 'Landing page must contain primary APK CTA');
   assert.ok(indexHtml.includes('/changelog'), 'Landing page must link to Changelog');
   assert.ok(indexHtml.includes('here-v2.1.1-beta.apk'), 'Landing page must include v2.1.1-beta APK link');
+  assert.ok(
+    indexHtml.includes('f9d0e4138d5bb6e5a455383fd4f6ae54d78e81e28d0d5e080b019f35c575a7a6'),
+    'Landing page must display SHA-256 checksum'
+  );
   assert.ok(indexHtml.includes('Face-First Check-In'), 'Landing page must highlight Face-First on-the-go registration');
   assert.ok(indexHtml.includes('No pre-built roster needed'), 'Landing page must highlight no pre-built roster needed');
   assert.ok(indexHtml.includes('Single-Session &amp; Multi-Session Events') || indexHtml.includes('Single-Session & Multi-Session Events'), 'Landing page must highlight both 1-session and multi-session events');
@@ -161,5 +218,12 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
   const changelogHtml = fs.readFileSync(changelogHtmlPath, 'utf8');
   assert.ok(changelogHtml.includes('Changelog &amp; Release Notes') || changelogHtml.includes('Changelog & Release Notes'), 'Changelog page must render title');
   assert.ok(changelogHtml.includes('v2.1.1-beta'), 'Changelog must include latest version');
+  assert.ok(changelogHtml.includes('Build 16'), 'Changelog must include Build 16');
   assert.ok(changelogHtml.includes('com.meowtys.here'), 'Changelog must include package name');
+  assert.ok(
+    changelogHtml.includes('f9d0e4138d5bb6e5a455383fd4f6ae54d78e81e28d0d5e080b019f35c575a7a6'),
+    'Changelog must display SHA-256 checksum'
+  );
+  assert.ok(changelogHtml.includes('Interactive Terms &amp; Privacy Links') || changelogHtml.includes('Interactive Terms & Privacy Links'), 'Changelog must include Interactive Terms');
+  assert.ok(changelogHtml.includes('In-App Feedback &amp; Bug Reporting') || changelogHtml.includes('In-App Feedback & Bug Reporting'), 'Changelog must include In-App Feedback');
 });
