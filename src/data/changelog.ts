@@ -15,13 +15,43 @@ export interface ChangelogRelease {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: 'v2.1.1-beta',
+    buildNumber: 16,
+    date: 'Nov 3, 2026',
+    title: 'Biometric Sample Limits, Release Keystore & Observability Suite',
+    summary:
+      'Enforced biometric angle sample limits for higher FPS matching, signed with the official Android Release Keystore, and integrated the full Firebase Crashlytics & telemetry suite.',
+    isLatest: true,
+    items: [
+      {
+        type: 'improved',
+        text: 'Biometric Face Sample Limit: Enforced up to 5 face sample angles per attendee, optimizing on-device cosine similarity matching speed, camera FPS, and biometric accuracy.',
+      },
+      {
+        type: 'security',
+        text: 'Official Keystore Release Signing: Built and cryptographically signed with the official Android Release Keystore, enabling seamless Google Sign-In and automated OTA in-app updates with SHA-256 download verification.',
+      },
+      {
+        type: 'added',
+        text: 'Observability & Diagnostics Suite: Integrated Firebase Crashlytics, Firebase Performance Monitoring, and Google Analytics for instant crash diagnostics, network traces, and session telemetry.',
+      },
+      {
+        type: 'security',
+        text: 'Developer Lockout: Calibration page and sensitive developer tools are strictly compiled out and inaccessible in release builds.',
+      },
+      {
+        type: 'added',
+        text: 'In-App What\'s New & Changelog: View detailed release notes, version history, and installed status directly in Settings → About.',
+      },
+    ],
+  },
+  {
     version: 'v2.1.0-beta.7',
     buildNumber: 15,
     date: 'Nov 3, 2026',
     title: 'In-App Auto-Updates & Public Release Channel',
     summary:
       'Added native in-app over-the-air (OTA) update checking and installation with SHA-256 verification, and launched the dedicated public release distribution channel.',
-    isLatest: true,
     items: [
       {
         type: 'added',
