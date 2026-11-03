@@ -484,7 +484,7 @@ const installSteps = [
     </div>
   </section>
 
-  <!-- Lightweight Client-Side Release Hydrator (queries /releases and picks first .apk asset, with static v2.1.0-beta.7 fallback) -->
+  <!-- Lightweight Client-Side Release Hydrator (queries /releases and picks first .apk asset, with static v2.1.1-beta fallback) -->
   <script is:inline define:vars={{ RELEASES_API_URL, FALLBACK_RELEASE }}>
     (async function hydrateLatestApkRelease() {
       try {
@@ -554,7 +554,7 @@ const installSteps = [
         if (metaSize) metaSize.textContent = sizeMB;
         if (metaDate) metaDate.textContent = dateStr;
       } catch (_err) {
-        // Static fallback (v2.1.0-beta.7) remains in place
+        // Static fallback (v2.1.1-beta) remains in place
       }
     })();
   </script>
