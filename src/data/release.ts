@@ -26,9 +26,9 @@ export const FALLBACK_RELEASE: ReleaseMetadata = {
   downloadUrl:
     'https://github.com/Meowtys/here-releases/releases/download/v2.1.1-beta/here-v2.1.1-beta.apk',
   assetName: 'here-v2.1.1-beta.apk',
-  sizeBytes: 137613642,
-  sizeFormatted: '131.2 MB',
-  publishedAt: '2026-11-03T10:00:55Z',
+  sizeBytes: 137630234,
+  sizeFormatted: '131.3 MB',
+  publishedAt: '2026-11-03T15:34:41Z',
   publishedDateFormatted: 'Nov 3, 2026',
   prerelease: true,
   releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.1-beta',

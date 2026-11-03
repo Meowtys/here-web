@@ -16,6 +16,14 @@ const child = spawn(npxCmd, ['astro', 'build'], {
 child.on('close', (code) => {
   const afterTime = fs.existsSync(distIndex) ? fs.statSync(distIndex).mtimeMs : 0;
   if (afterTime > beforeTime || (code === 0 && fs.existsSync(distIndex))) {
+    const distDir = path.join(process.cwd(), 'dist');
+    for (const page of ['changelog', 'privacy', 'terms']) {
+      const srcFile = path.join(distDir, page, 'index.html');
+      const dstFile = path.join(distDir, page + '.html');
+      if (fs.existsSync(srcFile)) {
+        fs.copyFileSync(srcFile, dstFile);
+      }
+    }
     process.exit(0);
   }
   process.exit(code ?? 1);

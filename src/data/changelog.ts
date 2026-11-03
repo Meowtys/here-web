@@ -18,30 +18,34 @@ export const CHANGELOG_RELEASES: ChangelogRelease[] = [
     version: 'v2.1.1-beta',
     buildNumber: 16,
     date: 'Nov 3, 2026',
-    title: 'Biometric Sample Limits, Release Keystore & Observability Suite',
+    title: 'Open Beta: Observability, Official Keystore Signing & Sample Optimization',
     summary:
-      'Enforced biometric angle sample limits for higher FPS matching, signed with the official Android Release Keystore, and integrated the full Firebase Crashlytics & telemetry suite.',
+      'Added remote beta sunset control, built and cryptographically signed with the official Android Release Keystore for Google Sign-In, integrated full Firebase observability, and optimized biometric face matching.',
     isLatest: true,
     items: [
       {
+        type: 'added',
+        text: 'Remote Beta Sunset Gate: Added cloud-controlled version management via Firebase configuration so test phases can be concluded gracefully.',
+      },
+      {
+        type: 'security',
+        text: 'Production Keystore & Google Sign-In: Release APK is signed with the official Android Release Keystore with SHA-1 and SHA-256 registered for seamless Google Sign-In and OTA auto-updates.',
+      },
+      {
+        type: 'added',
+        text: 'Firebase Observability: Integrated Firebase Crashlytics, Google Analytics, and Firebase Performance Monitoring to automatically detect crashes and monitor app startup latency.',
+      },
+      {
+        type: 'added',
+        text: 'In-App Changelog Viewer: Users can now view release notes and version details directly inside the app under Settings > About Here!.',
+      },
+      {
         type: 'improved',
-        text: 'Biometric Face Sample Limit: Enforced up to 5 face sample angles per attendee, optimizing on-device cosine similarity matching speed, camera FPS, and biometric accuracy.',
+        text: 'Face Sample Optimization: Enforced a 5-sample limit per person for optimal recognition speed, camera FPS, and storage efficiency.',
       },
       {
         type: 'security',
-        text: 'Official Keystore Release Signing: Built and cryptographically signed with the official Android Release Keystore, enabling seamless Google Sign-In and automated OTA in-app updates with SHA-256 download verification.',
-      },
-      {
-        type: 'added',
-        text: 'Observability & Diagnostics Suite: Integrated Firebase Crashlytics, Firebase Performance Monitoring, and Google Analytics for instant crash diagnostics, network traces, and session telemetry.',
-      },
-      {
-        type: 'security',
-        text: 'Developer Lockout: Calibration page and sensitive developer tools are strictly compiled out and inaccessible in release builds.',
-      },
-      {
-        type: 'added',
-        text: 'In-App What\'s New & Changelog: View detailed release notes, version history, and installed status directly in Settings → About.',
+        text: 'Production Build Hardening: Disabled internal developer-only face calibration tools in release builds.',
       },
     ],
   },
