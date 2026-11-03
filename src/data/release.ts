@@ -31,12 +31,12 @@ export const FALLBACK_RELEASE: ReleaseMetadata = {
   assetName: 'here-v2.1.1-beta.apk',
   sizeBytes: 137630234,
   sizeFormatted: '131.3 MB',
-  publishedAt: '2026-11-03T17:20:20Z',
+  publishedAt: '2026-11-03T18:29:52Z',
   publishedDateFormatted: 'Nov 3, 2026',
   prerelease: true,
   releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.1-beta',
   latestReleaseUrl: 'https://github.com/Meowtys/here-releases/releases/latest',
-  checksumSha256: 'f9d0e4138d5bb6e5a455383fd4f6ae54d78e81e28d0d5e080b019f35c575a7a6',
+  checksumSha256: '4ddb648fcbe44e8f20ffd495f8a5a454cb040cec0d82f3a4bf792f6213fefcbd',
 };
 
 export function formatBytesToMB(bytes: number): string {
