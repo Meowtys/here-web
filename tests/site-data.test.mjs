@@ -8,15 +8,18 @@ const rootDir = process.cwd();
 test('Brand and showcase assets exist in public/assets and public/favicon.png', () => {
   const loginLogo = path.join(rootDir, 'public', 'assets', 'loginlogo.png');
   const brandMark = path.join(rootDir, 'public', 'assets', 'brand-mark.png');
+  const ogImage = path.join(rootDir, 'public', 'assets', 'og-image.png');
   const logo = path.join(rootDir, 'public', 'assets', 'logo.png');
   const favicon = path.join(rootDir, 'public', 'favicon.png');
 
   assert.equal(fs.existsSync(loginLogo), true, 'public/assets/loginlogo.png must exist');
   assert.equal(fs.existsSync(brandMark), true, 'public/assets/brand-mark.png must exist');
+  assert.equal(fs.existsSync(ogImage), true, 'public/assets/og-image.png must exist');
   assert.equal(fs.existsSync(logo), true, 'public/assets/logo.png must exist');
   assert.equal(fs.existsSync(favicon), true, 'public/favicon.png must exist');
   assert.ok(fs.statSync(loginLogo).size > 1000, 'loginlogo.png should not be empty');
   assert.ok(fs.statSync(brandMark).size > 1000, 'brand-mark.png should not be empty');
+  assert.ok(fs.statSync(ogImage).size > 5000, 'og-image.png should not be empty');
   assert.ok(fs.statSync(logo).size > 1000, 'logo.png should not be empty');
 
   const showcaseFiles = [
@@ -178,6 +181,10 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
   assert.ok(indexHtml.includes('No pre-built roster needed'), 'Landing page must highlight no pre-built roster needed');
   assert.ok(indexHtml.includes('Single-Session &amp; Multi-Session Events') || indexHtml.includes('Single-Session & Multi-Session Events'), 'Landing page must highlight both 1-session and multi-session events');
   assert.ok(indexHtml.includes('brand-mark.png'), 'Landing page must render cropped crisp brand-mark.png');
+  assert.ok(
+    indexHtml.includes('https://youre-here.vercel.app/assets/og-image.png'),
+    'Landing page must expose absolute og:image URL for LinkedIn and social previews'
+  );
   assert.ok(indexHtml.includes('id="showcase"'), 'Landing page must include interactive showcase section');
   assert.ok(
     indexHtml.includes('Explore Real Android Screens from Here!') || indexHtml.includes('See Here! in Action on Android'),
