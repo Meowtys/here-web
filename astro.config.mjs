@@ -2,6 +2,7 @@ import { defineConfig, passthroughImageService } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
+  site: 'https://youre-here.vercel.app',
   output: 'static',
   integrations: [
     tailwind({
