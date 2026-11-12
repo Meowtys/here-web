@@ -1,4 +1,5 @@
 ---
+import '@fontsource-variable/manrope';
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
@@ -10,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = "You're Here! beta — A simple and easy to use attendance system made for students. On-device facial recognition, offline check-in sync, multi-session events, and turnout analytics for student organizations.",
+  description = 'Here! beta — A simple, face-first attendance system made for students. On-device facial recognition, offline check-in sync, multi-session events, and turnout analytics for student organizations.',
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -20,7 +21,7 @@ const ogImageUrl = new URL('/assets/og-image.png', siteOrigin).toString();
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-pt-20 scroll-smooth max-w-full overflow-x-hidden">
+<html lang="en" class="scroll-pt-20 scroll-smooth max-w-full [overflow-x:clip]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,7 +48,7 @@ const ogImageUrl = new URL('/assets/og-image.png', siteOrigin).toString();
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
   </head>
-  <body class="bg-here-bg text-here-text font-sans selection:bg-here-tint selection:text-here-primary max-w-full overflow-x-hidden min-h-screen flex flex-col">
+  <body class="bg-here-bg text-here-text font-sans selection:bg-here-tint selection:text-here-primary max-w-full min-h-screen flex flex-col">
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-here-primary focus:text-here-onPrimary focus:rounded-here focus:font-bold focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
@@ -55,7 +56,7 @@ const ogImageUrl = new URL('/assets/og-image.png', siteOrigin).toString();
       Skip to main content
     </a>
     <Navbar currentPath={currentPath} />
-    <main id="main-content" class="flex-1 w-full max-w-full overflow-x-hidden">
+    <main id="main-content" class="flex-1 w-full max-w-full">
       <slot />
     </main>
     <Footer />

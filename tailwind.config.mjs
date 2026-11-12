@@ -29,7 +29,8 @@ export default {
       },
       fontFamily: {
         sans: [
-          'Inter',
+          '"Manrope Variable"',
+          'Manrope',
           'ui-sans-serif',
           'system-ui',
           '-apple-system',

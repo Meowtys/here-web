@@ -36,6 +36,7 @@ test('Brand and showcase assets exist in public/assets and public/favicon.png', 
     'biometric-roster.png',
     'attendee-history.png',
     'role-permissions.png',
+    'audit-log.png',
   ];
   for (const file of showcaseFiles) {
     const filePath = path.join(rootDir, 'public', 'assets', 'showcase', file);
@@ -206,10 +207,12 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
     '/assets/showcase/biometric-roster.png',
     '/assets/showcase/attendee-history.png',
     '/assets/showcase/role-permissions.png',
+    '/assets/showcase/audit-log.png',
   ];
   for (const screenPath of allShowcaseScreens) {
     assert.ok(indexHtml.includes(screenPath), `Showcase must render ${screenPath}`);
   }
+  assert.ok(indexHtml.includes('data-copy-sha='), 'Landing page must provide 1-click SHA-256 copy controls');
 
   assert.ok(indexHtml.includes('1. Create or Join a Group'), 'Landing page must include Quick Start steps');
 

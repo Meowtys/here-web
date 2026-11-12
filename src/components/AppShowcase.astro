@@ -14,7 +14,6 @@ interface Slide {
 interface Category {
   id: string;
   tabLabel: string;
-  icon: string;
   slides: Slide[];
 }
 
@@ -22,7 +21,6 @@ const categories: Category[] = [
   {
     id: 'group',
     tabLabel: 'Groups & Setup',
-    icon: '🏠',
     slides: [
       {
         id: 'group-workspace',
@@ -33,7 +31,7 @@ const categories: Category[] = [
         subtitle: 'Single-Session & Multi-Session Events',
         title: 'Centralize Your Club Workspace & Event Schedules',
         description:
-          'Set up a shared workspace for your student organization in seconds. Whether you are hosting a quick single-session meeting (like Freshmen Club Orientation · 9:00 AM – 12:00 PM) or a multi-day conference with multiple sessions, everything lives in one clean hub.',
+          'Set up a shared workspace for your student organization in seconds. Whether you are hosting a quick single-session meeting (like Freshmen Club Orientation, 9:00 AM–12:00 PM) or a multi-day conference with multiple sessions, everything lives in one clean hub.',
         highlights: [
           {
             title: 'Single-Session or Multi-Day Events:',
@@ -41,7 +39,7 @@ const categories: Category[] = [
           },
           {
             title: 'At-a-Glance Group Header:',
-            desc: 'Monitor 5 Members, 8 Attendees, and active event cards right from the top teal band with real-time sync.',
+            desc: 'Monitor 5 Members, 8 Attendees, and active event cards right from the top teal header with real-time sync.',
           },
           {
             title: 'Instant Event Creation:',
@@ -70,7 +68,7 @@ const categories: Category[] = [
           },
           {
             title: '1-Tap Copy & Native Sharing:',
-            desc: 'Copy the code to your clipboard in 1 tap or share directly via Android system share sheet.',
+            desc: 'Copy the code to your clipboard in 1 tap or share directly via the Android system share sheet.',
           },
         ],
       },
@@ -83,7 +81,7 @@ const categories: Category[] = [
         subtitle: 'Type Code or Scan via Camera',
         title: 'Seamless Onboarding for Officers & Students',
         description:
-          'Joining a student organization workspace takes less than five seconds. Type the 6-character invite code (e.g. CSSOC8) or tap "Scan QR code" to instantly point your phone camera at an organizer’s screen.',
+          'Joining a student organization workspace takes less than five seconds. Type the 6-character invite code (e.g., CSSOC8) or tap “Scan QR code” to scan an organizer’s screen directly.',
         highlights: [
           {
             title: 'Direct Code Entry:',
@@ -91,7 +89,7 @@ const categories: Category[] = [
           },
           {
             title: 'Integrated QR Scanner:',
-            desc: 'Tap "Scan QR code" to scan an officer’s device directly without leaving the app.',
+            desc: 'Tap “Scan QR code” to scan an officer’s device directly without leaving the app.',
           },
           {
             title: 'Role-Based Governance:',
@@ -104,7 +102,6 @@ const categories: Category[] = [
   {
     id: 'scanner',
     tabLabel: 'Scan Attendance',
-    icon: '📷',
     slides: [
       {
         id: 'scanner-camera',
@@ -115,19 +112,19 @@ const categories: Category[] = [
         subtitle: 'Synced · 7 templates ready',
         title: 'Face-First Check-In on the Go (100% Offline)',
         description:
-          'Attendance checkers can open the camera, toggle between Time in and Time out, and check students in on the go wherever the event is happening. MobileFaceNet matches faces directly on your device without an internet connection.',
+          'Attendance checkers can open the camera, toggle between Time in and Time out, and check students in wherever the event is happening. On-device recognition matches faces directly without an internet connection.',
         highlights: [
           {
             title: 'On-the-Go Face Recognition:',
-            desc: 'Ultra-lightweight neural network matches enrolled faces in under 200ms with on-screen bounding boxes.',
+            desc: 'Lightweight neural network matches enrolled faces in under 200ms with on-screen alignment guides.',
           },
           {
-            title: 'Time-in / Time-out Toggle:',
-            desc: 'Seamlessly switch check-in modes at the door with a persistent header control.',
+            title: 'Time-In / Time-Out Toggle:',
+            desc: 'Switch check-in modes smoothly at the door with a persistent header control.',
           },
           {
             title: 'Offline Biometric Cache:',
-            desc: 'Group face templates are cached on-device (Synced · 7 templates ready) for auditoriums and fields without Wi-Fi.',
+            desc: 'Group face templates cache on-device (Synced · 7 templates ready) for auditoriums and outdoor fields without Wi-Fi.',
           },
         ],
       },
@@ -140,11 +137,11 @@ const categories: Category[] = [
         subtitle: 'Type-to-Filter Search & 1-Tap Entry',
         title: 'Instant Manual Entry for Opt-Outs & Typed IDs',
         description:
-          'When students prefer not to use facial recognition or lighting is poor, tap "Switch to manual attendance" to open the roster search. Type any part of a student’s name or ID to filter and record attendance instantly.',
+          'When students prefer not to use facial recognition or lighting is poor, tap “Switch to manual attendance” to open roster search. Type any part of a student’s name or ID to filter and record attendance instantly.',
         highlights: [
           {
             title: 'Type-to-Filter Search:',
-            desc: 'Instant search across student names and Student IDs with highlighted query terms.',
+            desc: 'Instant search across student names and Student IDs with highlighted matching terms.',
           },
           {
             title: '1-Tap Time In / Time Out:',
@@ -152,7 +149,7 @@ const categories: Category[] = [
           },
           {
             title: 'Walk-In Floating Action Button:',
-            desc: 'Tap the prominent "Walk-in" button to register new attendees on the fly without interrupting line flow.',
+            desc: 'Tap “Walk-in” to register new attendees on the fly without slowing down the entrance line.',
           },
         ],
       },
@@ -165,19 +162,19 @@ const categories: Category[] = [
         subtitle: 'On-the-Go Attendee Registration',
         title: 'Enroll Students & Record Attendance on the Spot',
         description:
-          'No need to collect and import spreadsheets before your event. When a new student arrives, simply open the Walk-in sheet, enter their Student ID and name, and record their attendance immediately.',
+          'No need to collect and import spreadsheets before your event. When a new student arrives, open the Walk-in sheet, enter their Student ID and name, and record attendance immediately.',
         highlights: [
           {
             title: 'Save to Group Attendee Roster:',
-            desc: 'Check the box to automatically add new walk-ins to the permanent group roster for all future events.',
+            desc: 'Check the box to automatically save walk-ins to your permanent group roster for future events.',
           },
           {
             title: 'Instant Biometric Link:',
-            desc: 'Link a captured face photo directly during walk-in so the student can use facial recognition next time.',
+            desc: 'Link a captured face sample during walk-in so the student can check in via camera next time.',
           },
           {
             title: 'Zero Pre-Work Required:',
-            desc: 'Your roster builds itself automatically as students show up to your meetings and activities.',
+            desc: 'Your roster builds itself automatically as students show up to meetings and campus activities.',
           },
         ],
       },
@@ -186,7 +183,6 @@ const categories: Category[] = [
   {
     id: 'events',
     tabLabel: 'Attendance List',
-    icon: '📋',
     slides: [
       {
         id: 'events-live-feed',
@@ -209,7 +205,7 @@ const categories: Category[] = [
           },
           {
             title: 'Detailed Student Cards:',
-            desc: 'Displays student avatar, name, Student ID, verification badge, and exact time-in/out timestamps.',
+            desc: 'Displays student avatar, name, Student ID, verification badge, and exact time-in/out stamps.',
           },
         ],
       },
@@ -222,11 +218,11 @@ const categories: Category[] = [
         subtitle: 'Typed ID Badges & 1-Tap Verification',
         title: 'Verify Manual Entries & Prevent Attendance Tampering',
         description:
-          'Check-ins recorded manually or via typed ID are tagged with a "Typed ID" badge. Officers can review all pending manual entries under the "To check" filter and verify them individually or in 1 batch tap.',
+          'Check-ins recorded manually or via typed ID receive a “Typed ID” badge. Officers can review pending manual entries under the “To check” filter and verify them individually or in 1 batch tap.',
         highlights: [
           {
-            title: 'Distinct "Typed ID" Tag:',
-            desc: 'Clearly separates face-verified check-ins from manual officer inputs for audit accountability.',
+            title: 'Distinct “Typed ID” Tag:',
+            desc: 'Clearly separates face-verified check-ins from manual officer inputs for audit clarity.',
           },
           {
             title: '1-Tap Batch Verification:',
@@ -234,7 +230,7 @@ const categories: Category[] = [
           },
           {
             title: 'Automatic Event Lock:',
-            desc: 'Events automatically lock attendance modifications when the scheduled end time passes.',
+            desc: 'Events automatically lock modifications once the scheduled end time passes.',
           },
         ],
       },
@@ -243,7 +239,6 @@ const categories: Category[] = [
   {
     id: 'analytics',
     tabLabel: 'Analytics',
-    icon: '📊',
     slides: [
       {
         id: 'analytics-group',
@@ -254,15 +249,15 @@ const categories: Category[] = [
         subtitle: 'Cumulative Performance & Event Leaderboard',
         title: 'Track Cross-Event Turnout & Total Member Engagement',
         description:
-          "Gain instant bird's-eye visibility across all events hosted by your organization. Monitor cumulative metrics for Total Events, Roster Members, and Active Events, drill down into attendance rates, and export cross-event turnout summaries in 1 tap.",
+          'Gain instant bird’s-eye visibility across every event hosted by your organization. Monitor Total Events, Roster Members, and Active Events, drill down into turnout rates, and export group summaries in 1 tap.',
         highlights: [
           {
             title: 'Cumulative KPI Dashboard:',
-            desc: 'Track 2 Total Events, 16 Roster Members, and active sessions in a clean high-level summary card.',
+            desc: 'Track 2 Total Events, 16 Roster Members, and active sessions in one summary view.',
           },
           {
             title: 'Cross-Event Turnout Overview:',
-            desc: 'Compare attendance across General Assembly & Workshop, Freshmen Orientation, and future sessions.',
+            desc: 'Compare participation across General Assembly & Workshop, Freshmen Orientation, and more.',
           },
           {
             title: '1-Tap Group Summary CSV:',
@@ -279,19 +274,19 @@ const categories: Category[] = [
         subtitle: '88% Turnout · 15m Check-In Velocity',
         title: 'Turnout Rates, Velocity Histograms & Rush Windows',
         description:
-          'See your event turnout percentage, present vs absent counts, full (in and out) completion rates, and face-verified ratio. Toggle between 10m, 15m, and 30m intervals to analyze arrival rush patterns.',
+          'Review your event turnout percentage, present vs. absent counts, full (in and out) completion rates, and face-verified ratio. Toggle 10m, 15m, and 30m intervals to inspect arrival rush patterns.',
         highlights: [
           {
             title: '88% Turnout Ring Chart:',
-            desc: 'Visual breakdown of present vs absent attendees and full attendance completion rates.',
+            desc: 'Visual breakdown of present vs. absent attendees and full attendance completion rates.',
           },
           {
             title: 'Configurable Velocity Intervals (10m / 15m / 30m):',
-            desc: 'Interactive bar histogram shows check-in speed throughout the doors opening.',
+            desc: 'Interactive bar histogram maps check-in momentum from doors open to close.',
           },
           {
             title: 'Peak Scan Window Detection:',
-            desc: 'Automatically identifies the busiest arrival period (e.g. Peak: 09:00 with 8 scans).',
+            desc: 'Highlights the busiest arrival window automatically (e.g., Peak: 09:00 with 8 scans).',
           },
         ],
       },
@@ -304,19 +299,19 @@ const categories: Category[] = [
         subtitle: 'Session Retention & Signed PDF / CSV Exports',
         title: 'Session Drop-Off Comparison & Official Reports',
         description:
-          'For multi-session conferences and workshops, compare attendance drop-off between morning and afternoon sessions side-by-side. Export signed PDF attendance sheets or formula-sanitized CSV reports.',
+          'For multi-session conferences and workshops, compare attendance retention between morning and afternoon sessions side by side, then export signed PDF attendance sheets or clean CSV files.',
         highlights: [
           {
             title: 'Side-by-Side Session Retention:',
-            desc: 'Track attendance retention between Session 1 (Keynote) and Session 2 (Workshop) with progress bars.',
+            desc: 'Compare participation between Session 1 (Keynote) and Session 2 (Workshop) with retention bars.',
           },
           {
             title: 'Print-Ready Signed PDF Export:',
-            desc: 'Generates official PDF attendance sheets with organizer signature lines and session timestamps.',
+            desc: 'Generates official PDF attendance sheets with organizer signature lines and session stamps.',
           },
           {
-            title: 'Formula-Sanitized CSV Export:',
-            desc: 'Generates spreadsheet-ready attendance sheets with automatic CSV injection defense.',
+            title: 'Spreadsheet-Safe CSV Export:',
+            desc: 'Generates Excel- and Google Sheets-ready attendance sheets with formula-injection protection.',
           },
         ],
       },
@@ -325,7 +320,6 @@ const categories: Category[] = [
   {
     id: 'roster',
     tabLabel: 'Roster & Governance',
-    icon: '👤',
     slides: [
       {
         id: 'roster-attendees',
@@ -336,19 +330,19 @@ const categories: Category[] = [
         subtitle: 'Multi-Sample Face Enrollment',
         title: 'Group Attendee Roster with Biometric Sample Badges',
         description:
-          'Every student who registers or walks in appears in your group’s permanent Attendees roster. Badges display exactly how many face samples are enrolled (e.g. 4 samples, 3 samples, or No face data).',
+          'Every student who registers or walks in appears in your group’s permanent Attendees roster. Badges display how many face samples are stored (e.g., 4 samples, 3 samples, or No face data).',
         highlights: [
           {
-            title: 'Multi-Sample Badges (4 samples, 3 samples):',
-            desc: 'Visual indicators show biometric recognition fidelity for each student on your roster.',
+            title: 'Multi-Sample Badges:',
+            desc: 'Clear status indicators show enrolled face sample count per student.',
           },
           {
             title: 'Privacy & Opt-Out Friendly:',
-            desc: 'Students who decline facial storage are marked with "No face data" and can always be checked in manually.',
+            desc: 'Students who decline facial enrollment appear as “No face data” and check in manually anytime.',
           },
           {
             title: 'On-Device Face Matching:',
-            desc: 'Cached biometric embeddings match students at the door without sending biometric data to any external server.',
+            desc: 'Cached biometric embeddings match attendees locally without uploading photos to external servers.',
           },
         ],
       },
@@ -361,44 +355,69 @@ const categories: Category[] = [
         subtitle: '50% Attendance Rate · Cross-Event History',
         title: 'Student Attendance Records & Cross-Event History',
         description:
-          'Tap any student card on your roster to open their full attendance history across all group events. View their cumulative attendance rate, compare attended versus absent sessions, and inspect precise arrival and departure timestamps.',
+          'Tap any student card on your roster to inspect their attendance history across every group event, including cumulative turnout rate, attended vs. absent sessions, and arrival/departure timestamps.',
         highlights: [
           {
             title: 'Overall Attendance Rate Card:',
-            desc: 'Calculates individual student attendance percentages (e.g. 50% Attended 1 of 2 events) with visual progress bars.',
+            desc: 'Calculates individual student attendance percentages (e.g., 50% · Attended 1 of 2 events).',
           },
           {
-            title: 'Attended vs Absent Filter Tabs:',
-            desc: 'Quickly filter between All, Attended, and Absent event records for academic accountability.',
+            title: 'Attended vs. Absent Filter Tabs:',
+            desc: 'Switch quickly between All, Attended, and Absent event records.',
           },
           {
             title: 'Session Time-In & Out Stamps:',
-            desc: 'Detailed cards show exact check-in and check-out times (e.g. In 9:04 AM · Out 11:58 AM).',
+            desc: 'Detailed session cards record exact check-in and check-out times (e.g., In 9:02 AM · Out 11:25 AM).',
           },
         ],
       },
       {
         id: 'roster-permissions',
-        label: '3. Role Matrix & Audit',
+        label: '3. Role Permissions',
         image: '/assets/showcase/role-permissions.png',
         alt: 'Here! Android app Member Permissions matrix for CS Student Society showing granular toggles for attendance scanning, roster imports, CSV exports, and event management',
-        categoryBadge: 'Access Governance & Security',
-        subtitle: 'Granular Role Access Gates & Audit Trail',
-        title: 'Member Permissions Matrix & Tamper-Evident Audit Logs',
+        categoryBadge: 'Access Governance',
+        subtitle: 'Granular Role Access Gates',
+        title: 'Granular Member Permissions Matrix',
         description:
-          'Delegate door scanning to club officers with complete control over what they can do. Toggle granular permissions for attendance scanning, roster imports, and CSV exports, while tracking all changes in a tamper-evident audit log.',
+          'Delegate door scanning to club officers while keeping strict control over who can manage rosters, export CSV reports, or create events across your organization workspace.',
         highlights: [
           {
             title: 'Granular Access Toggles:',
-            desc: 'Fine-grained permission gates for scanning attendance, adding walk-ins, and exporting CSVs.',
+            desc: 'Control permissions individually for attendance scanning, adding walk-ins, and exporting reports.',
           },
           {
             title: 'Role Hierarchy (Owner, Admin, Member):',
-            desc: 'Enforces strict boundaries so only authorized officers can create events or modify rosters.',
+            desc: 'Enforces clear boundaries so only authorized officers can modify organization settings.',
           },
           {
-            title: 'Tamper-Evident Audit Logging:',
-            desc: 'Chronological security log records every role assignment, batch verification, and exported report.',
+            title: 'Instant Officer Approval:',
+            desc: 'Review join requests and promote trusted members to Admin from one clean sheet.',
+          },
+        ],
+      },
+      {
+        id: 'roster-audit',
+        label: '4. Audit Log',
+        image: '/assets/showcase/audit-log.png',
+        alt: 'Here! Android app Audit Log screen for CS Student Society showing activity filters (All, Members & Roles, Events, Group) and chronological action cards for CSV exports, batch verification, event edits, and role promotions',
+        categoryBadge: 'Accountability & Security',
+        subtitle: 'Chronological Organization Activity Feed',
+        title: 'Filterable Governance Audit Log for Every Action',
+        description:
+          'Every sensitive action in your organization — from CSV exports and batch manual verifications to event edits and Admin promotions — is recorded chronologically with category and date filters.',
+        highlights: [
+          {
+            title: 'Category & Date Filters:',
+            desc: 'Filter logs by Members & Roles, Events, Group, Attendance, or Reports — plus jump to any date.',
+          },
+          {
+            title: 'Actor Attribution & Timestamps:',
+            desc: 'Shows exactly which officer exported a report, verified manual check-ins, or updated permissions.',
+          },
+          {
+            title: 'Exportable Audit Trail:',
+            desc: 'Download the activity log anytime for adviser or student council compliance reviews.',
           },
         ],
       },
@@ -409,26 +428,32 @@ const categories: Category[] = [
 
 <section id="showcase" class="scroll-mt-20 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-here-border">
   <div class="max-w-3xl mb-8">
-    <div class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-here-primary bg-here-tint px-2.5 py-1 rounded-full mb-2">
-      <span>Interactive Multi-Screen Showcase</span>
+    <div class="inline-flex items-center gap-1.5 text-xs font-extrabold tracking-wide text-here-primary bg-here-tint px-3 py-1 rounded-full mb-2">
+      <span>Interactive Screen Showcase</span>
     </div>
     <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-here-text tracking-tight text-balance">
       Explore Real Android Screens from Here!
     </h2>
-    <p class="mt-2 text-sm sm:text-base text-here-muted leading-relaxed">
-      Each section below features authentic captures from our Android app on emulator. Click any category tab, then switch between the screenshot gallery slides using the sub-tabs or arrows below.
+    <p class="mt-2 text-sm sm:text-base text-here-muted leading-relaxed text-pretty">
+      Browse 15 guided screens captured from the Android app. Select a category tab, then switch slides using the sub-tabs, swipe gesture, or arrow buttons.
     </p>
   </div>
 
   <!-- Main Category Tabs -->
-  <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar w-full max-w-full min-w-0" role="tablist" aria-label="Showcase Categories">
+  <div
+    id="showcase-cat-tablist"
+    class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar w-full max-w-full min-w-0"
+    role="tablist"
+    aria-label="Showcase Categories"
+  >
     {categories.map((cat, idx) => (
       <button
         id={`cat-btn-${cat.id}`}
         type="button"
         role="tab"
+        tabindex={idx === 0 ? '0' : '-1'}
         aria-selected={idx === 0 ? 'true' : 'false'}
-        aria-controls={`gallery-panel-${cat.id}`}
+        aria-controls="showcase-stage-panel"
         class:list={[
           'showcase-cat-btn min-h-[44px] px-4 py-2.5 rounded-here text-xs sm:text-sm font-bold whitespace-nowrap transition-colors flex items-center gap-2 shadow-xs shrink-0 focus-visible:ring-2 focus-visible:ring-here-primary cursor-pointer',
           idx === 0
@@ -437,38 +462,73 @@ const categories: Category[] = [
         ]}
         data-cat={cat.id}
       >
-        <span>{cat.icon}</span>
+        {cat.id === 'group' && (
+          <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5.5v-6h-5v6H4a1 1 0 01-1-1v-9.5z" />
+          </svg>
+        )}
+        {cat.id === 'scanner' && (
+          <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h2l1.5-2h7L17 7h2a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+            <circle cx="12" cy="13" r="3" />
+          </svg>
+        )}
+        {cat.id === 'events' && (
+          <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 6h6m-6 4h4" />
+          </svg>
+        )}
+        {cat.id === 'analytics' && (
+          <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 19h16M7 16V9m5 7V5m5 11v-4" />
+          </svg>
+        )}
+        {cat.id === 'roster' && (
+          <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 12a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 0114 0H5z" />
+          </svg>
+        )}
         <span>{cat.tabLabel}</span>
       </button>
     ))}
   </div>
 
   <!-- Showcase Stage -->
-  <div class="mt-6 here-card p-4 sm:p-6 lg:p-8 bg-here-surface border border-here-border shadow-md">
-    
+  <div
+    id="showcase-stage-panel"
+    role="tabpanel"
+    aria-labelledby="cat-btn-group"
+    class="mt-6 here-card p-4 sm:p-6 lg:p-8 bg-here-surface border border-here-border shadow-md"
+  >
     <!-- Sub-Slide Gallery Switcher Bar -->
     <div class="mb-6 pb-4 border-b border-here-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
       <div>
-        <div class="text-[11px] font-extrabold uppercase tracking-wider text-here-muted">Gallery Screens</div>
+        <div class="text-xs font-extrabold uppercase tracking-wider text-here-muted">Gallery Screens</div>
         <div id="gallery-title" class="text-base sm:text-lg font-extrabold text-here-text">
-          Organization Workspace
+          Centralize Your Club Workspace &amp; Event Schedules
         </div>
       </div>
 
       <!-- Slide Selector Pills Container -->
-      <div id="sub-tabs-container" class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 no-scrollbar w-full max-w-full min-w-0" role="tablist" aria-label="Gallery Slides">
+      <div
+        id="sub-tabs-container"
+        class="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 no-scrollbar w-full sm:w-auto max-w-full min-w-0"
+        role="tablist"
+        aria-label="Gallery Slides"
+      >
         <!-- Injected via JavaScript based on active category -->
       </div>
     </div>
 
     <!-- Main Grid: Phone Mockup + Dynamic Info Column -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-      
+    <div id="showcase-slide-panel" role="tabpanel" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       <!-- Left Column: Realistic Android Device Frame with Multi-Slide Screenshots -->
       <div class="lg:col-span-5 flex flex-col items-center">
-        
         <!-- Phone Frame Container -->
-        <div class="w-[270px] sm:w-[296px] rounded-[42px] p-2.5 bg-[#182127] border-[3px] border-[#2A3742] shadow-2xl relative">
+        <div
+          id="showcase-phone-frame"
+          class="w-[270px] sm:w-[296px] rounded-[42px] p-2.5 bg-[#182127] border-[3px] border-[#2A3742] shadow-2xl relative touch-pan-y"
+        >
           <!-- Camera Punch-Hole -->
           <div class="w-3.5 h-3.5 rounded-full bg-black/95 absolute top-5 left-1/2 -translate-x-1/2 z-20 pointer-events-none border border-white/10 shadow-inner"></div>
 
@@ -477,17 +537,21 @@ const categories: Category[] = [
             id="prev-slide-btn"
             type="button"
             aria-label="Previous screenshot in gallery"
-            class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-black/70 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-xs border border-white/20 transition-[transform,background-color] duration-150 hover:scale-105 active:scale-95 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none shadow-md cursor-pointer"
+            class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-black/75 hover:bg-black/95 text-white flex items-center justify-center backdrop-blur-xs border border-white/25 transition-[transform,background-color] duration-150 hover:scale-105 active:scale-95 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none shadow-md cursor-pointer"
           >
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
           </button>
           <button
             id="next-slide-btn"
             type="button"
             aria-label="Next screenshot in gallery"
-            class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-black/70 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-xs border border-white/20 transition-[transform,background-color] duration-150 hover:scale-105 active:scale-95 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none shadow-md cursor-pointer"
+            class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-black/75 hover:bg-black/95 text-white flex items-center justify-center backdrop-blur-xs border border-white/25 transition-[transform,background-color] duration-150 hover:scale-105 active:scale-95 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none shadow-md cursor-pointer"
           >
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
           </button>
 
           <!-- Android Screen Viewport (1080x2424 native aspect) -->
@@ -503,14 +567,19 @@ const categories: Category[] = [
                   data-cat={cat.id}
                   data-slide-id={slide.id}
                 >
-                  <img
-                    src={slide.image}
-                    alt={slide.alt}
-                    width="1080"
-                    height="2424"
-                    loading={cat.id === 'group' && sIdx === 0 ? 'eager' : 'lazy'} decoding="async" fetchpriority={cat.id === 'group' && sIdx === 0 ? 'high' : 'auto'}
-                    class="w-full h-full object-cover block"
-                  />
+                  <picture>
+                    <source srcset={slide.image.replace(/\.png$/i, '.webp')} type="image/webp" />
+                    <img
+                      src={slide.image}
+                      alt={slide.alt}
+                      width="1080"
+                      height="2424"
+                      loading={cat.id === 'group' && sIdx === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
+                      fetchpriority={cat.id === 'group' && sIdx === 0 ? 'high' : 'auto'}
+                      class="w-full h-full object-cover block"
+                    />
+                  </picture>
                 </div>
               ))
             )}
@@ -518,20 +587,22 @@ const categories: Category[] = [
         </div>
 
         <!-- Slide Indicator Dots and Counter -->
-        <div class="mt-4 flex items-center gap-3 text-xs font-bold text-here-muted">
-          <div id="slide-dots-container" class="flex items-center gap-1.5">
+        <div class="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs font-bold text-here-muted">
+          <div id="slide-dots-container" class="flex items-center gap-2">
             <!-- Dynamic dots injected by JS -->
           </div>
-          <span id="slide-counter-text" class="text-[11px] font-mono font-semibold tabular-nums px-2 py-0.5 rounded-full bg-here-tint text-here-primary">
+          <span
+            id="slide-counter-text"
+            aria-live="polite"
+            class="text-xs font-mono font-semibold tabular-nums px-2.5 py-0.5 rounded-full bg-here-tint text-here-primary"
+          >
             Slide 1 of 3
           </span>
         </div>
-
       </div>
 
       <!-- Right Column: Interactive Description & Screen Specifications -->
       <div class="lg:col-span-7 space-y-5">
-        
         {categories.map((cat) =>
           cat.slides.map((slide, sIdx) => (
             <div
@@ -556,7 +627,7 @@ const categories: Category[] = [
                 {slide.title}
               </h3>
 
-              <p class="text-sm sm:text-base text-here-muted leading-relaxed">
+              <p class="text-sm sm:text-base text-here-muted leading-relaxed text-pretty">
                 {slide.description}
               </p>
 
@@ -566,7 +637,9 @@ const categories: Category[] = [
                   {slide.highlights.map((h) => (
                     <li class="flex items-start gap-2.5">
                       <div class="w-5 h-5 rounded-full bg-here-tint text-here-primary flex items-center justify-center shrink-0 mt-0.5">
-                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
                       </div>
                       <span><strong class="text-here-primary">{h.title}</strong> {h.desc}</span>
                     </li>
@@ -579,14 +652,12 @@ const categories: Category[] = [
 
         <!-- Quick Switcher Helper Card -->
         <div class="pt-4 border-t border-here-border flex flex-wrap items-center justify-between gap-2 text-xs text-here-muted">
-          <span>Captured live from <strong>Here! v2.1.0-beta.6</strong> (Android Emulator)</span>
+          <span>Captured from <strong>Here! for Android</strong></span>
           <span class="font-bold text-here-primary inline-flex items-center gap-1">
-            <span>Use &larr; &rarr; arrows or sub-tabs to browse</span>
+            <span>Swipe, use arrows, or tap tabs to browse</span>
           </span>
         </div>
-
       </div>
-
     </div>
   </div>
 
@@ -596,16 +667,32 @@ const categories: Category[] = [
       let activeCatId = 'group';
       let activeSlideIndex = 0;
 
-      const catButtons = document.querySelectorAll('.showcase-cat-btn');
+      const catTablist = document.getElementById('showcase-cat-tablist');
+      const catButtons = Array.from(document.querySelectorAll('.showcase-cat-btn'));
+      const stagePanel = document.getElementById('showcase-stage-panel');
+      const slidePanel = document.getElementById('showcase-slide-panel');
       const subTabsContainer = document.getElementById('sub-tabs-container');
       const galleryTitle = document.getElementById('gallery-title');
       const prevBtn = document.getElementById('prev-slide-btn');
       const nextBtn = document.getElementById('next-slide-btn');
       const dotsContainer = document.getElementById('slide-dots-container');
       const counterText = document.getElementById('slide-counter-text');
+      const phoneFrame = document.getElementById('showcase-phone-frame');
 
       function getCurrentCategory() {
         return categories.find((c) => c.id === activeCatId) || categories[0];
+      }
+
+      function syncUrlState(shouldSync) {
+        if (!shouldSync || typeof window === 'undefined' || !window.history || !window.history.replaceState) {
+          return;
+        }
+        const currentCat = getCurrentCategory();
+        const activeSlide = currentCat.slides[activeSlideIndex];
+        if (!activeSlide) return;
+        const url = new URL(window.location.href);
+        url.searchParams.set('screen', activeSlide.id);
+        window.history.replaceState(null, '', url.pathname + url.search + url.hash);
       }
 
       function renderSubTabs() {
@@ -615,10 +702,13 @@ const categories: Category[] = [
 
         currentCat.slides.forEach((slide, idx) => {
           const btn = document.createElement('button');
+          btn.id = 'sub-tab-' + slide.id;
           btn.type = 'button';
-          btn.role = 'tab';
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-controls', 'showcase-slide-panel');
+          btn.tabIndex = idx === activeSlideIndex ? 0 : -1;
           btn.className = [
-            'min-h-[36px] px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-colors border shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-here-primary',
+            'min-h-[44px] sm:min-h-[40px] px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-colors border shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-here-primary',
             idx === activeSlideIndex
               ? 'bg-here-primary text-here-onPrimary border-here-primary shadow-xs'
               : 'bg-here-surface text-here-muted border-here-border hover:bg-here-tint/50 hover:text-here-text',
@@ -626,7 +716,7 @@ const categories: Category[] = [
           btn.textContent = slide.label;
           btn.setAttribute('aria-selected', String(idx === activeSlideIndex));
           btn.addEventListener('click', () => {
-            setSlideIndex(idx);
+            setSlideIndex(idx, true);
           });
           subTabsContainer.appendChild(btn);
         });
@@ -639,19 +729,21 @@ const categories: Category[] = [
         const currentCat = getCurrentCategory();
         dotsContainer.innerHTML = '';
 
-        currentCat.slides.forEach((_, idx) => {
+        currentCat.slides.forEach((slide, idx) => {
+          const isCurrent = idx === activeSlideIndex;
           const dot = document.createElement('button');
           dot.type = 'button';
-          dot.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
-          dot.className = 'w-6 h-6 flex items-center justify-center p-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-here-primary rounded-full transition-transform hover:scale-110';
+          dot.setAttribute('aria-label', 'Go to slide ' + (idx + 1) + ': ' + slide.label);
+          dot.setAttribute('aria-pressed', String(isCurrent));
+          dot.className = 'w-9 h-9 min-w-[36px] min-h-[36px] flex items-center justify-center p-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-here-primary rounded-full transition-colors hover:bg-here-tint/50';
           const dotBar = document.createElement('span');
           dotBar.className = [
-            'h-2 rounded-full transition-[width,background-color] duration-150',
-            idx === activeSlideIndex ? 'bg-here-primary w-5' : 'bg-here-border hover:bg-here-muted w-2',
+            'showcase-dot-bar block w-5 h-2 rounded-full origin-center transition-[transform,background-color] duration-150',
+            isCurrent ? 'bg-here-primary scale-x-100' : 'bg-here-border hover:bg-here-muted scale-x-[0.4]',
           ].join(' ');
           dot.appendChild(dotBar);
           dot.addEventListener('click', () => {
-            setSlideIndex(idx);
+            setSlideIndex(idx, true);
           });
           dotsContainer.appendChild(dot);
         });
@@ -666,10 +758,17 @@ const categories: Category[] = [
         }
       }
 
-      function updateVisuals() {
+      function updateVisuals(shouldSyncUrl) {
         const currentCat = getCurrentCategory();
         const activeSlide = currentCat.slides[activeSlideIndex];
         if (!activeSlide) return;
+
+        if (stagePanel) {
+          stagePanel.setAttribute('aria-labelledby', 'cat-btn-' + currentCat.id);
+        }
+        if (slidePanel) {
+          slidePanel.setAttribute('aria-labelledby', 'sub-tab-' + activeSlide.id);
+        }
 
         // Update Phone Images
         const allImgSlides = document.querySelectorAll('.showcase-img-slide');
@@ -695,39 +794,41 @@ const categories: Category[] = [
           }
         });
 
-        // Update Sub-Tab Buttons styling
+        // Update Sub-Tab Buttons styling & roving tabindex
         if (subTabsContainer) {
           Array.from(subTabsContainer.children).forEach((child, idx) => {
             const isCurrent = idx === activeSlideIndex;
             child.setAttribute('aria-selected', String(isCurrent));
+            child.tabIndex = isCurrent ? 0 : -1;
             if (isCurrent) {
               child.className =
-                'min-h-[36px] px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-colors border shrink-0 bg-here-primary text-here-onPrimary border-here-primary shadow-xs cursor-pointer focus-visible:ring-2 focus-visible:ring-here-primary';
+                'min-h-[44px] sm:min-h-[40px] px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-colors border shrink-0 bg-here-primary text-here-onPrimary border-here-primary shadow-xs cursor-pointer focus-visible:ring-2 focus-visible:ring-here-primary';
             } else {
               child.className =
-                'min-h-[36px] px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-colors border shrink-0 bg-here-surface text-here-muted border-here-border hover:bg-here-tint/50 hover:text-here-text cursor-pointer focus-visible:ring-2 focus-visible:ring-here-primary';
+                'min-h-[44px] sm:min-h-[40px] px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-colors border shrink-0 bg-here-surface text-here-muted border-here-border hover:bg-here-tint/50 hover:text-here-text cursor-pointer focus-visible:ring-2 focus-visible:ring-here-primary';
             }
           });
         }
 
         renderDots();
+        syncUrlState(shouldSyncUrl);
       }
 
-      function setSlideIndex(index) {
+      function setSlideIndex(index, shouldSyncUrl) {
         const currentCat = getCurrentCategory();
         const total = currentCat.slides.length;
         activeSlideIndex = (index + total) % total;
-        updateVisuals();
+        updateVisuals(shouldSyncUrl);
       }
 
-      function setCategory(catId) {
+      function setCategory(catId, slideIdx, shouldSyncUrl) {
         activeCatId = catId;
-        activeSlideIndex = 0;
+        activeSlideIndex = typeof slideIdx === 'number' ? slideIdx : 0;
 
-        // Update Category Buttons
         catButtons.forEach((btn) => {
           const isSelected = btn.getAttribute('data-cat') === catId;
           btn.setAttribute('aria-selected', String(isSelected));
+          btn.tabIndex = isSelected ? 0 : -1;
           if (isSelected) {
             btn.className =
               'showcase-cat-btn min-h-[44px] px-4 py-2.5 rounded-here text-xs sm:text-sm font-bold whitespace-nowrap transition-colors flex items-center gap-2 shadow-xs shrink-0 active bg-here-primary text-here-onPrimary border border-here-primary cursor-pointer focus-visible:ring-2 focus-visible:ring-here-primary';
@@ -738,49 +839,130 @@ const categories: Category[] = [
         });
 
         renderSubTabs();
-        updateVisuals();
+        updateVisuals(shouldSyncUrl);
       }
 
-      // Event Listeners for Category Buttons
+      // Click handlers for Category Buttons
       catButtons.forEach((btn) => {
         btn.addEventListener('click', () => {
           const cat = btn.getAttribute('data-cat');
-          if (cat) setCategory(cat);
+          if (cat) setCategory(cat, 0, true);
         });
       });
 
-      // Keyboard navigation (Left / Right arrow keys)
-      document.addEventListener('keydown', (e) => {
-        const showcaseEl = document.getElementById('showcase');
-        if (!showcaseEl) return;
-        const rect = showcaseEl.getBoundingClientRect();
-        const inView = rect.top < window.innerHeight && rect.bottom > 0;
-        if (!inView) return;
-        if (e.target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
+      // WAI-ARIA roving tabindex arrow navigation for category tablist
+      if (catTablist) {
+        catTablist.addEventListener('keydown', (e) => {
+          const currentIdx = catButtons.findIndex((b) => b.getAttribute('data-cat') === activeCatId);
+          if (currentIdx === -1) return;
+          let targetIdx = null;
+          if (e.key === 'ArrowRight') targetIdx = (currentIdx + 1) % catButtons.length;
+          else if (e.key === 'ArrowLeft') targetIdx = (currentIdx - 1 + catButtons.length) % catButtons.length;
+          else if (e.key === 'Home') targetIdx = 0;
+          else if (e.key === 'End') targetIdx = catButtons.length - 1;
 
-        if (e.key === 'ArrowLeft') {
-          setSlideIndex(activeSlideIndex - 1);
-        } else if (e.key === 'ArrowRight') {
-          setSlideIndex(activeSlideIndex + 1);
-        }
-      });
+          if (targetIdx !== null) {
+            e.preventDefault();
+            const targetBtn = catButtons[targetIdx];
+            const cat = targetBtn && targetBtn.getAttribute('data-cat');
+            if (cat) {
+              setCategory(cat, 0, true);
+              targetBtn.focus();
+            }
+          }
+        });
+      }
+
+      // WAI-ARIA roving tabindex arrow navigation for sub-tabs tablist
+      if (subTabsContainer) {
+        subTabsContainer.addEventListener('keydown', (e) => {
+          const currentCat = getCurrentCategory();
+          const total = currentCat.slides.length;
+          let targetIdx = null;
+          if (e.key === 'ArrowRight') targetIdx = (activeSlideIndex + 1) % total;
+          else if (e.key === 'ArrowLeft') targetIdx = (activeSlideIndex - 1 + total) % total;
+          else if (e.key === 'Home') targetIdx = 0;
+          else if (e.key === 'End') targetIdx = total - 1;
+
+          if (targetIdx !== null) {
+            e.preventDefault();
+            setSlideIndex(targetIdx, true);
+            const targetBtn = subTabsContainer.children[targetIdx];
+            if (targetBtn && typeof targetBtn.focus === 'function') targetBtn.focus();
+          }
+        });
+      }
+
+      // Keyboard navigation when focused inside the slide stage (e.g., prev/next buttons)
+      if (slidePanel) {
+        slidePanel.addEventListener('keydown', (e) => {
+          if (e.target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            setSlideIndex(activeSlideIndex - 1, true);
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            setSlideIndex(activeSlideIndex + 1, true);
+          }
+        });
+      }
+
+      // Touch horizontal swipe on phone frame for mobile browsing
+      if (phoneFrame) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+        phoneFrame.addEventListener(
+          'touchstart',
+          (e) => {
+            if (!e.touches || e.touches.length !== 1) return;
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+          },
+          { passive: true }
+        );
+        phoneFrame.addEventListener(
+          'touchend',
+          (e) => {
+            if (!e.changedTouches || e.changedTouches.length !== 1) return;
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            const dy = e.changedTouches[0].clientY - touchStartY;
+            if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+              setSlideIndex(dx < 0 ? activeSlideIndex + 1 : activeSlideIndex - 1, true);
+            }
+          },
+          { passive: true }
+        );
+      }
 
       // Carousel Controls
       if (prevBtn) {
         prevBtn.addEventListener('click', () => {
-          setSlideIndex(activeSlideIndex - 1);
+          setSlideIndex(activeSlideIndex - 1, true);
         });
       }
 
       if (nextBtn) {
         nextBtn.addEventListener('click', () => {
-          setSlideIndex(activeSlideIndex + 1);
+          setSlideIndex(activeSlideIndex + 1, true);
         });
       }
 
-      // Initial Mount
-      renderSubTabs();
-      updateVisuals();
+      // Initial Mount (honor ?screen=<id> if shared)
+      const params = new URLSearchParams(window.location.search);
+      const requestedScreen = params.get('screen');
+      let foundCat = 'group';
+      let foundSlideIdx = 0;
+      if (requestedScreen) {
+        for (const cat of categories) {
+          const idx = cat.slides.findIndex((s) => s.id === requestedScreen);
+          if (idx !== -1) {
+            foundCat = cat.id;
+            foundSlideIdx = idx;
+            break;
+          }
+        }
+      }
+      setCategory(foundCat, foundSlideIdx, false);
     })();
   </script>
 </section>
