@@ -11,7 +11,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100%;
   }
 
@@ -21,7 +21,6 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
     max-width: 100%;
     position: relative;
   }
@@ -43,7 +42,7 @@
     touch-action: manipulation;
   }
 
-  /* Respect motion preferences while preserving state changes */
+  /* Respect motion preferences while keeping subtle color/opacity feedback */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -54,8 +53,14 @@
     *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+
+    .showcase-img-slide,
+    .here-btn-primary,
+    .showcase-dot-bar {
+      transition-property: opacity, background-color, border-color, color;
+      transition-duration: 120ms;
     }
   }
 }
@@ -85,6 +90,12 @@
   .here-pill-tint {
     background-color: #E3EEF3;
     color: #1F5F80;
+  }
+
+  .here-pill-security {
+    background-color: #EEEAE0;
+    color: #14313F;
+    border: 1px solid #D5CFC0;
   }
 
   .here-btn-primary {

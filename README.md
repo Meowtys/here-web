@@ -18,7 +18,7 @@
 
 This repository (`here-web`) powers the public web portal at [youre-here.vercel.app](https://youre-here.vercel.app):
 
-- **Interactive App Showcase** — 13-screen guided preview covering group workspaces, live face-scan check-ins, walk-in registration, multi-session events, turnout analytics, and role permissions.
+- **Interactive App Showcase** — 15-screen guided preview covering group workspaces, live face-scan check-ins, walk-in registration, multi-session events, turnout analytics, role permissions, and audit logs.
 - **Direct APK Distribution** — Pulls release metadata from [`Meowtys/here-releases`](https://github.com/Meowtys/here-releases) at build time and hydrates the latest version, file size, release date, and SHA-256 checksum on the client.
 - **Sideloading & Verification Guide** — Step-by-step Android installation instructions with one-click SHA-256 checksum copy.
 - **Release Changelog & Legal Pages** — Version history (`/changelog`), Privacy Policy (`/privacy`), and Terms of Use (`/terms`).
@@ -27,7 +27,7 @@ This repository (`here-web`) powers the public web portal at [youre-here.vercel.
 
 | Route | Description |
 | :--- | :--- |
-| `/` | Landing page, interactive 13-screen product showcase, feature overview, quick-start workflow, and APK download card |
+| `/` | Landing page, interactive 15-screen product showcase, feature overview, quick-start workflow, and APK download card |
 | `/changelog` | Release history and version notes |
 | `/privacy` | Privacy Policy covering on-device face embeddings, camera usage, and organization data |
 | `/terms` | Terms of Use for organizers, attendance checkers, and attendees |

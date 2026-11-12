@@ -2,6 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { CHANGELOG_RELEASES } from '../data/changelog';
 import { FALLBACK_RELEASE, GITHUB_REPO_URL } from '../data/release';
+
+function toIsoDate(dateLabel: string): string | undefined {
+  const parsed = new Date(dateLabel);
+  if (Number.isNaN(parsed.getTime())) return undefined;
+  return parsed.toISOString().slice(0, 10);
+}
 ---
 
 <BaseLayout
@@ -10,10 +16,10 @@ import { FALLBACK_RELEASE, GITHUB_REPO_URL } from '../data/release';
 >
   <div class="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
     <!-- Breadcrumb -->
-    <div class="mb-6 flex items-center justify-between gap-4">
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
       <a
         href="/"
-        class="inline-flex items-center gap-1.5 text-sm font-bold text-here-primary hover:underline focus-visible:ring-2 focus-visible:ring-here-primary rounded-lg py-1 px-1.5 -ml-1.5"
+        class="inline-flex items-center gap-1.5 min-h-[44px] py-2 px-1.5 -ml-1.5 text-sm font-bold text-here-primary hover:underline focus-visible:ring-2 focus-visible:ring-here-primary rounded-lg"
       >
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -25,10 +31,10 @@ import { FALLBACK_RELEASE, GITHUB_REPO_URL } from '../data/release';
         href={GITHUB_REPO_URL}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-1.5 text-xs font-bold text-here-muted hover:text-here-primary transition-colors"
+        class="inline-flex items-center gap-1.5 min-h-[44px] py-2 px-1.5 text-xs font-bold text-here-muted hover:text-here-primary transition-colors rounded-lg"
       >
         <span>Releases Repo (GitHub)</span>
-        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
         </svg>
       </a>
@@ -36,23 +42,23 @@ import { FALLBACK_RELEASE, GITHUB_REPO_URL } from '../data/release';
 
     <!-- Header matching TealBand branding -->
     <div class="here-card bg-here-primary text-here-onPrimary p-6 sm:p-8 rounded-[20px] mb-8 shadow-sm">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white/15 text-white mb-3">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#164760] text-white mb-3">
         <span>Release History</span>
       </div>
       <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-balance">
         Changelog &amp; Release Notes
       </h1>
-      <p class="mt-2 text-sm sm:text-base text-here-onPrimary/85 max-w-2xl text-pretty">
+      <p class="mt-2 text-sm sm:text-base text-here-onPrimary/90 max-w-2xl text-pretty">
         Follow the evolution of Here! — from on-device facial recognition to multi-session event tracking, group analytics, and security hardening.
       </p>
-      <div class="mt-4 pt-4 border-t border-white/15 flex flex-wrap items-center gap-4 text-xs font-semibold text-here-onPrimary/80">
+      <div class="mt-4 pt-4 border-t border-white/15 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold text-here-onPrimary/90">
         <span>Current Version: <strong class="text-white">{FALLBACK_RELEASE.version} (Build {FALLBACK_RELEASE.buildNumber})</strong></span>
-        <span>&middot;</span>
-        <span>Package: <code class="font-mono text-white/95">{FALLBACK_RELEASE.packageName}</code></span>
-        <span>&middot;</span>
+        <span aria-hidden="true">&middot;</span>
+        <span>Package: <code class="font-mono text-white">{FALLBACK_RELEASE.packageName}</code></span>
+        <span aria-hidden="true">&middot;</span>
         <span>Target: <strong class="text-white">{FALLBACK_RELEASE.minAndroid}</strong></span>
-        <span>&middot;</span>
-        <a href={FALLBACK_RELEASE.releaseUrl} target="_blank" rel="noopener noreferrer" class="text-white underline hover:text-white/90">
+        <span aria-hidden="true">&middot;</span>
+        <a href={FALLBACK_RELEASE.releaseUrl} target="_blank" rel="noopener noreferrer" class="text-white underline hover:text-white/90 py-1">
           GitHub Release &rarr;
         </a>
       </div>
@@ -76,7 +82,7 @@ import { FALLBACK_RELEASE, GITHUB_REPO_URL } from '../data/release';
                 </span>
               )}
             </div>
-            <time class="text-xs font-bold text-here-muted tabular-nums">
+            <time datetime={toIsoDate(rel.date)} class="text-xs font-bold text-here-muted tabular-nums">
               {rel.date}
             </time>
           </div>
@@ -91,53 +97,62 @@ import { FALLBACK_RELEASE, GITHUB_REPO_URL } from '../data/release';
           </div>
 
           {rel.checksumSha256 && (
-            <div class="mt-4 p-3 rounded-lg bg-here-surface border border-here-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs w-full max-w-full overflow-hidden">
+            <div class="mt-4 pt-3 border-t border-here-border/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-xs w-full max-w-full">
               <div class="flex items-center gap-2 min-w-0 max-w-full overflow-hidden">
-                <span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide here-pill-success shrink-0">
+                <span class="px-2 py-0.5 rounded text-[11px] font-extrabold uppercase tracking-wide here-pill-success shrink-0">
                   SHA-256
                 </span>
-                <code class="font-mono text-here-text text-[11px] sm:text-xs truncate block min-w-0 select-all" title={rel.checksumSha256}>
+                <code class="font-mono text-here-text text-xs truncate block min-w-0 select-all" title={rel.checksumSha256}>
                   {rel.checksumSha256}
                 </code>
               </div>
-              {rel.releaseUrl && (
-                <a
-                  href={rel.releaseUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="font-bold text-here-primary hover:underline shrink-0 text-xs inline-flex items-center gap-1"
+              <div class="flex items-center gap-3 shrink-0">
+                <button
+                  type="button"
+                  data-copy-sha={rel.checksumSha256}
+                  class="inline-flex items-center min-h-[36px] px-2.5 py-1 rounded-lg border border-here-border bg-here-bg text-here-primary font-bold hover:bg-here-tint/70 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors cursor-pointer"
                 >
-                  <span>Release on GitHub</span>
-                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              )}
+                  Copy
+                </button>
+                {rel.releaseUrl && (
+                  <a
+                    href={rel.releaseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="font-bold text-here-primary hover:underline shrink-0 text-xs inline-flex items-center gap-1 min-h-[36px] px-1 rounded focus-visible:ring-2 focus-visible:ring-here-primary"
+                  >
+                    <span>Release on GitHub</span>
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                )}
+              </div>
             </div>
           )}
 
           <div class="mt-5 pt-4 border-t border-here-border/60">
-            <div class="text-[11px] font-bold uppercase tracking-wider text-here-muted mb-3">Changes &amp; Updates</div>
+            <div class="text-xs font-bold uppercase tracking-wider text-here-muted mb-3">Changes &amp; Updates</div>
             <ul class="space-y-2.5">
               {rel.items.map((item) => (
                 <li class="flex items-start gap-2.5 text-xs sm:text-sm text-here-text leading-relaxed">
                   {item.type === 'added' && (
-                    <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide here-pill-success shrink-0 mt-0.5">
+                    <span class="px-2 py-0.5 rounded text-[11px] font-extrabold uppercase tracking-wide here-pill-success shrink-0 mt-0.5">
                       Added
                     </span>
                   )}
                   {item.type === 'improved' && (
-                    <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide here-pill-tint shrink-0 mt-0.5">
+                    <span class="px-2 py-0.5 rounded text-[11px] font-extrabold uppercase tracking-wide here-pill-tint shrink-0 mt-0.5">
                       Improved
                     </span>
                   )}
                   {item.type === 'fixed' && (
-                    <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide here-pill-warning shrink-0 mt-0.5">
+                    <span class="px-2 py-0.5 rounded text-[11px] font-extrabold uppercase tracking-wide here-pill-warning shrink-0 mt-0.5">
                       Fixed
                     </span>
                   )}
                   {item.type === 'security' && (
-                    <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide bg-purple-100 text-purple-800 border border-purple-200 shrink-0 mt-0.5">
+                    <span class="px-2 py-0.5 rounded text-[11px] font-extrabold uppercase tracking-wide here-pill-security shrink-0 mt-0.5">
                       Security
                     </span>
                   )}
@@ -149,6 +164,7 @@ import { FALLBACK_RELEASE, GITHUB_REPO_URL } from '../data/release';
         </article>
       ))}
     </div>
+    <span id="changelog-copy-status" class="sr-only" aria-live="polite"></span>
 
     <!-- Download Bottom Card -->
     <div class="mt-10 p-6 sm:p-8 rounded-[18px] bg-here-surface border border-here-border text-center space-y-4">
@@ -179,4 +195,28 @@ import { FALLBACK_RELEASE, GITHUB_REPO_URL } from '../data/release';
       </div>
     </div>
   </div>
+
+  <script is:inline>
+    (function initChangelogCopy() {
+      const statusEl = document.getElementById('changelog-copy-status');
+      document.querySelectorAll('[data-copy-sha]').forEach((btn) => {
+        const defaultLabel = btn.textContent ? btn.textContent.trim() : 'Copy';
+        btn.addEventListener('click', async () => {
+          const hash = btn.getAttribute('data-copy-sha') || '';
+          if (!hash) return;
+          try {
+            await navigator.clipboard.writeText(hash);
+            btn.textContent = 'Copied!';
+            if (statusEl) statusEl.textContent = 'SHA-256 checksum copied to clipboard.';
+          } catch (_err) {
+            btn.textContent = 'Select Hash';
+            if (statusEl) statusEl.textContent = 'Clipboard unavailable. Select the checksum text manually.';
+          }
+          window.setTimeout(() => {
+            btn.textContent = defaultLabel;
+          }, 2000);
+        });
+      });
+    })();
+  </script>
 </BaseLayout>

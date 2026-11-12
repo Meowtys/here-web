@@ -6,11 +6,11 @@ interface Props {
 const { currentPath = '/' } = Astro.props;
 ---
 
-<header class="sticky top-0 z-40 bg-here-bg/95 backdrop-blur-sm border-b border-here-border">
+<header id="site-header" class="sticky top-0 z-40 bg-here-bg/95 backdrop-blur-sm border-b border-here-border">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
     <a
       href="/"
-      class="inline-flex items-center gap-2 text-here-text font-extrabold text-xl tracking-tight rounded-lg py-1 px-1.5 -ml-1.5 hover:bg-here-tint/60 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors shrink-0"
+      class="inline-flex items-center gap-2 text-here-text font-extrabold text-xl tracking-tight rounded-lg py-1.5 px-2 -ml-2 hover:bg-here-tint/60 focus-visible:ring-2 focus-visible:ring-here-primary transition-colors shrink-0"
       aria-label="Here! Home"
     >
       <img
@@ -21,7 +21,7 @@ const { currentPath = '/' } = Astro.props;
         class="w-6 h-6 object-contain shrink-0"
       />
       <span class="font-extrabold text-xl tracking-tight text-here-text">Here!</span>
-      <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-here-tint text-here-primary border border-here-primary/20">
+      <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-here-tint text-here-primary border border-here-primary/20">
         beta
       </span>
     </a>
@@ -93,7 +93,7 @@ const { currentPath = '/' } = Astro.props;
     <div class="flex items-center gap-2">
       <a
         href="/#download"
-        class="inline-flex items-center justify-center min-h-[40px] px-3.5 py-2 rounded-here bg-here-primary text-here-onPrimary text-xs sm:text-sm font-bold hover:bg-[#184B66] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-here-primary transition-colors shrink-0"
+        class="inline-flex items-center justify-center min-h-[44px] md:min-h-[40px] px-4 py-2 rounded-here bg-here-primary text-here-onPrimary text-xs sm:text-sm font-bold hover:bg-[#184B66] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-here-primary transition-colors shrink-0"
       >
         <span>Get APK</span>
       </a>
@@ -145,6 +145,7 @@ const { currentPath = '/' } = Astro.props;
     </a>
     <a
       href="/changelog"
+      aria-current={currentPath.startsWith('/changelog') ? 'page' : undefined}
       class:list={[
         'flex items-center min-h-[44px] px-3 rounded-lg text-sm font-semibold focus-visible:ring-2 focus-visible:ring-here-primary transition-colors',
         currentPath.startsWith('/changelog') ? 'bg-here-tint text-here-primary font-bold' : 'text-here-text hover:bg-here-tint/50',
@@ -154,6 +155,7 @@ const { currentPath = '/' } = Astro.props;
     </a>
     <a
       href="/privacy"
+      aria-current={currentPath.startsWith('/privacy') ? 'page' : undefined}
       class:list={[
         'flex items-center min-h-[44px] px-3 rounded-lg text-sm font-semibold focus-visible:ring-2 focus-visible:ring-here-primary transition-colors',
         currentPath.startsWith('/privacy') ? 'bg-here-tint text-here-primary font-bold' : 'text-here-text hover:bg-here-tint/50',
@@ -163,6 +165,7 @@ const { currentPath = '/' } = Astro.props;
     </a>
     <a
       href="/terms"
+      aria-current={currentPath.startsWith('/terms') ? 'page' : undefined}
       class:list={[
         'flex items-center min-h-[44px] px-3 rounded-lg text-sm font-semibold focus-visible:ring-2 focus-visible:ring-here-primary transition-colors',
         currentPath.startsWith('/terms') ? 'bg-here-tint text-here-primary font-bold' : 'text-here-text hover:bg-here-tint/50',
@@ -173,31 +176,51 @@ const { currentPath = '/' } = Astro.props;
   </div>
 
   <script is:inline>
+    const headerEl = document.getElementById('site-header');
     const toggleBtn = document.getElementById('mobile-nav-toggle');
     const menu = document.getElementById('mobile-nav-menu');
     const openIcon = document.getElementById('icon-menu-open');
     const closeIcon = document.getElementById('icon-menu-close');
 
     if (toggleBtn && menu) {
+      function setMenuOpen(open, restoreFocus) {
+        menu.classList.toggle('hidden', !open);
+        toggleBtn.setAttribute('aria-expanded', String(open));
+        if (openIcon && closeIcon) {
+          openIcon.classList.toggle('hidden', open);
+          closeIcon.classList.toggle('hidden', !open);
+        }
+        if (!open && restoreFocus) {
+          toggleBtn.focus();
+        }
+      }
+
       toggleBtn.addEventListener('click', () => {
         const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-        toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
-        menu.classList.toggle('hidden');
-        if (openIcon && closeIcon) {
-          openIcon.classList.toggle('hidden');
-          closeIcon.classList.toggle('hidden');
-        }
+        setMenuOpen(!isExpanded, false);
       });
 
       menu.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
-          menu.classList.add('hidden');
-          toggleBtn.setAttribute('aria-expanded', 'false');
-          if (openIcon && closeIcon) {
-            openIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-          }
+          setMenuOpen(false, false);
         });
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+          setMenuOpen(false, true);
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (
+          !menu.classList.contains('hidden') &&
+          headerEl &&
+          e.target instanceof Node &&
+          !headerEl.contains(e.target)
+        ) {
+          setMenuOpen(false, false);
+        }
       });
     }
   </script>

@@ -14,7 +14,7 @@ const { doc, activeTab } = Astro.props;
   <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
     <a
       href="/"
-      class="inline-flex items-center gap-1.5 text-sm font-bold text-here-primary hover:underline"
+      class="inline-flex items-center gap-1.5 min-h-[44px] py-2 px-1.5 -ml-1.5 rounded-lg text-sm font-bold text-here-primary hover:underline focus-visible:ring-2 focus-visible:ring-here-primary"
     >
       <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -22,12 +22,12 @@ const { doc, activeTab } = Astro.props;
       <span>Back to Showcase</span>
     </a>
 
-    <div class="inline-flex items-center p-1 rounded-here border border-here-border bg-here-surface">
+    <div class="inline-flex items-center p-1 gap-1 rounded-here border border-here-border bg-here-surface">
       <a
         href="/privacy"
         aria-current={activeTab === 'privacy' ? 'page' : undefined}
         class:list={[
-          'min-h-[40px] inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors focus-visible:ring-2 focus-visible:ring-here-primary',
+          'min-h-[44px] sm:min-h-[40px] inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors focus-visible:ring-2 focus-visible:ring-here-primary',
           activeTab === 'privacy'
             ? 'bg-here-primary text-here-onPrimary'
             : 'text-here-muted hover:text-here-text',
@@ -39,7 +39,7 @@ const { doc, activeTab } = Astro.props;
         href="/terms"
         aria-current={activeTab === 'terms' ? 'page' : undefined}
         class:list={[
-          'min-h-[40px] inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors focus-visible:ring-2 focus-visible:ring-here-primary',
+          'min-h-[44px] sm:min-h-[40px] inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors focus-visible:ring-2 focus-visible:ring-here-primary',
           activeTab === 'terms'
             ? 'bg-here-primary text-here-onPrimary'
             : 'text-here-muted hover:text-here-text',
@@ -75,7 +75,7 @@ const { doc, activeTab } = Astro.props;
         <h2 class="text-[15px] sm:text-base font-bold text-here-text">
           {section.heading}
         </h2>
-        <div class="mt-2 text-[13px] sm:text-sm leading-relaxed text-here-text whitespace-pre-line">
+        <div class="mt-2 text-sm leading-relaxed text-here-text whitespace-pre-line">
           {section.body}
         </div>
       </article>
@@ -90,7 +90,7 @@ const { doc, activeTab } = Astro.props;
       </svg>
       <span>Here!</span>
     </div>
-    <p class="mt-1 text-[11px] text-here-muted">
+    <p class="mt-1 text-xs text-here-muted">
       Student Organization Attendance System
     </p>
   </div>
