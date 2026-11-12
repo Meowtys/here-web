@@ -87,3 +87,9 @@ here-web/
 ## Related Repositories
 
 - **[Meowtys/here-releases](https://github.com/Meowtys/here-releases)** — Public Android APK binaries, SHA-256 checksums, and release channel.
+
+## License
+
+The website source code in this repository is licensed under the [MIT License](LICENSE).
+
+The **Here!** name, logos, brand assets, app screenshots (`public/assets/`), and compiled Android APK binaries distributed via [`Meowtys/here-releases`](https://github.com/Meowtys/here-releases) are **All Rights Reserved** and governed by the [Terms of Use](https://youre-here.vercel.app/terms).
