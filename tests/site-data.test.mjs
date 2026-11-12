@@ -111,7 +111,7 @@ test('Release fetcher configures GitHub releases endpoint and v2.1.1-beta static
     'Must include latest release URL'
   );
   assert.ok(
-    releaseSource.includes('4ddb648fcbe44e8f20ffd495f8a5a454cb040cec0d82f3a4bf792f6213fefcbd'),
+    releaseSource.includes('b1247841d71903a625c97d9a1460a5f592ba8f895431a33c0b12df81b2cbf9f1'),
     'Must include SHA-256 checksum'
   );
   assert.ok(releaseSource.includes('com.meowtys.here'), 'Must include package name com.meowtys.here');
@@ -128,7 +128,7 @@ test('Changelog contains clean user-focused release notes for v2.1.1-beta', () =
   assert.ok(changelogSource.includes('Optimized Face Recognition'), 'Must include Optimized Face Recognition');
   assert.ok(changelogSource.includes('Stability & Polish'), 'Must include Stability & Polish');
   assert.ok(
-    changelogSource.includes('4ddb648fcbe44e8f20ffd495f8a5a454cb040cec0d82f3a4bf792f6213fefcbd'),
+    changelogSource.includes('b1247841d71903a625c97d9a1460a5f592ba8f895431a33c0b12df81b2cbf9f1'),
     'Changelog must include SHA-256 checksum'
   );
 });
@@ -175,7 +175,7 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
   assert.ok(indexHtml.includes('/changelog'), 'Landing page must link to Changelog');
   assert.ok(indexHtml.includes('here-v2.1.1-beta.apk'), 'Landing page must include v2.1.1-beta APK link');
   assert.ok(
-    indexHtml.includes('4ddb648fcbe44e8f20ffd495f8a5a454cb040cec0d82f3a4bf792f6213fefcbd'),
+    indexHtml.includes('b1247841d71903a625c97d9a1460a5f592ba8f895431a33c0b12df81b2cbf9f1'),
     'Landing page must display SHA-256 checksum'
   );
   assert.ok(indexHtml.includes('Face-First Check-In'), 'Landing page must highlight Face-First on-the-go registration');
@@ -231,7 +231,7 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
   assert.ok(changelogHtml.includes('Build 16'), 'Changelog must include Build 16');
   assert.ok(changelogHtml.includes('com.meowtys.here'), 'Changelog must include package name');
   assert.ok(
-    changelogHtml.includes('4ddb648fcbe44e8f20ffd495f8a5a454cb040cec0d82f3a4bf792f6213fefcbd'),
+    changelogHtml.includes('b1247841d71903a625c97d9a1460a5f592ba8f895431a33c0b12df81b2cbf9f1'),
     'Changelog must display SHA-256 checksum'
   );
   assert.ok(changelogHtml.includes('Interactive Terms &amp; Privacy Links') || changelogHtml.includes('Interactive Terms & Privacy Links'), 'Changelog must include Interactive Terms');
