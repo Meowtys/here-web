@@ -89,7 +89,7 @@ test('Legal documents match official legal terms and privacy policy 1:1', () => 
   }
 });
 
-test('Release fetcher configures GitHub releases endpoint and v2.1.1-beta static fallback', () => {
+test('Release fetcher configures GitHub releases endpoint and v2.1.2-beta static fallback', () => {
   const releaseSource = fs.readFileSync(path.join(rootDir, 'src', 'data', 'release.ts'), 'utf8');
 
   assert.ok(
@@ -98,12 +98,12 @@ test('Release fetcher configures GitHub releases endpoint and v2.1.1-beta static
   );
   assert.ok(
     releaseSource.includes(
-      'https://github.com/Meowtys/here-releases/releases/download/v2.1.1-beta/here-v2.1.1-beta.apk'
+      'https://github.com/Meowtys/here-releases/releases/download/v2.1.2-beta/here-v2.1.2-beta.apk'
     ),
-    'Must include static fallback APK download URL for v2.1.1-beta'
+    'Must include static fallback APK download URL for v2.1.2-beta'
   );
   assert.ok(
-    releaseSource.includes('https://github.com/Meowtys/here-releases/releases/tag/v2.1.1-beta'),
+    releaseSource.includes('https://github.com/Meowtys/here-releases/releases/tag/v2.1.2-beta'),
     'Must include release page URL'
   );
   assert.ok(
@@ -111,26 +111,26 @@ test('Release fetcher configures GitHub releases endpoint and v2.1.1-beta static
     'Must include latest release URL'
   );
   assert.ok(
-    releaseSource.includes('d29f175c4923222754d3e08f382e4ef4dfb55dd89a5a8f0098a2ee964bafaa6d'),
+    releaseSource.includes('102f9efb970fde9e20ee58e917df19bc0b4f610fbd4ded0562a41367927c7d95'),
     'Must include SHA-256 checksum'
   );
   assert.ok(releaseSource.includes('com.meowtys.here'), 'Must include package name com.meowtys.here');
-  assert.ok(releaseSource.includes('buildNumber: 16'), 'Must include Build 16');
-  assert.ok(releaseSource.includes('131.3 MB'), 'Must include 131.3 MB size');
+  assert.ok(releaseSource.includes('buildNumber: 17'), 'Must include Build 17');
+  assert.ok(releaseSource.includes('131.5 MB'), 'Must include 131.5 MB size');
 });
 
-test('Changelog contains clean user-focused release notes for v2.1.1-beta', () => {
+test('Changelog contains clean user-focused release notes for v2.1.2-beta', () => {
   const changelogSource = fs.readFileSync(path.join(rootDir, 'src', 'data', 'changelog.ts'), 'utf8');
 
-  assert.ok(changelogSource.includes('Interactive Terms & Privacy Links'), 'Must include Interactive Terms & Privacy Links');
-  assert.ok(changelogSource.includes('In-App Feedback & Bug Reporting'), 'Must include In-App Feedback & Bug Reporting');
-  assert.ok(changelogSource.includes('In-App Changelog Viewer'), 'Must include In-App Changelog Viewer');
-  assert.ok(changelogSource.includes('Optimized Face Recognition'), 'Must include Optimized Face Recognition');
-  assert.ok(changelogSource.includes('Stability & Polish'), 'Must include Stability & Polish');
+  assert.ok(changelogSource.includes('Transfer Group Ownership'), 'Must include Transfer Group Ownership');
+  assert.ok(changelogSource.includes('Safer Group Handoff'), 'Must include Safer Group Handoff');
+  assert.ok(changelogSource.includes('Smoother Leave Experience'), 'Must include Smoother Leave Experience');
+  assert.ok(changelogSource.includes('Settings Polish'), 'Must include Settings Polish');
   assert.ok(
-    changelogSource.includes('d29f175c4923222754d3e08f382e4ef4dfb55dd89a5a8f0098a2ee964bafaa6d'),
-    'Changelog must include SHA-256 checksum'
+    changelogSource.includes('102f9efb970fde9e20ee58e917df19bc0b4f610fbd4ded0562a41367927c7d95'),
+    'Changelog must include v2.1.2-beta SHA-256 checksum'
   );
+  assert.ok(changelogSource.includes('Interactive Terms & Privacy Links'), 'Must retain v2.1.1-beta release notes');
 });
 
 test('No references to private repositories exist in source code', () => {
@@ -173,9 +173,9 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
   const indexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
   assert.ok(indexHtml.includes('Download for Android (.apk)'), 'Landing page must contain primary APK CTA');
   assert.ok(indexHtml.includes('/changelog'), 'Landing page must link to Changelog');
-  assert.ok(indexHtml.includes('here-v2.1.1-beta.apk'), 'Landing page must include v2.1.1-beta APK link');
+  assert.ok(indexHtml.includes('here-v2.1.2-beta.apk'), 'Landing page must include v2.1.2-beta APK link');
   assert.ok(
-    indexHtml.includes('d29f175c4923222754d3e08f382e4ef4dfb55dd89a5a8f0098a2ee964bafaa6d'),
+    indexHtml.includes('102f9efb970fde9e20ee58e917df19bc0b4f610fbd4ded0562a41367927c7d95'),
     'Landing page must display SHA-256 checksum'
   );
   assert.ok(indexHtml.includes('Face-First Check-In'), 'Landing page must highlight Face-First on-the-go registration');
@@ -227,13 +227,14 @@ test('Built dist HTML outputs exist and contain required copy, real showcase scr
 
   const changelogHtml = fs.readFileSync(changelogHtmlPath, 'utf8');
   assert.ok(changelogHtml.includes('Changelog &amp; Release Notes') || changelogHtml.includes('Changelog & Release Notes'), 'Changelog page must render title');
-  assert.ok(changelogHtml.includes('v2.1.1-beta'), 'Changelog must include latest version');
-  assert.ok(changelogHtml.includes('Build 16'), 'Changelog must include Build 16');
+  assert.ok(changelogHtml.includes('v2.1.2-beta'), 'Changelog must include latest version');
+  assert.ok(changelogHtml.includes('Build 17'), 'Changelog must include Build 17');
   assert.ok(changelogHtml.includes('com.meowtys.here'), 'Changelog must include package name');
   assert.ok(
-    changelogHtml.includes('d29f175c4923222754d3e08f382e4ef4dfb55dd89a5a8f0098a2ee964bafaa6d'),
-    'Changelog must display SHA-256 checksum'
+    changelogHtml.includes('102f9efb970fde9e20ee58e917df19bc0b4f610fbd4ded0562a41367927c7d95'),
+    'Changelog must display v2.1.2-beta SHA-256 checksum'
   );
-  assert.ok(changelogHtml.includes('Interactive Terms &amp; Privacy Links') || changelogHtml.includes('Interactive Terms & Privacy Links'), 'Changelog must include Interactive Terms');
-  assert.ok(changelogHtml.includes('In-App Feedback &amp; Bug Reporting') || changelogHtml.includes('In-App Feedback & Bug Reporting'), 'Changelog must include In-App Feedback');
+  assert.ok(changelogHtml.includes('Transfer Group Ownership'), 'Changelog must include Transfer Group Ownership');
+  assert.ok(changelogHtml.includes('Safer Group Handoff'), 'Changelog must include Safer Group Handoff');
+  assert.ok(changelogHtml.includes('v2.1.1-beta'), 'Changelog must retain v2.1.1-beta entry');
 });

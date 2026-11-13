@@ -21,22 +21,22 @@ export const GITHUB_REPO_URL = 'https://github.com/Meowtys/here-releases';
 export const LATEST_RELEASE_URL = 'https://github.com/Meowtys/here-releases/releases/latest';
 
 export const FALLBACK_RELEASE: ReleaseMetadata = {
-  version: 'v2.1.1-beta',
-  name: 'Here! v2.1.1-beta (Build 16)',
-  buildNumber: 16,
+  version: 'v2.1.2-beta',
+  name: 'Here! v2.1.2-beta (Build 17)',
+  buildNumber: 17,
   packageName: 'com.meowtys.here',
   minAndroid: 'Android 7.0+ (API 24+)',
   downloadUrl:
-    'https://github.com/Meowtys/here-releases/releases/download/v2.1.1-beta/here-v2.1.1-beta.apk',
-  assetName: 'here-v2.1.1-beta.apk',
-  sizeBytes: 137728538,
-  sizeFormatted: '131.3 MB',
-  publishedAt: '2026-11-03T17:20:20Z',
-  publishedDateFormatted: 'Nov 3, 2026',
+    'https://github.com/Meowtys/here-releases/releases/download/v2.1.2-beta/here-v2.1.2-beta.apk',
+  assetName: 'here-v2.1.2-beta.apk',
+  sizeBytes: 137843354,
+  sizeFormatted: '131.5 MB',
+  publishedAt: '2026-11-13T20:19:12Z',
+  publishedDateFormatted: 'Nov 13, 2026',
   prerelease: true,
-  releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.1-beta',
+  releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.2-beta',
   latestReleaseUrl: 'https://github.com/Meowtys/here-releases/releases/latest',
-  checksumSha256: 'd29f175c4923222754d3e08f382e4ef4dfb55dd89a5a8f0098a2ee964bafaa6d',
+  checksumSha256: '102f9efb970fde9e20ee58e917df19bc0b4f610fbd4ded0562a41367927c7d95',
 };
 
 export function formatBytesToMB(bytes: number): string {
