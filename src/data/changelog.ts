@@ -17,13 +17,41 @@ export interface ChangelogRelease {
 
 export const CHANGELOG_RELEASES: ChangelogRelease[] = [
   {
+    version: 'v2.1.2-beta',
+    buildNumber: 17,
+    date: 'Nov 13, 2026',
+    title: 'Group Ownership Transfer, Safer Handoff & Settings Polish',
+    summary:
+      'Added full group ownership transfer with a single-step Transfer & leave option, ownership handoff notifications, smoother group departure, and Settings polish for beta testers.',
+    isLatest: true,
+    releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.2-beta',
+    checksumSha256: '102f9efb970fde9e20ee58e917df19bc0b4f610fbd4ded0562a41367927c7d95',
+    items: [
+      {
+        type: 'added',
+        text: 'Transfer Group Ownership: Group owners can now hand over ownership to another approved member (with existing Admins listed first) or choose Transfer & leave in a single step.',
+      },
+      {
+        type: 'security',
+        text: 'Safer Group Handoff: Only the group owner can transfer ownership or delete a group; when someone new takes over, they receive an in-app notification so everyone stays on the same page.',
+      },
+      {
+        type: 'fixed',
+        text: 'Smoother Leave Experience: Leaving a group cleanly returns you to your groups list without false "You no longer have access" alerts.',
+      },
+      {
+        type: 'improved',
+        text: 'Settings Polish: Cleaner Settings experience tailored for beta testers.',
+      },
+    ],
+  },
+  {
     version: 'v2.1.1-beta',
     buildNumber: 16,
     date: 'Nov 3, 2026',
     title: 'Open Beta: In-App Feedback, Changelog Viewer & Optimized Face Recognition',
     summary:
       'Added interactive Privacy Policy and Terms links on the sign-in screen, in-app feedback and bug reporting, an in-app changelog viewer, and streamlined face enrollment to 5 high-accuracy samples.',
-    isLatest: true,
     releaseUrl: 'https://github.com/Meowtys/here-releases/releases/tag/v2.1.1-beta',
     checksumSha256: 'd29f175c4923222754d3e08f382e4ef4dfb55dd89a5a8f0098a2ee964bafaa6d',
     items: [
